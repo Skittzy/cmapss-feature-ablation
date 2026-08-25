@@ -1,0 +1,31 @@
+# --- T2 step 3, verbatim ---
+/data/
+/models/
+__pycache__/
+.DS_Store
+*.keras
+
+# --- additions ---
+
+# PyCharm / editors
+.idea/
+.vscode/
+
+# environments
+.venv/
+venv/
+
+# python bytecode & pickles
+*.py[co]
+*.pkl
+
+# group-project artefacts: kept locally, not published
+submission.zip
+presentation.pptx
+report.md
+
+# untrimmed training log (4.1 MB of progress bars) - trimmed copy is committed
+logs/baseline_first_run.txt
+
+# scratch: safe to delete from Finder
+_to_delete/
