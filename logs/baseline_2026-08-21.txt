@@ -1,0 +1,343 @@
+2026-08-21 16:29:43.902049: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M2 Pro
+2026-08-21 16:29:43.902444: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 16.00 GB
+2026-08-21 16:29:43.902450: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 5.33 GB
+2026-08-21 16:29:43.902640: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-08-21 16:29:43.902657: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+
+============================================================
+NASA C-MAPSS — RUL PREDICTION PIPELINE
+============================================================
+
+Datasets        : ['FD001', 'FD002', 'FD003', 'FD004']
+Sequence length : 30 cycles
+Max epochs      : 100
+
+============================================================
+STEP 2 — EXPLORATORY DATA ANALYSIS (FD001)
+============================================================
+
+Shape         : (20631, 27)
+Engines       : 100
+Total cycles  : 20,631
+
+Basic statistics (first 6 sensors):
+       sensor_1   sensor_2   sensor_3   sensor_4  sensor_5   sensor_6
+count  20631.00  20631.000  20631.000  20631.000  20631.00  20631.000
+mean     518.67    642.681   1590.523   1408.934     14.62     21.610
+std        0.00      0.500      6.131      9.001      0.00      0.001
+min      518.67    641.210   1571.040   1382.250     14.62     21.600
+25%      518.67    642.325   1586.260   1402.360     14.62     21.610
+50%      518.67    642.640   1590.100   1408.040     14.62     21.610
+75%      518.67    643.000   1594.380   1414.555     14.62     21.610
+max      518.67    644.530   1616.910   1441.490     14.62     21.610
+
+Lifecycle length stats (cycles):
+count    100.0
+mean     206.3
+std       46.3
+min      128.0
+25%      177.0
+50%      199.0
+75%      229.2
+max      362.0
+Name: time_cycles, dtype: float64
+
+✓ Saved: results/eda_lifecycle_distribution.png
+✓ Saved: results/eda_rul_distribution.png
+✓ Saved: results/eda_sensor_degradation.png
+✓ Saved: results/eda_correlation_heatmap.png
+✓ Saved: results/eda_kmeans_clusters.png
+
+Constant features flagged for removal: ['setting_3', 'sensor_1', 'sensor_19', 'sensor_18', 'sensor_10']
+
+============================================================
+STEP 3 — PREPROCESSING
+============================================================
+
+--- FD001 ---
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+  train shape after preprocessing : (20631, 28)
+  features after constant removal : 19
+
+--- FD002 ---
+  train shape after preprocessing : (53759, 28)
+  features after constant removal : 24
+
+--- FD003 ---
+  removed 4 constant features: ['sensor_1', 'sensor_18', 'sensor_19', 'setting_3']
+  train shape after preprocessing : (24720, 28)
+  features after constant removal : 20
+
+--- FD004 ---
+  train shape after preprocessing : (61249, 28)
+  features after constant removal : 24
+
+============================================================
+STEP 4 — FEATURE ENGINEERING
+============================================================
+creating features...
+  - cycle features
+  - sensor aggregations
+  - rolling statistics (windows: [5, 10])
+  - lag features (lags: [1, 3])
+  - degradation trends (window: 10)
+✓ feature engineering complete
+creating features...
+  - cycle features
+  - sensor aggregations
+  - rolling statistics (windows: [5, 10])
+  - lag features (lags: [1, 3])
+  - degradation trends (window: 10)
+✓ feature engineering complete
+  FD001: 179 features after engineering
+creating features...
+  - cycle features
+  - sensor aggregations
+  - rolling statistics (windows: [5, 10])
+  - lag features (lags: [1, 3])
+  - degradation trends (window: 10)
+✓ feature engineering complete
+creating features...
+  - cycle features
+  - sensor aggregations
+  - rolling statistics (windows: [5, 10])
+  - lag features (lags: [1, 3])
+  - degradation trends (window: 10)
+✓ feature engineering complete
+  FD002: 179 features after engineering
+creating features...
+  - cycle features
+  - sensor aggregations
+  - rolling statistics (windows: [5, 10])
+  - lag features (lags: [1, 3])
+  - degradation trends (window: 10)
+✓ feature engineering complete
+creating features...
+  - cycle features
+  - sensor aggregations
+  - rolling statistics (windows: [5, 10])
+  - lag features (lags: [1, 3])
+  - degradation trends (window: 10)
+✓ feature engineering complete
+  FD003: 179 features after engineering
+creating features...
+  - cycle features
+  - sensor aggregations
+  - rolling statistics (windows: [5, 10])
+  - lag features (lags: [1, 3])
+  - degradation trends (window: 10)
+✓ feature engineering complete
+creating features...
+  - cycle features
+  - sensor aggregations
+  - rolling statistics (windows: [5, 10])
+  - lag features (lags: [1, 3])
+  - degradation trends (window: 10)
+✓ feature engineering complete
+  FD004: 179 features after engineering
+
+============================================================
+STEP 5 — SEQUENCE CREATION
+============================================================
+  FD001: X_train (17731, 30, 179)  |  X_test (100, 30, 179)
+  FD002: X_train (46219, 30, 179)  |  X_test (259, 30, 179)
+  FD003: X_train (21820, 30, 179)  |  X_test (100, 30, 179)
+  FD004: X_train (54028, 30, 179)  |  X_test (248, 30, 179)
+
+============================================================
+STEP 6 — MODEL TRAINING
+============================================================
+
+============================================================
+  TRAINING — FD001
+============================================================
+Epoch 1/100
+2026-08-21 16:29:45.429079: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:117] Plugin optimizer for device_type GPU is enabled.
+Epoch 1: val_loss improved from None to 217.41711, saving model to models/lstm_FD001_best.keras
+Epoch 2/100
+Epoch 2: val_loss did not improve from 217.41711
+Epoch 3/100
+Epoch 3: val_loss did not improve from 217.41711
+Epoch 4/100
+Epoch 4: val_loss did not improve from 217.41711
+Epoch 5/100
+Epoch 5: val_loss did not improve from 217.41711
+Epoch 6/100
+Epoch 6: val_loss did not improve from 217.41711
+Epoch 7/100
+Epoch 7: val_loss did not improve from 217.41711
+Epoch 8/100
+Epoch 8: val_loss did not improve from 217.41711
+Epoch 9/100
+Epoch 9: val_loss did not improve from 217.41711
+Epoch 10/100
+Epoch 10: val_loss did not improve from 217.41711
+Epoch 11/100
+Epoch 11: val_loss did not improve from 217.41711
+Epoch 12/100
+Epoch 12: val_loss did not improve from 217.41711
+Epoch 13/100
+Epoch 13: val_loss did not improve from 217.41711
+Epoch 14/100
+Epoch 14: val_loss did not improve from 217.41711
+Epoch 15/100
+Epoch 15: val_loss did not improve from 217.41711
+Epoch 16/100
+Epoch 16: val_loss did not improve from 217.41711
+Epoch 16: early stopping
+Restoring model weights from the end of the best epoch: 1.
+
+  MAE  : 12.35 cycles
+  RMSE : 17.14 cycles
+
+============================================================
+  TRAINING — FD002
+============================================================
+Epoch 1/100
+Epoch 1: val_loss improved from None to 403.08401, saving model to models/lstm_FD002_best.keras
+Epoch 2/100
+Epoch 2: val_loss did not improve from 403.08401
+Epoch 3/100
+Epoch 3: val_loss did not improve from 403.08401
+Epoch 4/100
+Epoch 4: val_loss did not improve from 403.08401
+Epoch 5/100
+Epoch 5: val_loss did not improve from 403.08401
+Epoch 6/100
+Epoch 6: val_loss did not improve from 403.08401
+Epoch 7/100
+Epoch 7: val_loss did not improve from 403.08401
+Epoch 8/100
+Epoch 8: val_loss did not improve from 403.08401
+Epoch 9/100
+Epoch 9: val_loss did not improve from 403.08401
+Epoch 10/100
+Epoch 10: val_loss did not improve from 403.08401
+Epoch 11/100
+Epoch 11: val_loss did not improve from 403.08401
+Epoch 12/100
+Epoch 12: val_loss did not improve from 403.08401
+Epoch 13/100
+Epoch 13: val_loss did not improve from 403.08401
+Epoch 14/100
+Epoch 14: val_loss did not improve from 403.08401
+Epoch 15/100
+Epoch 15: val_loss did not improve from 403.08401
+Epoch 16/100
+Epoch 16: val_loss did not improve from 403.08401
+Epoch 16: early stopping
+Restoring model weights from the end of the best epoch: 1.
+
+  MAE  : 16.02 cycles
+  RMSE : 23.27 cycles
+
+============================================================
+  TRAINING — FD003
+============================================================
+Epoch 1/100
+Epoch 1: val_loss improved from None to 219.30963, saving model to models/lstm_FD003_best.keras
+Epoch 2/100
+Epoch 2: val_loss improved from 219.30963 to 143.92555, saving model to models/lstm_FD003_best.keras
+Epoch 3/100
+Epoch 3: val_loss did not improve from 143.92555
+Epoch 4/100
+Epoch 4: val_loss did not improve from 143.92555
+Epoch 5/100
+Epoch 5: val_loss did not improve from 143.92555
+Epoch 6/100
+Epoch 6: val_loss did not improve from 143.92555
+Epoch 7/100
+Epoch 7: val_loss did not improve from 143.92555
+Epoch 8/100
+Epoch 8: val_loss did not improve from 143.92555
+Epoch 9/100
+Epoch 9: val_loss did not improve from 143.92555
+Epoch 10/100
+Epoch 10: val_loss did not improve from 143.92555
+Epoch 11/100
+Epoch 11: val_loss did not improve from 143.92555
+Epoch 12/100
+Epoch 12: val_loss did not improve from 143.92555
+Epoch 13/100
+Epoch 13: val_loss did not improve from 143.92555
+Epoch 14/100
+Epoch 14: val_loss did not improve from 143.92555
+Epoch 15/100
+Epoch 15: val_loss did not improve from 143.92555
+Epoch 16/100
+Epoch 16: val_loss did not improve from 143.92555
+Epoch 17/100
+Epoch 17: val_loss did not improve from 143.92555
+Epoch 17: early stopping
+Restoring model weights from the end of the best epoch: 2.
+
+  MAE  : 10.63 cycles
+  RMSE : 14.89 cycles
+
+============================================================
+  TRAINING — FD004
+============================================================
+Epoch 1/100
+Epoch 1: val_loss improved from None to 372.47330, saving model to models/lstm_FD004_best.keras
+Epoch 2/100
+Epoch 2: val_loss improved from 372.47330 to 369.74170, saving model to models/lstm_FD004_best.keras
+Epoch 3/100
+Epoch 3: val_loss did not improve from 369.74170
+Epoch 4/100
+Epoch 4: val_loss did not improve from 369.74170
+Epoch 5/100
+Epoch 5: val_loss did not improve from 369.74170
+Epoch 6/100
+Epoch 6: val_loss did not improve from 369.74170
+Epoch 7/100
+Epoch 7: val_loss did not improve from 369.74170
+Epoch 8/100
+Epoch 8: val_loss did not improve from 369.74170
+Epoch 9/100
+Epoch 9: val_loss did not improve from 369.74170
+Epoch 10/100
+Epoch 10: val_loss did not improve from 369.74170
+Epoch 11/100
+Epoch 11: val_loss did not improve from 369.74170
+Epoch 12/100
+Epoch 12: val_loss did not improve from 369.74170
+Epoch 13/100
+Epoch 13: val_loss did not improve from 369.74170
+Epoch 14/100
+Epoch 14: val_loss did not improve from 369.74170
+Epoch 15/100
+Epoch 15: val_loss did not improve from 369.74170
+Epoch 16/100
+Epoch 16: val_loss did not improve from 369.74170
+Epoch 17/100
+Epoch 17: val_loss did not improve from 369.74170
+Epoch 17: early stopping
+Restoring model weights from the end of the best epoch: 2.
+WARNING:tensorflow:5 out of the last 14 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x466495480> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+
+  MAE  : 18.05 cycles
+  RMSE : 25.45 cycles
+
+============================================================
+STEP 7 — PERFORMANCE VISUALISATION
+============================================================
+  ✓ FD001: MAE=12.35  RMSE=17.14  — plots saved
+  ✓ FD002: MAE=16.02  RMSE=23.27  — plots saved
+  ✓ FD003: MAE=10.63  RMSE=14.89  — plots saved
+  ✓ FD004: MAE=18.05  RMSE=25.45  — plots saved
+
+  ✓ model comparison chart saved → results/model_comparison.png
+
+============================================================
+FINAL RESULTS — ALL DATASETS
+============================================================
+
+  Dataset      MAE (cycles)   RMSE (cycles)
+  ------------------------------------------
+  FD001               12.35           17.14
+  FD002               16.02           23.27
+  FD003               10.63           14.89
+  FD004               18.05           25.45
+
+  Plots  → results/
+  Models → models/
