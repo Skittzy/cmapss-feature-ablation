@@ -53,5 +53,5 @@ Data is not committed. Place the C-MAPSS `.txt` files in `data/raw/`.
 ## Links
 
 - Research exposé — `docs/expose_v2.pdf` *(corrected version being finalised)*
-- Pre-registered protocol — `PROTOCOL.md` *(being finalised; committed before any results)*
+- Pre-registered protocol - [`PROTOCOL.md`](PROTOCOL.md)
 - Original group project — https://github.com/mezoabris/nasa-engine-rul-prediction
