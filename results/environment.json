@@ -1,0 +1,6 @@
+{
+  "python": "3.10.20",
+  "platform": "macOS-15.7.2-arm64-arm-64bit",
+  "numpy": "1.26.4",
+  "pandas": "2.3.3"
+}

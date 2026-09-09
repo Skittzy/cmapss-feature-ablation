@@ -207,4 +207,10 @@ I would be quite happy to be wrong about H4 and H5. If the dead columns or the n
 
 Everything below is added after the fact. Each entry records the date, what changed, why, and whether I had already seen results at the time.
 
-`YYYY-MM-DD` Pilot complete. Spread between seeds: `<value>`. Mean run time on FD001: `<value>`. Seeds set to `<3 or 5>`. Window step set to `<1 or 2>`. Exposé baseline reproduced: `<yes, or no and what came out instead>`.
+**9 September 2026. Pilot complete.** Three seeds of `C6_expose` on FD001, which is the exposé's exact feature set. RMSE came out at 17.151, 17.345 and 17.339, giving a mean of 17.28 and a spread of 0.111. Mean MAE 12.78. Training took 156, 115 and 125 seconds, and the runs used 19, 14 and 15 epochs, all comfortably inside the 60-epoch cap. The configuration built 180 features of which 44 are constant, matching the figure quoted in Section 2.
+
+Two decisions follow from this, both taken before any ablation results existed. Seeds stay at three, because the observed spread is far below the 1.0 threshold set in Section 7. Window step stays at 1, because a full run costs roughly two minutes and the grid is affordable without thinning the windows.
+
+On reproducing the exposé baseline: the exposé reported 17.1 from a single unseeded run. The seeded mean is 17.28, and the exposé's figure sits at the optimistic end of the three-seed range (17.151 to 17.345) rather than at its centre. The pipeline is therefore reproduced, with the qualification that the number originally published was the better end of a distribution nobody had measured.
+
+One caveat recorded now, before the grid runs. This spread is measured on FD001 alone and from three runs, so it indicates the order of magnitude of run-to-run variation rather than a precise constant. Per-subset spreads are reported with the results, and FD002 and FD004 may prove noisier.
