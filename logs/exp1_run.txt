@@ -1,0 +1,2181 @@
+93 runs to do (3 already finished)
+
+[1/93] exp1 | C1_base | FD001 | lstm | seed 0
+2026-09-09 23:54:09.470607: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M2 Pro
+2026-09-09 23:54:09.470651: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 16.00 GB
+2026-09-09 23:54:09.470660: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 5.33 GB
+2026-09-09 23:54:09.470700: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:305] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2026-09-09 23:54:09.470711: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:271] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+2026-09-09 23:54:10.130981: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:117] Plugin optimizer for device_type GPU is enabled.
+439/439 - 10s - 22ms/step - loss: 1693.3652 - mae: 29.6693 - val_loss: 337.1779 - val_mae: 14.0195
+Epoch 2/60
+439/439 - 8s - 18ms/step - loss: 260.6638 - mae: 12.2461 - val_loss: 235.7665 - val_mae: 11.4979
+Epoch 3/60
+439/439 - 8s - 17ms/step - loss: 220.3454 - mae: 11.1559 - val_loss: 229.1910 - val_mae: 11.1913
+Epoch 4/60
+439/439 - 8s - 18ms/step - loss: 186.0553 - mae: 10.2365 - val_loss: 214.6295 - val_mae: 10.4496
+Epoch 5/60
+439/439 - 8s - 17ms/step - loss: 171.2367 - mae: 9.7750 - val_loss: 213.5000 - val_mae: 10.6059
+Epoch 6/60
+439/439 - 8s - 17ms/step - loss: 152.5919 - mae: 9.2117 - val_loss: 222.5325 - val_mae: 10.4736
+Epoch 7/60
+439/439 - 8s - 17ms/step - loss: 131.2805 - mae: 8.5825 - val_loss: 249.6666 - val_mae: 11.2966
+Epoch 8/60
+439/439 - 8s - 18ms/step - loss: 118.0111 - mae: 8.1565 - val_loss: 242.9361 - val_mae: 11.1682
+Epoch 9/60
+439/439 - 8s - 17ms/step - loss: 106.0556 - mae: 7.7623 - val_loss: 210.9688 - val_mae: 10.4168
+Epoch 10/60
+439/439 - 7s - 17ms/step - loss: 96.5488 - mae: 7.4252 - val_loss: 214.4135 - val_mae: 10.1709
+Epoch 11/60
+439/439 - 8s - 17ms/step - loss: 94.4546 - mae: 7.2936 - val_loss: 270.5211 - val_mae: 11.6378
+Epoch 12/60
+439/439 - 8s - 17ms/step - loss: 82.6873 - mae: 6.8664 - val_loss: 243.5254 - val_mae: 11.0757
+Epoch 13/60
+439/439 - 8s - 17ms/step - loss: 73.9611 - mae: 6.4583 - val_loss: 283.8537 - val_mae: 11.9050
+Epoch 14/60
+439/439 - 7s - 17ms/step - loss: 74.0355 - mae: 6.4691 - val_loss: 220.9869 - val_mae: 10.2419
+Epoch 15/60
+439/439 - 7s - 17ms/step - loss: 67.0884 - mae: 6.1975 - val_loss: 242.9415 - val_mae: 11.0010
+Epoch 16/60
+439/439 - 8s - 17ms/step - loss: 66.4738 - mae: 6.1655 - val_loss: 286.3946 - val_mae: 11.8658
+Epoch 17/60
+439/439 - 8s - 17ms/step - loss: 63.9544 - mae: 6.0174 - val_loss: 280.9022 - val_mae: 12.0099
+Epoch 18/60
+439/439 - 7s - 17ms/step - loss: 60.1941 - mae: 5.8682 - val_loss: 238.6717 - val_mae: 10.8561
+Epoch 19/60
+439/439 - 7s - 17ms/step - loss: 57.3436 - mae: 5.6967 - val_loss: 251.3149 - val_mae: 11.0537
+  -> RMSE 15.74  MAE 11.68  score 486  (17 features, 0 of them dead)
+[2/93] exp1 | C1_base | FD001 | lstm | seed 1
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+441/441 - 9s - 20ms/step - loss: 1701.5417 - mae: 30.3621 - val_loss: 414.0750 - val_mae: 16.0851
+Epoch 2/60
+441/441 - 7s - 17ms/step - loss: 267.1500 - mae: 12.4332 - val_loss: 314.9366 - val_mae: 13.2845
+Epoch 3/60
+441/441 - 7s - 17ms/step - loss: 221.4529 - mae: 11.2592 - val_loss: 276.0930 - val_mae: 12.1270
+Epoch 4/60
+441/441 - 8s - 17ms/step - loss: 198.2853 - mae: 10.6307 - val_loss: 259.9787 - val_mae: 11.7554
+Epoch 5/60
+441/441 - 8s - 17ms/step - loss: 174.2881 - mae: 9.9355 - val_loss: 276.2653 - val_mae: 12.2144
+Epoch 6/60
+441/441 - 7s - 17ms/step - loss: 155.4370 - mae: 9.3512 - val_loss: 274.4669 - val_mae: 11.8779
+Epoch 7/60
+441/441 - 7s - 17ms/step - loss: 136.9222 - mae: 8.7623 - val_loss: 221.7090 - val_mae: 10.4004
+Epoch 8/60
+441/441 - 7s - 17ms/step - loss: 123.3940 - mae: 8.3074 - val_loss: 261.5985 - val_mae: 11.3407
+Epoch 9/60
+441/441 - 8s - 17ms/step - loss: 113.0598 - mae: 7.9726 - val_loss: 233.8096 - val_mae: 10.5248
+Epoch 10/60
+441/441 - 7s - 17ms/step - loss: 101.0293 - mae: 7.5058 - val_loss: 233.2672 - val_mae: 10.6960
+Epoch 11/60
+441/441 - 7s - 17ms/step - loss: 95.5004 - mae: 7.3375 - val_loss: 264.6636 - val_mae: 11.2071
+Epoch 12/60
+441/441 - 8s - 17ms/step - loss: 87.8209 - mae: 7.0061 - val_loss: 227.8297 - val_mae: 10.3856
+Epoch 13/60
+441/441 - 7s - 17ms/step - loss: 83.4968 - mae: 6.8030 - val_loss: 271.0786 - val_mae: 11.3292
+Epoch 14/60
+441/441 - 7s - 17ms/step - loss: 80.3530 - mae: 6.7010 - val_loss: 253.6449 - val_mae: 11.3206
+Epoch 15/60
+441/441 - 7s - 17ms/step - loss: 74.4363 - mae: 6.4353 - val_loss: 284.6579 - val_mae: 11.9423
+Epoch 16/60
+441/441 - 7s - 17ms/step - loss: 71.4381 - mae: 6.3345 - val_loss: 271.7920 - val_mae: 11.5676
+Epoch 17/60
+441/441 - 8s - 17ms/step - loss: 68.8596 - mae: 6.2220 - val_loss: 312.3420 - val_mae: 12.5026
+  -> RMSE 16.65  MAE 12.06  score 551  (17 features, 0 of them dead)
+[3/93] exp1 | C1_base | FD001 | lstm | seed 2
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+450/450 - 9s - 20ms/step - loss: 1555.0425 - mae: 28.5446 - val_loss: 241.3593 - val_mae: 11.9214
+Epoch 2/60
+450/450 - 8s - 17ms/step - loss: 266.4422 - mae: 12.4716 - val_loss: 234.6376 - val_mae: 11.1416
+Epoch 3/60
+450/450 - 8s - 17ms/step - loss: 215.5087 - mae: 11.1184 - val_loss: 221.9143 - val_mae: 10.3943
+Epoch 4/60
+450/450 - 8s - 17ms/step - loss: 178.0807 - mae: 10.1048 - val_loss: 263.5520 - val_mae: 11.4066
+Epoch 5/60
+450/450 - 8s - 17ms/step - loss: 156.2301 - mae: 9.4121 - val_loss: 274.6583 - val_mae: 11.0614
+Epoch 6/60
+450/450 - 8s - 18ms/step - loss: 137.5438 - mae: 8.8720 - val_loss: 298.7972 - val_mae: 11.9950
+Epoch 7/60
+450/450 - 8s - 17ms/step - loss: 120.8746 - mae: 8.2863 - val_loss: 304.1583 - val_mae: 11.8760
+Epoch 8/60
+450/450 - 7s - 16ms/step - loss: 108.1780 - mae: 7.8486 - val_loss: 256.9717 - val_mae: 10.6787
+Epoch 9/60
+450/450 - 8s - 17ms/step - loss: 98.2535 - mae: 7.5143 - val_loss: 278.4725 - val_mae: 11.1752
+Epoch 10/60
+450/450 - 8s - 17ms/step - loss: 91.0969 - mae: 7.2154 - val_loss: 309.7762 - val_mae: 11.6187
+Epoch 11/60
+450/450 - 8s - 17ms/step - loss: 94.3631 - mae: 7.2936 - val_loss: 311.8258 - val_mae: 11.5381
+Epoch 12/60
+450/450 - 8s - 17ms/step - loss: 82.1837 - mae: 6.8713 - val_loss: 324.1601 - val_mae: 11.6404
+Epoch 13/60
+450/450 - 8s - 17ms/step - loss: 77.7049 - mae: 6.6252 - val_loss: 322.7737 - val_mae: 11.8249
+WARNING:tensorflow:5 out of the last 9 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x33534e9e0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:6 out of the last 12 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x33534e9e0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+  -> RMSE 18.13  MAE 13.24  score 738  (17 features, 0 of them dead)
+[4/93] exp1 | C1_base | FD002 | lstm | seed 0
+Epoch 1/60
+1145/1145 - 20s - 18ms/step - loss: 1233.3578 - mae: 24.2886 - val_loss: 389.1197 - val_mae: 15.0267
+Epoch 2/60
+1145/1145 - 20s - 17ms/step - loss: 437.0931 - mae: 15.7337 - val_loss: 419.3469 - val_mae: 15.4013
+Epoch 3/60
+1145/1145 - 19s - 17ms/step - loss: 351.9559 - mae: 13.9281 - val_loss: 442.9409 - val_mae: 15.3528
+Epoch 4/60
+1145/1145 - 19s - 17ms/step - loss: 276.9834 - mae: 12.2693 - val_loss: 458.6988 - val_mae: 15.7670
+Epoch 5/60
+1145/1145 - 20s - 18ms/step - loss: 212.1949 - mae: 10.6727 - val_loss: 464.6867 - val_mae: 15.7330
+Epoch 6/60
+1145/1145 - 19s - 17ms/step - loss: 161.4183 - mae: 9.3573 - val_loss: 531.8796 - val_mae: 16.8655
+Epoch 7/60
+1145/1145 - 19s - 17ms/step - loss: 128.6768 - mae: 8.3869 - val_loss: 539.1139 - val_mae: 17.0135
+Epoch 8/60
+1145/1145 - 19s - 17ms/step - loss: 109.4425 - mae: 7.8257 - val_loss: 545.6225 - val_mae: 16.7264
+Epoch 9/60
+1145/1145 - 19s - 17ms/step - loss: 90.1863 - mae: 7.1087 - val_loss: 576.4300 - val_mae: 17.3082
+Epoch 10/60
+1145/1145 - 19s - 17ms/step - loss: 78.1185 - mae: 6.6279 - val_loss: 565.3065 - val_mae: 17.4627
+Epoch 11/60
+1145/1145 - 19s - 17ms/step - loss: 69.1851 - mae: 6.2823 - val_loss: 568.2558 - val_mae: 17.4353
+  -> RMSE 25.94  MAE 17.80  score 14185  (19 features, 0 of them dead)
+[5/93] exp1 | C1_base | FD002 | lstm | seed 1
+Epoch 1/60
+1176/1176 - 22s - 19ms/step - loss: 1153.6495 - mae: 23.4662 - val_loss: 505.8319 - val_mae: 16.8720
+Epoch 2/60
+1176/1176 - 20s - 17ms/step - loss: 418.1940 - mae: 15.3856 - val_loss: 573.2057 - val_mae: 17.7522
+Epoch 3/60
+1176/1176 - 21s - 17ms/step - loss: 320.9469 - mae: 13.3499 - val_loss: 643.0704 - val_mae: 18.1536
+Epoch 4/60
+1176/1176 - 20s - 17ms/step - loss: 244.3442 - mae: 11.5749 - val_loss: 646.4498 - val_mae: 18.5465
+Epoch 5/60
+1176/1176 - 21s - 18ms/step - loss: 177.3319 - mae: 9.9112 - val_loss: 677.3375 - val_mae: 18.8608
+Epoch 6/60
+1176/1176 - 21s - 18ms/step - loss: 137.8255 - mae: 8.7945 - val_loss: 721.2699 - val_mae: 19.5992
+Epoch 7/60
+1176/1176 - 21s - 18ms/step - loss: 117.0470 - mae: 8.1550 - val_loss: 643.0886 - val_mae: 18.7708
+Epoch 8/60
+1176/1176 - 21s - 18ms/step - loss: 100.9308 - mae: 7.5791 - val_loss: 664.0212 - val_mae: 19.1032
+Epoch 9/60
+1176/1176 - 21s - 18ms/step - loss: 91.8030 - mae: 7.2175 - val_loss: 700.6006 - val_mae: 19.3082
+Epoch 10/60
+1176/1176 - 21s - 18ms/step - loss: 82.4529 - mae: 6.8198 - val_loss: 758.1158 - val_mae: 19.8200
+Epoch 11/60
+1176/1176 - 21s - 18ms/step - loss: 76.7933 - mae: 6.5711 - val_loss: 669.6735 - val_mae: 19.6247
+  -> RMSE 26.80  MAE 18.59  score 19912  (19 features, 0 of them dead)
+[6/93] exp1 | C1_base | FD002 | lstm | seed 2
+Epoch 1/60
+1161/1161 - 22s - 19ms/step - loss: 1502.0457 - mae: 28.2814 - val_loss: 578.6224 - val_mae: 18.7782
+Epoch 2/60
+1161/1161 - 21s - 18ms/step - loss: 545.9103 - mae: 17.8652 - val_loss: 433.1206 - val_mae: 15.9440
+Epoch 3/60
+1161/1161 - 21s - 18ms/step - loss: 493.0366 - mae: 16.8227 - val_loss: 460.1199 - val_mae: 16.3525
+Epoch 4/60
+1161/1161 - 21s - 18ms/step - loss: 456.6489 - mae: 16.0828 - val_loss: 421.9537 - val_mae: 15.7954
+Epoch 5/60
+1161/1161 - 20s - 18ms/step - loss: 420.3109 - mae: 15.3170 - val_loss: 451.3031 - val_mae: 16.1012
+Epoch 6/60
+1161/1161 - 20s - 17ms/step - loss: 380.4047 - mae: 14.5181 - val_loss: 459.0377 - val_mae: 15.8772
+Epoch 7/60
+1161/1161 - 20s - 17ms/step - loss: 339.4690 - mae: 13.6855 - val_loss: 475.4894 - val_mae: 16.2183
+Epoch 8/60
+1161/1161 - 20s - 17ms/step - loss: 305.7194 - mae: 12.9985 - val_loss: 509.2765 - val_mae: 16.5286
+Epoch 9/60
+1161/1161 - 20s - 17ms/step - loss: 258.0171 - mae: 11.8780 - val_loss: 537.0025 - val_mae: 16.8584
+Epoch 10/60
+1161/1161 - 20s - 17ms/step - loss: 222.5202 - mae: 11.0034 - val_loss: 546.6396 - val_mae: 16.8510
+Epoch 11/60
+1161/1161 - 20s - 17ms/step - loss: 182.2018 - mae: 9.9502 - val_loss: 574.5716 - val_mae: 17.2056
+Epoch 12/60
+1161/1161 - 20s - 17ms/step - loss: 157.1596 - mae: 9.2260 - val_loss: 591.9685 - val_mae: 17.3633
+Epoch 13/60
+1161/1161 - 20s - 17ms/step - loss: 129.5530 - mae: 8.3990 - val_loss: 572.6812 - val_mae: 17.0715
+Epoch 14/60
+1161/1161 - 20s - 17ms/step - loss: 107.1477 - mae: 7.6834 - val_loss: 576.1960 - val_mae: 17.2746
+  -> RMSE 25.15  MAE 17.14  score 7156  (19 features, 0 of them dead)
+[7/93] exp1 | C1_base | FD003 | lstm | seed 0
+  removed 4 constant features: ['sensor_1', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+546/546 - 11s - 21ms/step - loss: 1699.0809 - mae: 28.6825 - val_loss: 553.8668 - val_mae: 16.2497
+Epoch 2/60
+546/546 - 10s - 18ms/step - loss: 282.4913 - mae: 12.5693 - val_loss: 390.9559 - val_mae: 13.2401
+Epoch 3/60
+546/546 - 9s - 17ms/step - loss: 223.3248 - mae: 11.1995 - val_loss: 287.5996 - val_mae: 11.8576
+Epoch 4/60
+546/546 - 9s - 17ms/step - loss: 191.4842 - mae: 10.3991 - val_loss: 306.8322 - val_mae: 11.5928
+Epoch 5/60
+546/546 - 9s - 17ms/step - loss: 172.1796 - mae: 9.9076 - val_loss: 286.0191 - val_mae: 11.0244
+Epoch 6/60
+546/546 - 9s - 17ms/step - loss: 156.2144 - mae: 9.3767 - val_loss: 258.3201 - val_mae: 10.9761
+Epoch 7/60
+546/546 - 9s - 17ms/step - loss: 143.2628 - mae: 9.0286 - val_loss: 272.1431 - val_mae: 10.8950
+Epoch 8/60
+546/546 - 9s - 17ms/step - loss: 130.7116 - mae: 8.6344 - val_loss: 237.4724 - val_mae: 9.9035
+Epoch 9/60
+546/546 - 9s - 17ms/step - loss: 119.3556 - mae: 8.2916 - val_loss: 255.8790 - val_mae: 10.0763
+Epoch 10/60
+546/546 - 9s - 17ms/step - loss: 110.6344 - mae: 7.9860 - val_loss: 255.6170 - val_mae: 9.8939
+Epoch 11/60
+546/546 - 9s - 17ms/step - loss: 98.4971 - mae: 7.5682 - val_loss: 245.7152 - val_mae: 9.6419
+Epoch 12/60
+546/546 - 9s - 17ms/step - loss: 95.3466 - mae: 7.4457 - val_loss: 281.6662 - val_mae: 10.7570
+Epoch 13/60
+546/546 - 9s - 17ms/step - loss: 91.0131 - mae: 7.2528 - val_loss: 314.9758 - val_mae: 10.9652
+Epoch 14/60
+546/546 - 10s - 18ms/step - loss: 85.3774 - mae: 7.0563 - val_loss: 261.8603 - val_mae: 10.2546
+Epoch 15/60
+546/546 - 10s - 17ms/step - loss: 79.8500 - mae: 6.8096 - val_loss: 265.5084 - val_mae: 9.9589
+Epoch 16/60
+546/546 - 9s - 17ms/step - loss: 74.9890 - mae: 6.6052 - val_loss: 284.8092 - val_mae: 10.3022
+Epoch 17/60
+546/546 - 9s - 17ms/step - loss: 69.9254 - mae: 6.3926 - val_loss: 282.5890 - val_mae: 10.9015
+Epoch 18/60
+546/546 - 9s - 17ms/step - loss: 65.4804 - mae: 6.1817 - val_loss: 297.7986 - val_mae: 10.7007
+  -> RMSE 17.24  MAE 13.06  score 699  (18 features, 0 of them dead)
+[8/93] exp1 | C1_base | FD003 | lstm | seed 1
+  removed 4 constant features: ['sensor_1', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+524/524 - 11s - 21ms/step - loss: 1635.4685 - mae: 28.6753 - val_loss: 185.0705 - val_mae: 9.7924
+Epoch 2/60
+524/524 - 9s - 17ms/step - loss: 256.3320 - mae: 12.0638 - val_loss: 158.8012 - val_mae: 8.8874
+Epoch 3/60
+524/524 - 9s - 18ms/step - loss: 209.2407 - mae: 10.8787 - val_loss: 136.5858 - val_mae: 7.8729
+Epoch 4/60
+524/524 - 9s - 17ms/step - loss: 192.3702 - mae: 10.3655 - val_loss: 144.6604 - val_mae: 8.5028
+Epoch 5/60
+524/524 - 9s - 17ms/step - loss: 180.1974 - mae: 10.0360 - val_loss: 136.5102 - val_mae: 7.2687
+Epoch 6/60
+524/524 - 9s - 17ms/step - loss: 165.7350 - mae: 9.6309 - val_loss: 181.1855 - val_mae: 9.4835
+Epoch 7/60
+524/524 - 9s - 16ms/step - loss: 153.1766 - mae: 9.2272 - val_loss: 166.8015 - val_mae: 8.3432
+Epoch 8/60
+524/524 - 9s - 17ms/step - loss: 144.8840 - mae: 9.0491 - val_loss: 173.0149 - val_mae: 7.8502
+Epoch 9/60
+524/524 - 9s - 17ms/step - loss: 131.9241 - mae: 8.5933 - val_loss: 185.1460 - val_mae: 9.4728
+Epoch 10/60
+524/524 - 9s - 17ms/step - loss: 120.8254 - mae: 8.3016 - val_loss: 180.1494 - val_mae: 9.0562
+Epoch 11/60
+524/524 - 9s - 17ms/step - loss: 108.0261 - mae: 7.8608 - val_loss: 214.7978 - val_mae: 9.5477
+Epoch 12/60
+524/524 - 9s - 17ms/step - loss: 98.0739 - mae: 7.4989 - val_loss: 189.6049 - val_mae: 9.3470
+Epoch 13/60
+524/524 - 9s - 17ms/step - loss: 107.4908 - mae: 7.8110 - val_loss: 211.6267 - val_mae: 9.6374
+Epoch 14/60
+524/524 - 9s - 17ms/step - loss: 89.0798 - mae: 7.1755 - val_loss: 217.9509 - val_mae: 9.6516
+Epoch 15/60
+524/524 - 9s - 17ms/step - loss: 87.0376 - mae: 7.0792 - val_loss: 194.0927 - val_mae: 9.5715
+  -> RMSE 16.52  MAE 11.79  score 798  (18 features, 0 of them dead)
+[9/93] exp1 | C1_base | FD003 | lstm | seed 2
+  removed 4 constant features: ['sensor_1', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+575/575 - 12s - 21ms/step - loss: 1498.4888 - mae: 26.3794 - val_loss: 419.8790 - val_mae: 15.6504
+Epoch 2/60
+575/575 - 10s - 17ms/step - loss: 249.9949 - mae: 11.8579 - val_loss: 356.5465 - val_mae: 13.8416
+Epoch 3/60
+575/575 - 10s - 17ms/step - loss: 205.9867 - mae: 10.7910 - val_loss: 283.4084 - val_mae: 11.9506
+Epoch 4/60
+575/575 - 10s - 17ms/step - loss: 184.3964 - mae: 10.1995 - val_loss: 255.6339 - val_mae: 11.3585
+Epoch 5/60
+575/575 - 10s - 17ms/step - loss: 168.8463 - mae: 9.7574 - val_loss: 227.2412 - val_mae: 10.3734
+Epoch 6/60
+575/575 - 10s - 17ms/step - loss: 152.7708 - mae: 9.3158 - val_loss: 241.0319 - val_mae: 11.0644
+Epoch 7/60
+575/575 - 10s - 17ms/step - loss: 142.4275 - mae: 8.9457 - val_loss: 251.2849 - val_mae: 11.2172
+Epoch 8/60
+575/575 - 10s - 17ms/step - loss: 132.9159 - mae: 8.7304 - val_loss: 241.4706 - val_mae: 10.8000
+Epoch 9/60
+575/575 - 10s - 17ms/step - loss: 121.9902 - mae: 8.3271 - val_loss: 243.3789 - val_mae: 10.4197
+Epoch 10/60
+575/575 - 10s - 17ms/step - loss: 110.4170 - mae: 7.9415 - val_loss: 258.9478 - val_mae: 11.1715
+Epoch 11/60
+575/575 - 10s - 17ms/step - loss: 102.6139 - mae: 7.6865 - val_loss: 259.0506 - val_mae: 10.9929
+Epoch 12/60
+575/575 - 11s - 19ms/step - loss: 94.7744 - mae: 7.4023 - val_loss: 241.4395 - val_mae: 10.3220
+Epoch 13/60
+575/575 - 10s - 17ms/step - loss: 89.8708 - mae: 7.2035 - val_loss: 260.7963 - val_mae: 10.7206
+Epoch 14/60
+575/575 - 10s - 17ms/step - loss: 87.2987 - mae: 7.1329 - val_loss: 298.3621 - val_mae: 11.9006
+Epoch 15/60
+575/575 - 10s - 17ms/step - loss: 77.3477 - mae: 6.7724 - val_loss: 284.7564 - val_mae: 11.3356
+  -> RMSE 15.77  MAE 12.18  score 453  (18 features, 0 of them dead)
+[10/93] exp1 | C1_base | FD004 | lstm | seed 0
+Epoch 1/60
+1343/1343 - 28s - 21ms/step - loss: 1246.1577 - mae: 23.8631 - val_loss: 597.1557 - val_mae: 18.1698
+Epoch 2/60
+1343/1343 - 24s - 18ms/step - loss: 429.2533 - mae: 15.3584 - val_loss: 537.7189 - val_mae: 16.3675
+Epoch 3/60
+1343/1343 - 24s - 18ms/step - loss: 364.1251 - mae: 14.1302 - val_loss: 547.0367 - val_mae: 16.6139
+Epoch 4/60
+1343/1343 - 24s - 18ms/step - loss: 300.7305 - mae: 12.7960 - val_loss: 574.4839 - val_mae: 16.8353
+Epoch 5/60
+1343/1343 - 24s - 18ms/step - loss: 231.7168 - mae: 11.2928 - val_loss: 587.8636 - val_mae: 16.6685
+Epoch 6/60
+1343/1343 - 24s - 18ms/step - loss: 189.9287 - mae: 10.2808 - val_loss: 629.6161 - val_mae: 17.2846
+Epoch 7/60
+1343/1343 - 24s - 18ms/step - loss: 154.9444 - mae: 9.3114 - val_loss: 631.5208 - val_mae: 17.3649
+Epoch 8/60
+1343/1343 - 24s - 18ms/step - loss: 134.4810 - mae: 8.6640 - val_loss: 623.5477 - val_mae: 16.8785
+Epoch 9/60
+1343/1343 - 24s - 18ms/step - loss: 113.7003 - mae: 8.0297 - val_loss: 654.1960 - val_mae: 17.9347
+Epoch 10/60
+1343/1343 - 24s - 18ms/step - loss: 96.6188 - mae: 7.3981 - val_loss: 683.4382 - val_mae: 18.1719
+Epoch 11/60
+1343/1343 - 24s - 18ms/step - loss: 86.4840 - mae: 7.0059 - val_loss: 678.2593 - val_mae: 17.9822
+Epoch 12/60
+1343/1343 - 24s - 18ms/step - loss: 70.8958 - mae: 6.4310 - val_loss: 695.8532 - val_mae: 18.5852
+  -> RMSE 28.66  MAE 21.06  score 23077  (19 features, 0 of them dead)
+[11/93] exp1 | C1_base | FD004 | lstm | seed 1
+Epoch 1/60
+1350/1350 - 27s - 20ms/step - loss: 1438.4882 - mae: 26.9515 - val_loss: 359.2582 - val_mae: 14.1337
+Epoch 2/60
+1350/1350 - 25s - 18ms/step - loss: 479.5353 - mae: 16.3359 - val_loss: 325.9937 - val_mae: 13.4925
+Epoch 3/60
+1350/1350 - 25s - 18ms/step - loss: 427.1130 - mae: 15.2976 - val_loss: 333.5013 - val_mae: 13.3221
+Epoch 4/60
+1350/1350 - 25s - 18ms/step - loss: 388.4289 - mae: 14.5456 - val_loss: 344.7611 - val_mae: 13.0215
+Epoch 5/60
+1350/1350 - 24s - 18ms/step - loss: 338.6457 - mae: 13.5789 - val_loss: 378.4221 - val_mae: 13.6984
+Epoch 6/60
+1350/1350 - 25s - 18ms/step - loss: 287.1350 - mae: 12.5649 - val_loss: 407.0710 - val_mae: 13.7494
+Epoch 7/60
+1350/1350 - 25s - 18ms/step - loss: 239.6722 - mae: 11.5082 - val_loss: 435.1107 - val_mae: 14.7762
+Epoch 8/60
+1350/1350 - 25s - 18ms/step - loss: 196.3261 - mae: 10.4224 - val_loss: 420.7472 - val_mae: 14.3627
+Epoch 9/60
+1350/1350 - 25s - 18ms/step - loss: 169.4587 - mae: 9.6874 - val_loss: 486.5933 - val_mae: 14.7461
+Epoch 10/60
+1350/1350 - 25s - 18ms/step - loss: 143.7838 - mae: 8.9833 - val_loss: 490.6242 - val_mae: 15.4859
+Epoch 11/60
+1350/1350 - 24s - 18ms/step - loss: 125.1471 - mae: 8.4029 - val_loss: 445.6821 - val_mae: 14.3699
+Epoch 12/60
+1350/1350 - 24s - 17ms/step - loss: 107.4075 - mae: 7.8600 - val_loss: 442.4585 - val_mae: 14.6068
+  -> RMSE 29.44  MAE 20.65  score 64512  (19 features, 0 of them dead)
+[12/93] exp1 | C1_base | FD004 | lstm | seed 2
+Epoch 1/60
+1360/1360 - 26s - 19ms/step - loss: 1241.7767 - mae: 24.1304 - val_loss: 453.2671 - val_mae: 15.8272
+Epoch 2/60
+1360/1360 - 23s - 17ms/step - loss: 455.2706 - mae: 15.8538 - val_loss: 424.8540 - val_mae: 14.9998
+Epoch 3/60
+1360/1360 - 23s - 17ms/step - loss: 385.6386 - mae: 14.4899 - val_loss: 411.4944 - val_mae: 14.3509
+Epoch 4/60
+1360/1360 - 24s - 17ms/step - loss: 315.1309 - mae: 13.0998 - val_loss: 483.6587 - val_mae: 15.4861
+Epoch 5/60
+1360/1360 - 24s - 17ms/step - loss: 239.9378 - mae: 11.5155 - val_loss: 493.6184 - val_mae: 15.1138
+Epoch 6/60
+1360/1360 - 23s - 17ms/step - loss: 198.0587 - mae: 10.4759 - val_loss: 507.2136 - val_mae: 14.9289
+Epoch 7/60
+1360/1360 - 23s - 17ms/step - loss: 163.4401 - mae: 9.5743 - val_loss: 533.1492 - val_mae: 15.9392
+Epoch 8/60
+1360/1360 - 23s - 17ms/step - loss: 140.4167 - mae: 8.9120 - val_loss: 510.7404 - val_mae: 15.3205
+Epoch 9/60
+1360/1360 - 23s - 17ms/step - loss: 120.5006 - mae: 8.2865 - val_loss: 523.9577 - val_mae: 15.7130
+Epoch 10/60
+1360/1360 - 23s - 17ms/step - loss: 102.8271 - mae: 7.6708 - val_loss: 517.2459 - val_mae: 15.4703
+Epoch 11/60
+1360/1360 - 23s - 17ms/step - loss: 87.1142 - mae: 7.1350 - val_loss: 592.4860 - val_mae: 16.2717
+Epoch 12/60
+1360/1360 - 23s - 17ms/step - loss: 75.6419 - mae: 6.7034 - val_loss: 570.0217 - val_mae: 15.6185
+Epoch 13/60
+1360/1360 - 23s - 17ms/step - loss: 66.2668 - mae: 6.2756 - val_loss: 591.4995 - val_mae: 16.3543
+  -> RMSE 29.20  MAE 20.38  score 38484  (19 features, 0 of them dead)
+[13/93] exp1 | C2_rolling | FD001 | lstm | seed 0
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+439/439 - 9s - 21ms/step - loss: 1578.7070 - mae: 27.7581 - val_loss: 261.9616 - val_mae: 12.7078
+Epoch 2/60
+439/439 - 7s - 17ms/step - loss: 210.8317 - mae: 10.9413 - val_loss: 248.7948 - val_mae: 11.4862
+Epoch 3/60
+439/439 - 7s - 17ms/step - loss: 135.2473 - mae: 8.7303 - val_loss: 230.1517 - val_mae: 11.2554
+Epoch 4/60
+439/439 - 8s - 17ms/step - loss: 100.4387 - mae: 7.5994 - val_loss: 222.8906 - val_mae: 10.7649
+Epoch 5/60
+439/439 - 7s - 17ms/step - loss: 85.1312 - mae: 7.0177 - val_loss: 236.6318 - val_mae: 11.0167
+Epoch 6/60
+439/439 - 7s - 17ms/step - loss: 77.5713 - mae: 6.6636 - val_loss: 219.8456 - val_mae: 10.9063
+Epoch 7/60
+439/439 - 7s - 17ms/step - loss: 73.4612 - mae: 6.4616 - val_loss: 247.2267 - val_mae: 11.3235
+Epoch 8/60
+439/439 - 7s - 17ms/step - loss: 69.6296 - mae: 6.2739 - val_loss: 230.6984 - val_mae: 10.9595
+Epoch 9/60
+439/439 - 7s - 17ms/step - loss: 67.1067 - mae: 6.1465 - val_loss: 243.8947 - val_mae: 11.1578
+Epoch 10/60
+439/439 - 7s - 17ms/step - loss: 64.4680 - mae: 6.0183 - val_loss: 223.2323 - val_mae: 10.6717
+Epoch 11/60
+439/439 - 7s - 17ms/step - loss: 62.7748 - mae: 5.9054 - val_loss: 256.1134 - val_mae: 11.1360
+Epoch 12/60
+439/439 - 8s - 17ms/step - loss: 60.7427 - mae: 5.8168 - val_loss: 249.4613 - val_mae: 11.4345
+Epoch 13/60
+439/439 - 7s - 17ms/step - loss: 55.8926 - mae: 5.5409 - val_loss: 260.8809 - val_mae: 11.3635
+Epoch 14/60
+439/439 - 7s - 17ms/step - loss: 56.0694 - mae: 5.5409 - val_loss: 250.8056 - val_mae: 10.9837
+Epoch 15/60
+439/439 - 7s - 17ms/step - loss: 52.6776 - mae: 5.4004 - val_loss: 251.0240 - val_mae: 10.8700
+Epoch 16/60
+439/439 - 7s - 17ms/step - loss: 52.8568 - mae: 5.3736 - val_loss: 244.9147 - val_mae: 10.8943
+  -> RMSE 17.81  MAE 13.84  score 860  (77 features, 0 of them dead)
+[14/93] exp1 | C2_rolling | FD001 | lstm | seed 1
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+441/441 - 9s - 21ms/step - loss: 1555.3248 - mae: 27.4047 - val_loss: 366.2648 - val_mae: 14.6053
+Epoch 2/60
+441/441 - 7s - 17ms/step - loss: 166.0163 - mae: 9.7637 - val_loss: 368.6418 - val_mae: 13.5090
+Epoch 3/60
+441/441 - 8s - 17ms/step - loss: 108.0808 - mae: 7.9053 - val_loss: 367.3580 - val_mae: 13.6679
+Epoch 4/60
+441/441 - 7s - 17ms/step - loss: 89.8713 - mae: 7.2656 - val_loss: 353.0139 - val_mae: 13.4057
+Epoch 5/60
+441/441 - 7s - 17ms/step - loss: 77.5176 - mae: 6.7085 - val_loss: 392.2125 - val_mae: 14.5447
+Epoch 6/60
+441/441 - 7s - 17ms/step - loss: 72.0766 - mae: 6.4293 - val_loss: 377.1215 - val_mae: 13.9437
+Epoch 7/60
+441/441 - 7s - 17ms/step - loss: 69.8189 - mae: 6.3425 - val_loss: 338.6490 - val_mae: 12.8764
+Epoch 8/60
+441/441 - 8s - 17ms/step - loss: 68.2501 - mae: 6.2105 - val_loss: 379.3311 - val_mae: 14.2397
+Epoch 9/60
+441/441 - 7s - 17ms/step - loss: 66.5795 - mae: 6.1288 - val_loss: 383.9116 - val_mae: 14.1496
+Epoch 10/60
+441/441 - 8s - 17ms/step - loss: 62.4085 - mae: 5.9056 - val_loss: 381.2432 - val_mae: 14.3107
+Epoch 11/60
+441/441 - 8s - 17ms/step - loss: 62.4516 - mae: 5.9361 - val_loss: 385.8403 - val_mae: 14.3691
+Epoch 12/60
+441/441 - 8s - 17ms/step - loss: 58.4558 - mae: 5.7433 - val_loss: 363.4313 - val_mae: 13.4167
+Epoch 13/60
+441/441 - 8s - 17ms/step - loss: 57.1905 - mae: 5.6348 - val_loss: 377.1945 - val_mae: 13.8365
+Epoch 14/60
+441/441 - 9s - 20ms/step - loss: 56.0090 - mae: 5.5451 - val_loss: 379.9645 - val_mae: 13.6641
+Epoch 15/60
+441/441 - 7s - 17ms/step - loss: 56.2195 - mae: 5.5214 - val_loss: 411.2032 - val_mae: 14.8793
+Epoch 16/60
+441/441 - 8s - 17ms/step - loss: 54.2260 - mae: 5.4566 - val_loss: 400.0945 - val_mae: 14.0441
+Epoch 17/60
+441/441 - 7s - 17ms/step - loss: 51.2525 - mae: 5.3107 - val_loss: 386.8796 - val_mae: 14.1346
+  -> RMSE 18.28  MAE 14.42  score 648  (77 features, 0 of them dead)
+[15/93] exp1 | C2_rolling | FD001 | lstm | seed 2
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+450/450 - 10s - 22ms/step - loss: 1482.3602 - mae: 26.8228 - val_loss: 323.4247 - val_mae: 13.5426
+Epoch 2/60
+450/450 - 8s - 17ms/step - loss: 176.6272 - mae: 10.0634 - val_loss: 402.2026 - val_mae: 14.4746
+Epoch 3/60
+450/450 - 8s - 17ms/step - loss: 113.4781 - mae: 8.1371 - val_loss: 393.0938 - val_mae: 13.9738
+Epoch 4/60
+450/450 - 8s - 17ms/step - loss: 87.7536 - mae: 7.1722 - val_loss: 416.7922 - val_mae: 14.8000
+Epoch 5/60
+450/450 - 8s - 17ms/step - loss: 81.1056 - mae: 6.8425 - val_loss: 436.4179 - val_mae: 14.9817
+Epoch 6/60
+450/450 - 8s - 17ms/step - loss: 77.5381 - mae: 6.6829 - val_loss: 424.9175 - val_mae: 14.7398
+Epoch 7/60
+450/450 - 8s - 17ms/step - loss: 71.9328 - mae: 6.4570 - val_loss: 430.1369 - val_mae: 14.6216
+Epoch 8/60
+450/450 - 8s - 17ms/step - loss: 69.5003 - mae: 6.2990 - val_loss: 417.9772 - val_mae: 14.5503
+Epoch 9/60
+450/450 - 8s - 17ms/step - loss: 65.7634 - mae: 6.1371 - val_loss: 437.5879 - val_mae: 14.8828
+Epoch 10/60
+450/450 - 8s - 17ms/step - loss: 65.1694 - mae: 6.0392 - val_loss: 477.7845 - val_mae: 15.3903
+Epoch 11/60
+450/450 - 8s - 17ms/step - loss: 63.7902 - mae: 5.9877 - val_loss: 516.4742 - val_mae: 16.0614
+  -> RMSE 17.92  MAE 13.51  score 583  (77 features, 0 of them dead)
+[16/93] exp1 | C2_rolling | FD002 | lstm | seed 0
+Epoch 1/60
+1145/1145 - 21s - 19ms/step - loss: 1111.8534 - mae: 22.7765 - val_loss: 469.7120 - val_mae: 16.2549
+Epoch 2/60
+1145/1145 - 19s - 17ms/step - loss: 281.0783 - mae: 12.5350 - val_loss: 486.9732 - val_mae: 16.2650
+Epoch 3/60
+1145/1145 - 19s - 17ms/step - loss: 163.0581 - mae: 9.4954 - val_loss: 501.9147 - val_mae: 16.3832
+Epoch 4/60
+1145/1145 - 19s - 17ms/step - loss: 123.2849 - mae: 8.3157 - val_loss: 506.5796 - val_mae: 16.7168
+Epoch 5/60
+1145/1145 - 19s - 17ms/step - loss: 99.1750 - mae: 7.4774 - val_loss: 499.8387 - val_mae: 16.5145
+Epoch 6/60
+1145/1145 - 19s - 17ms/step - loss: 88.4994 - mae: 7.0018 - val_loss: 520.5515 - val_mae: 16.9600
+Epoch 7/60
+1145/1145 - 19s - 17ms/step - loss: 80.7137 - mae: 6.6696 - val_loss: 493.6966 - val_mae: 16.0922
+Epoch 8/60
+1145/1145 - 19s - 17ms/step - loss: 70.9271 - mae: 6.2411 - val_loss: 518.5581 - val_mae: 16.5856
+Epoch 9/60
+1145/1145 - 19s - 17ms/step - loss: 63.5054 - mae: 5.8833 - val_loss: 513.2945 - val_mae: 16.5039
+Epoch 10/60
+1145/1145 - 19s - 17ms/step - loss: 56.7873 - mae: 5.5807 - val_loss: 546.7557 - val_mae: 17.5430
+Epoch 11/60
+1145/1145 - 19s - 17ms/step - loss: 50.4503 - mae: 5.3175 - val_loss: 560.5037 - val_mae: 17.4691
+  -> RMSE 26.78  MAE 19.01  score 15335  (87 features, 0 of them dead)
+[17/93] exp1 | C2_rolling | FD002 | lstm | seed 1
+Epoch 1/60
+1176/1176 - 21s - 18ms/step - loss: 1119.7612 - mae: 22.5649 - val_loss: 590.3373 - val_mae: 18.0234
+Epoch 2/60
+1176/1176 - 19s - 16ms/step - loss: 267.6736 - mae: 12.1264 - val_loss: 629.0013 - val_mae: 18.1881
+Epoch 3/60
+1176/1176 - 20s - 17ms/step - loss: 167.3661 - mae: 9.6402 - val_loss: 659.8903 - val_mae: 19.0605
+Epoch 4/60
+1176/1176 - 19s - 16ms/step - loss: 124.3506 - mae: 8.3190 - val_loss: 697.1495 - val_mae: 19.2668
+Epoch 5/60
+1176/1176 - 19s - 17ms/step - loss: 105.3276 - mae: 7.6662 - val_loss: 684.4019 - val_mae: 19.4543
+Epoch 6/60
+1176/1176 - 20s - 17ms/step - loss: 94.0881 - mae: 7.2095 - val_loss: 687.4191 - val_mae: 19.2798
+Epoch 7/60
+1176/1176 - 20s - 17ms/step - loss: 87.1212 - mae: 6.9237 - val_loss: 690.9587 - val_mae: 19.4363
+Epoch 8/60
+1176/1176 - 21s - 18ms/step - loss: 77.0876 - mae: 6.5077 - val_loss: 665.4631 - val_mae: 19.1030
+Epoch 9/60
+1176/1176 - 21s - 18ms/step - loss: 70.4525 - mae: 6.2121 - val_loss: 688.9124 - val_mae: 19.3287
+Epoch 10/60
+1176/1176 - 21s - 18ms/step - loss: 64.4099 - mae: 5.8992 - val_loss: 774.3572 - val_mae: 20.1054
+Epoch 11/60
+1176/1176 - 20s - 17ms/step - loss: 59.8608 - mae: 5.6936 - val_loss: 672.6851 - val_mae: 19.4388
+  -> RMSE 25.39  MAE 17.76  score 9312  (87 features, 0 of them dead)
+[18/93] exp1 | C2_rolling | FD002 | lstm | seed 2
+Epoch 1/60
+1161/1161 - 23s - 20ms/step - loss: 1073.5682 - mae: 22.3571 - val_loss: 478.7851 - val_mae: 16.5214
+Epoch 2/60
+1161/1161 - 21s - 18ms/step - loss: 300.2690 - mae: 12.9011 - val_loss: 494.9396 - val_mae: 16.3751
+Epoch 3/60
+1161/1161 - 21s - 18ms/step - loss: 189.9336 - mae: 10.2613 - val_loss: 529.9924 - val_mae: 16.4401
+Epoch 4/60
+1161/1161 - 20s - 18ms/step - loss: 134.0521 - mae: 8.6252 - val_loss: 558.4271 - val_mae: 16.9765
+Epoch 5/60
+1161/1161 - 21s - 18ms/step - loss: 108.9495 - mae: 7.7806 - val_loss: 576.5176 - val_mae: 17.2729
+Epoch 6/60
+1161/1161 - 21s - 18ms/step - loss: 96.0391 - mae: 7.3006 - val_loss: 581.9421 - val_mae: 17.1887
+Epoch 7/60
+1161/1161 - 21s - 18ms/step - loss: 85.0553 - mae: 6.8614 - val_loss: 564.3658 - val_mae: 17.3507
+Epoch 8/60
+1161/1161 - 22s - 19ms/step - loss: 76.5505 - mae: 6.4775 - val_loss: 592.6060 - val_mae: 17.3723
+Epoch 9/60
+1161/1161 - 21s - 18ms/step - loss: 69.0800 - mae: 6.1590 - val_loss: 572.3277 - val_mae: 17.6612
+Epoch 10/60
+1161/1161 - 21s - 18ms/step - loss: 62.4131 - mae: 5.8252 - val_loss: 591.5410 - val_mae: 17.6959
+Epoch 11/60
+1161/1161 - 21s - 18ms/step - loss: 55.1366 - mae: 5.4718 - val_loss: 587.5997 - val_mae: 17.5087
+  -> RMSE 25.06  MAE 18.00  score 9769  (87 features, 0 of them dead)
+[19/93] exp1 | C2_rolling | FD003 | lstm | seed 0
+  removed 4 constant features: ['sensor_1', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+546/546 - 12s - 21ms/step - loss: 1447.0521 - mae: 25.5691 - val_loss: 445.4016 - val_mae: 15.0771
+Epoch 2/60
+546/546 - 10s - 18ms/step - loss: 188.4072 - mae: 10.2638 - val_loss: 491.7403 - val_mae: 14.8442
+Epoch 3/60
+546/546 - 9s - 17ms/step - loss: 121.9167 - mae: 8.4048 - val_loss: 452.7291 - val_mae: 14.4072
+Epoch 4/60
+546/546 - 10s - 18ms/step - loss: 97.9257 - mae: 7.5849 - val_loss: 506.2482 - val_mae: 14.5971
+Epoch 5/60
+546/546 - 10s - 18ms/step - loss: 91.7070 - mae: 7.3368 - val_loss: 468.1655 - val_mae: 14.6478
+Epoch 6/60
+546/546 - 10s - 18ms/step - loss: 80.8827 - mae: 6.8619 - val_loss: 460.1882 - val_mae: 14.7876
+Epoch 7/60
+546/546 - 10s - 19ms/step - loss: 76.9565 - mae: 6.7193 - val_loss: 533.9780 - val_mae: 15.2705
+Epoch 8/60
+546/546 - 10s - 18ms/step - loss: 73.3053 - mae: 6.4989 - val_loss: 490.0768 - val_mae: 15.1713
+Epoch 9/60
+546/546 - 10s - 19ms/step - loss: 71.6159 - mae: 6.4482 - val_loss: 482.2970 - val_mae: 14.7578
+Epoch 10/60
+546/546 - 11s - 20ms/step - loss: 67.4572 - mae: 6.2253 - val_loss: 505.0359 - val_mae: 15.3301
+Epoch 11/60
+546/546 - 10s - 19ms/step - loss: 64.3765 - mae: 6.0826 - val_loss: 503.6812 - val_mae: 15.1366
+  -> RMSE 22.45  MAE 16.53  score 2939  (82 features, 0 of them dead)
+[20/93] exp1 | C2_rolling | FD003 | lstm | seed 1
+  removed 4 constant features: ['sensor_1', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+524/524 - 13s - 24ms/step - loss: 1582.4745 - mae: 27.2362 - val_loss: 270.4215 - val_mae: 11.6571
+Epoch 2/60
+524/524 - 9s - 18ms/step - loss: 163.5486 - mae: 9.6357 - val_loss: 253.9475 - val_mae: 10.4551
+Epoch 3/60
+524/524 - 9s - 18ms/step - loss: 108.6893 - mae: 7.9759 - val_loss: 274.4742 - val_mae: 10.6113
+Epoch 4/60
+524/524 - 10s - 20ms/step - loss: 98.2861 - mae: 7.5762 - val_loss: 280.0322 - val_mae: 10.8647
+Epoch 5/60
+524/524 - 10s - 19ms/step - loss: 88.1188 - mae: 7.2045 - val_loss: 298.9753 - val_mae: 11.0843
+Epoch 6/60
+524/524 - 10s - 20ms/step - loss: 80.9527 - mae: 6.9052 - val_loss: 336.9963 - val_mae: 12.9464
+Epoch 7/60
+524/524 - 10s - 18ms/step - loss: 76.0960 - mae: 6.6261 - val_loss: 301.2533 - val_mae: 11.1587
+Epoch 8/60
+524/524 - 10s - 19ms/step - loss: 75.1219 - mae: 6.6190 - val_loss: 293.8099 - val_mae: 10.7625
+Epoch 9/60
+524/524 - 9s - 17ms/step - loss: 70.7919 - mae: 6.4186 - val_loss: 336.0451 - val_mae: 12.2292
+Epoch 10/60
+524/524 - 9s - 18ms/step - loss: 69.1876 - mae: 6.3466 - val_loss: 321.4666 - val_mae: 12.0689
+Epoch 11/60
+524/524 - 9s - 18ms/step - loss: 66.1058 - mae: 6.1612 - val_loss: 315.8283 - val_mae: 11.2570
+Epoch 12/60
+524/524 - 9s - 17ms/step - loss: 65.1711 - mae: 6.0454 - val_loss: 271.4146 - val_mae: 10.5766
+  -> RMSE 20.18  MAE 15.36  score 1168  (82 features, 0 of them dead)
+[21/93] exp1 | C2_rolling | FD003 | lstm | seed 2
+  removed 4 constant features: ['sensor_1', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+575/575 - 12s - 21ms/step - loss: 1391.6997 - mae: 24.5724 - val_loss: 480.3721 - val_mae: 15.8411
+Epoch 2/60
+575/575 - 10s - 17ms/step - loss: 178.9034 - mae: 10.0532 - val_loss: 441.8092 - val_mae: 14.9889
+Epoch 3/60
+575/575 - 10s - 17ms/step - loss: 118.2686 - mae: 8.3641 - val_loss: 486.6730 - val_mae: 15.3495
+Epoch 4/60
+575/575 - 10s - 17ms/step - loss: 99.6842 - mae: 7.6409 - val_loss: 469.6075 - val_mae: 15.4399
+Epoch 5/60
+575/575 - 10s - 17ms/step - loss: 91.9527 - mae: 7.3218 - val_loss: 484.5748 - val_mae: 15.5087
+Epoch 6/60
+575/575 - 10s - 17ms/step - loss: 83.7859 - mae: 7.0294 - val_loss: 467.4406 - val_mae: 15.2379
+Epoch 7/60
+575/575 - 10s - 17ms/step - loss: 81.5881 - mae: 6.9310 - val_loss: 447.0667 - val_mae: 15.1639
+Epoch 8/60
+575/575 - 9s - 16ms/step - loss: 75.9887 - mae: 6.6973 - val_loss: 483.3784 - val_mae: 15.7003
+Epoch 9/60
+575/575 - 10s - 17ms/step - loss: 79.0638 - mae: 6.7666 - val_loss: 505.9787 - val_mae: 15.6886
+Epoch 10/60
+575/575 - 10s - 17ms/step - loss: 69.6416 - mae: 6.3643 - val_loss: 511.0836 - val_mae: 15.9790
+Epoch 11/60
+575/575 - 10s - 17ms/step - loss: 66.1148 - mae: 6.1677 - val_loss: 520.9553 - val_mae: 15.9138
+Epoch 12/60
+575/575 - 10s - 17ms/step - loss: 62.7278 - mae: 6.0147 - val_loss: 573.7119 - val_mae: 16.2413
+  -> RMSE 21.80  MAE 16.67  score 2224  (82 features, 0 of them dead)
+[22/93] exp1 | C2_rolling | FD004 | lstm | seed 0
+Epoch 1/60
+1343/1343 - 25s - 19ms/step - loss: 1157.5098 - mae: 22.5799 - val_loss: 687.9562 - val_mae: 19.3084
+Epoch 2/60
+1343/1343 - 23s - 17ms/step - loss: 261.5317 - mae: 12.0817 - val_loss: 748.7791 - val_mae: 19.7962
+Epoch 3/60
+1343/1343 - 23s - 17ms/step - loss: 163.9188 - mae: 9.6935 - val_loss: 758.1872 - val_mae: 20.0466
+Epoch 4/60
+1343/1343 - 23s - 17ms/step - loss: 127.8612 - mae: 8.5750 - val_loss: 832.6704 - val_mae: 20.5443
+Epoch 5/60
+1343/1343 - 23s - 17ms/step - loss: 110.6652 - mae: 7.9714 - val_loss: 804.8710 - val_mae: 20.1521
+Epoch 6/60
+1343/1343 - 23s - 17ms/step - loss: 95.3432 - mae: 7.3848 - val_loss: 848.1345 - val_mae: 20.5727
+Epoch 7/60
+1343/1343 - 23s - 17ms/step - loss: 85.8490 - mae: 7.0080 - val_loss: 867.9148 - val_mae: 21.5113
+Epoch 8/60
+1343/1343 - 23s - 17ms/step - loss: 75.4748 - mae: 6.5279 - val_loss: 852.4879 - val_mae: 21.0395
+Epoch 9/60
+1343/1343 - 23s - 17ms/step - loss: 64.8134 - mae: 6.0663 - val_loss: 902.0564 - val_mae: 21.5141
+Epoch 10/60
+1343/1343 - 23s - 17ms/step - loss: 55.7123 - mae: 5.6283 - val_loss: 868.8962 - val_mae: 21.5295
+Epoch 11/60
+1343/1343 - 23s - 17ms/step - loss: 47.6958 - mae: 5.2514 - val_loss: 913.2637 - val_mae: 22.0394
+  -> RMSE 28.13  MAE 21.44  score 12602  (87 features, 0 of them dead)
+[23/93] exp1 | C2_rolling | FD004 | lstm | seed 1
+Epoch 1/60
+1350/1350 - 25s - 19ms/step - loss: 1251.7874 - mae: 24.0135 - val_loss: 483.1833 - val_mae: 16.0250
+Epoch 2/60
+1350/1350 - 23s - 17ms/step - loss: 269.7406 - mae: 12.3581 - val_loss: 486.6259 - val_mae: 15.3028
+Epoch 3/60
+1350/1350 - 23s - 17ms/step - loss: 168.9284 - mae: 9.8840 - val_loss: 464.1078 - val_mae: 14.6315
+Epoch 4/60
+1350/1350 - 23s - 17ms/step - loss: 131.7871 - mae: 8.7418 - val_loss: 469.4242 - val_mae: 14.5813
+Epoch 5/60
+1350/1350 - 23s - 17ms/step - loss: 113.8119 - mae: 8.1439 - val_loss: 469.0154 - val_mae: 14.9742
+Epoch 6/60
+1350/1350 - 23s - 17ms/step - loss: 103.3961 - mae: 7.7306 - val_loss: 455.3393 - val_mae: 14.7351
+Epoch 7/60
+1350/1350 - 23s - 17ms/step - loss: 91.1887 - mae: 7.2493 - val_loss: 466.5489 - val_mae: 14.7852
+Epoch 8/60
+1350/1350 - 23s - 17ms/step - loss: 83.4046 - mae: 6.9066 - val_loss: 493.0964 - val_mae: 15.7001
+Epoch 9/60
+1350/1350 - 25s - 18ms/step - loss: 75.5721 - mae: 6.5119 - val_loss: 480.5186 - val_mae: 14.5681
+Epoch 10/60
+1350/1350 - 24s - 18ms/step - loss: 67.1503 - mae: 6.1774 - val_loss: 499.6447 - val_mae: 15.6396
+Epoch 11/60
+1350/1350 - 24s - 18ms/step - loss: 57.3893 - mae: 5.7168 - val_loss: 481.1118 - val_mae: 14.9898
+Epoch 12/60
+1350/1350 - 24s - 18ms/step - loss: 51.8074 - mae: 5.4671 - val_loss: 467.1338 - val_mae: 15.1349
+Epoch 13/60
+1350/1350 - 24s - 18ms/step - loss: 46.5109 - mae: 5.2426 - val_loss: 491.0518 - val_mae: 15.1094
+Epoch 14/60
+1350/1350 - 24s - 18ms/step - loss: 68.8652 - mae: 6.2388 - val_loss: 530.7204 - val_mae: 16.0016
+Epoch 15/60
+1350/1350 - 24s - 18ms/step - loss: 99.4853 - mae: 7.4358 - val_loss: 516.3682 - val_mae: 15.8882
+Epoch 16/60
+1350/1350 - 24s - 18ms/step - loss: 81.5991 - mae: 6.7246 - val_loss: 523.9116 - val_mae: 15.7324
+  -> RMSE 29.39  MAE 22.32  score 14287  (87 features, 0 of them dead)
+[24/93] exp1 | C2_rolling | FD004 | lstm | seed 2
+Epoch 1/60
+1360/1360 - 26s - 19ms/step - loss: 1208.1434 - mae: 23.7511 - val_loss: 587.9058 - val_mae: 17.1343
+Epoch 2/60
+1360/1360 - 25s - 18ms/step - loss: 304.1174 - mae: 13.0442 - val_loss: 638.6964 - val_mae: 17.4753
+Epoch 3/60
+1360/1360 - 25s - 18ms/step - loss: 174.2455 - mae: 10.0332 - val_loss: 614.2809 - val_mae: 16.6934
+Epoch 4/60
+1360/1360 - 24s - 18ms/step - loss: 132.7057 - mae: 8.8075 - val_loss: 635.0894 - val_mae: 17.8606
+Epoch 5/60
+1360/1360 - 25s - 18ms/step - loss: 109.7965 - mae: 8.0216 - val_loss: 636.2286 - val_mae: 17.2243
+Epoch 6/60
+1360/1360 - 25s - 18ms/step - loss: 97.8938 - mae: 7.5559 - val_loss: 657.6152 - val_mae: 17.8340
+Epoch 7/60
+1360/1360 - 24s - 18ms/step - loss: 87.8710 - mae: 7.1245 - val_loss: 648.2572 - val_mae: 18.1063
+Epoch 8/60
+1360/1360 - 24s - 18ms/step - loss: 78.7523 - mae: 6.7141 - val_loss: 675.4879 - val_mae: 17.7057
+Epoch 9/60
+1360/1360 - 24s - 18ms/step - loss: 68.3762 - mae: 6.2628 - val_loss: 702.5236 - val_mae: 18.3717
+Epoch 10/60
+1360/1360 - 24s - 18ms/step - loss: 59.3558 - mae: 5.8355 - val_loss: 703.8010 - val_mae: 18.5258
+Epoch 11/60
+1360/1360 - 24s - 18ms/step - loss: 53.0361 - mae: 5.5296 - val_loss: 692.9678 - val_mae: 17.8691
+  -> RMSE 28.40  MAE 22.41  score 10976  (87 features, 0 of them dead)
+[25/93] exp1 | C3_lag | FD001 | lstm | seed 0
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+439/439 - 10s - 22ms/step - loss: 1602.9836 - mae: 28.1449 - val_loss: 273.4824 - val_mae: 13.1920
+Epoch 2/60
+439/439 - 10s - 23ms/step - loss: 217.7732 - mae: 11.1906 - val_loss: 273.6322 - val_mae: 12.5080
+Epoch 3/60
+439/439 - 8s - 17ms/step - loss: 140.6971 - mae: 9.0379 - val_loss: 271.1500 - val_mae: 11.7114
+Epoch 4/60
+439/439 - 8s - 17ms/step - loss: 109.4518 - mae: 7.9680 - val_loss: 235.8721 - val_mae: 10.9130
+Epoch 5/60
+439/439 - 8s - 18ms/step - loss: 88.1406 - mae: 7.1599 - val_loss: 241.0404 - val_mae: 10.7941
+Epoch 6/60
+439/439 - 8s - 17ms/step - loss: 80.8902 - mae: 6.8641 - val_loss: 236.4837 - val_mae: 11.1767
+Epoch 7/60
+439/439 - 7s - 17ms/step - loss: 76.2130 - mae: 6.6249 - val_loss: 251.0261 - val_mae: 11.4495
+Epoch 8/60
+439/439 - 8s - 18ms/step - loss: 74.0569 - mae: 6.4860 - val_loss: 251.1014 - val_mae: 11.2734
+Epoch 9/60
+439/439 - 8s - 18ms/step - loss: 70.0212 - mae: 6.3503 - val_loss: 221.7305 - val_mae: 10.4057
+Epoch 10/60
+439/439 - 8s - 18ms/step - loss: 67.1522 - mae: 6.1699 - val_loss: 219.6392 - val_mae: 10.2569
+Epoch 11/60
+439/439 - 9s - 20ms/step - loss: 63.3014 - mae: 5.9537 - val_loss: 249.0619 - val_mae: 10.7459
+Epoch 12/60
+439/439 - 8s - 18ms/step - loss: 62.8849 - mae: 5.9422 - val_loss: 238.6402 - val_mae: 10.6703
+Epoch 13/60
+439/439 - 8s - 17ms/step - loss: 57.1830 - mae: 5.6845 - val_loss: 250.6492 - val_mae: 11.2232
+Epoch 14/60
+439/439 - 8s - 17ms/step - loss: 58.1513 - mae: 5.7023 - val_loss: 238.5014 - val_mae: 10.9239
+Epoch 15/60
+439/439 - 8s - 17ms/step - loss: 54.5029 - mae: 5.5013 - val_loss: 234.7105 - val_mae: 10.5217
+Epoch 16/60
+439/439 - 8s - 17ms/step - loss: 54.6572 - mae: 5.4913 - val_loss: 257.0570 - val_mae: 11.2125
+Epoch 17/60
+439/439 - 8s - 17ms/step - loss: 51.6829 - mae: 5.3505 - val_loss: 250.4273 - val_mae: 11.4518
+Epoch 18/60
+439/439 - 8s - 17ms/step - loss: 48.6834 - mae: 5.1714 - val_loss: 245.7205 - val_mae: 10.8804
+Epoch 19/60
+439/439 - 8s - 17ms/step - loss: 45.9744 - mae: 5.0298 - val_loss: 265.2375 - val_mae: 10.9111
+Epoch 20/60
+439/439 - 8s - 17ms/step - loss: 45.3069 - mae: 4.9796 - val_loss: 243.5462 - val_mae: 11.0995
+  -> RMSE 16.94  MAE 13.17  score 519  (107 features, 0 of them dead)
+[26/93] exp1 | C3_lag | FD001 | lstm | seed 1
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+441/441 - 9s - 21ms/step - loss: 1570.8809 - mae: 27.4106 - val_loss: 331.8478 - val_mae: 13.7094
+Epoch 2/60
+441/441 - 8s - 17ms/step - loss: 175.3043 - mae: 10.0354 - val_loss: 348.6721 - val_mae: 13.0449
+Epoch 3/60
+441/441 - 8s - 18ms/step - loss: 116.4458 - mae: 8.1905 - val_loss: 343.2944 - val_mae: 12.6466
+Epoch 4/60
+441/441 - 8s - 18ms/step - loss: 94.9260 - mae: 7.4178 - val_loss: 316.8575 - val_mae: 12.7648
+Epoch 5/60
+441/441 - 8s - 17ms/step - loss: 80.8752 - mae: 6.8799 - val_loss: 350.8536 - val_mae: 13.8458
+Epoch 6/60
+441/441 - 8s - 17ms/step - loss: 73.6695 - mae: 6.5176 - val_loss: 335.5998 - val_mae: 13.2740
+Epoch 7/60
+441/441 - 8s - 18ms/step - loss: 71.0554 - mae: 6.3713 - val_loss: 326.8321 - val_mae: 12.6296
+Epoch 8/60
+441/441 - 8s - 18ms/step - loss: 69.2110 - mae: 6.2491 - val_loss: 339.4870 - val_mae: 13.4463
+Epoch 9/60
+441/441 - 8s - 17ms/step - loss: 67.5218 - mae: 6.1650 - val_loss: 338.3443 - val_mae: 12.9078
+Epoch 10/60
+441/441 - 8s - 18ms/step - loss: 63.9646 - mae: 6.0322 - val_loss: 324.0830 - val_mae: 12.8297
+Epoch 11/60
+441/441 - 8s - 17ms/step - loss: 63.5781 - mae: 5.9845 - val_loss: 371.2489 - val_mae: 13.8952
+Epoch 12/60
+441/441 - 8s - 18ms/step - loss: 60.2213 - mae: 5.8288 - val_loss: 314.3731 - val_mae: 12.5176
+Epoch 13/60
+441/441 - 8s - 17ms/step - loss: 58.3932 - mae: 5.7166 - val_loss: 357.1060 - val_mae: 13.6823
+Epoch 14/60
+441/441 - 8s - 17ms/step - loss: 57.3494 - mae: 5.6298 - val_loss: 338.1120 - val_mae: 13.6152
+Epoch 15/60
+441/441 - 8s - 18ms/step - loss: 56.8551 - mae: 5.5778 - val_loss: 329.8203 - val_mae: 13.0907
+Epoch 16/60
+441/441 - 8s - 17ms/step - loss: 54.1454 - mae: 5.4737 - val_loss: 347.0154 - val_mae: 12.9182
+Epoch 17/60
+441/441 - 8s - 17ms/step - loss: 53.6321 - mae: 5.4225 - val_loss: 347.6790 - val_mae: 13.3214
+Epoch 18/60
+441/441 - 8s - 17ms/step - loss: 52.8336 - mae: 5.3666 - val_loss: 350.5275 - val_mae: 13.3062
+Epoch 19/60
+441/441 - 8s - 17ms/step - loss: 51.3956 - mae: 5.2745 - val_loss: 362.0378 - val_mae: 13.9211
+Epoch 20/60
+441/441 - 8s - 18ms/step - loss: 49.2261 - mae: 5.1813 - val_loss: 352.0605 - val_mae: 13.6191
+Epoch 21/60
+441/441 - 8s - 17ms/step - loss: 45.6266 - mae: 4.9877 - val_loss: 374.6479 - val_mae: 14.0057
+Epoch 22/60
+441/441 - 8s - 17ms/step - loss: 43.8468 - mae: 4.8492 - val_loss: 380.3054 - val_mae: 13.7349
+  -> RMSE 18.57  MAE 14.05  score 778  (107 features, 0 of them dead)
+[27/93] exp1 | C3_lag | FD001 | lstm | seed 2
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+450/450 - 10s - 22ms/step - loss: 1435.4525 - mae: 26.3220 - val_loss: 299.3213 - val_mae: 13.1677
+Epoch 2/60
+450/450 - 8s - 17ms/step - loss: 187.7762 - mae: 10.4129 - val_loss: 325.3459 - val_mae: 12.4458
+Epoch 3/60
+450/450 - 8s - 17ms/step - loss: 127.3663 - mae: 8.5124 - val_loss: 367.2182 - val_mae: 13.5368
+Epoch 4/60
+450/450 - 8s - 17ms/step - loss: 94.5147 - mae: 7.4082 - val_loss: 362.1948 - val_mae: 13.8101
+Epoch 5/60
+450/450 - 8s - 17ms/step - loss: 83.5685 - mae: 6.9531 - val_loss: 367.1572 - val_mae: 13.7944
+Epoch 6/60
+450/450 - 8s - 18ms/step - loss: 78.1451 - mae: 6.7349 - val_loss: 363.8576 - val_mae: 13.6525
+Epoch 7/60
+450/450 - 8s - 17ms/step - loss: 72.5066 - mae: 6.4599 - val_loss: 387.1519 - val_mae: 13.9177
+Epoch 8/60
+450/450 - 8s - 18ms/step - loss: 70.9783 - mae: 6.3852 - val_loss: 340.8537 - val_mae: 13.6434
+Epoch 9/60
+450/450 - 8s - 17ms/step - loss: 67.1975 - mae: 6.2156 - val_loss: 377.6222 - val_mae: 14.1638
+Epoch 10/60
+450/450 - 8s - 17ms/step - loss: 64.1773 - mae: 6.0117 - val_loss: 377.7295 - val_mae: 13.6344
+Epoch 11/60
+450/450 - 8s - 17ms/step - loss: 64.5141 - mae: 6.0236 - val_loss: 409.5840 - val_mae: 14.2345
+  -> RMSE 17.67  MAE 12.73  score 668  (107 features, 0 of them dead)
+[28/93] exp1 | C3_lag | FD002 | lstm | seed 0
+Epoch 1/60
+1145/1145 - 22s - 19ms/step - loss: 1191.9216 - mae: 23.5270 - val_loss: 433.4558 - val_mae: 15.8026
+Epoch 2/60
+1145/1145 - 21s - 18ms/step - loss: 293.6929 - mae: 12.7772 - val_loss: 468.0140 - val_mae: 16.0163
+Epoch 3/60
+1145/1145 - 20s - 17ms/step - loss: 179.4550 - mae: 9.9557 - val_loss: 489.4015 - val_mae: 16.3210
+Epoch 4/60
+1145/1145 - 20s - 17ms/step - loss: 129.5267 - mae: 8.5187 - val_loss: 534.6486 - val_mae: 17.2138
+Epoch 5/60
+1145/1145 - 20s - 18ms/step - loss: 104.9468 - mae: 7.6445 - val_loss: 522.7628 - val_mae: 17.1076
+Epoch 6/60
+1145/1145 - 20s - 17ms/step - loss: 91.4835 - mae: 7.1291 - val_loss: 517.0389 - val_mae: 17.1933
+Epoch 7/60
+1145/1145 - 19s - 17ms/step - loss: 81.3788 - mae: 6.7106 - val_loss: 545.9645 - val_mae: 17.1366
+Epoch 8/60
+1145/1145 - 20s - 17ms/step - loss: 71.8132 - mae: 6.2743 - val_loss: 546.5945 - val_mae: 17.4446
+Epoch 9/60
+1145/1145 - 19s - 17ms/step - loss: 65.6215 - mae: 5.9730 - val_loss: 563.8442 - val_mae: 17.4176
+Epoch 10/60
+1145/1145 - 20s - 17ms/step - loss: 57.7002 - mae: 5.6550 - val_loss: 561.4149 - val_mae: 17.6919
+Epoch 11/60
+1145/1145 - 20s - 17ms/step - loss: 52.0231 - mae: 5.4472 - val_loss: 575.9984 - val_mae: 17.9701
+  -> RMSE 26.70  MAE 18.55  score 18564  (121 features, 0 of them dead)
+[29/93] exp1 | C3_lag | FD002 | lstm | seed 1
+Epoch 1/60
+1176/1176 - 22s - 19ms/step - loss: 1106.4457 - mae: 22.4531 - val_loss: 587.1726 - val_mae: 18.1122
+Epoch 2/60
+1176/1176 - 22s - 19ms/step - loss: 247.2048 - mae: 11.6056 - val_loss: 622.1053 - val_mae: 18.6564
+Epoch 3/60
+1176/1176 - 21s - 18ms/step - loss: 152.8704 - mae: 9.1739 - val_loss: 634.4880 - val_mae: 19.1161
+Epoch 4/60
+1176/1176 - 21s - 18ms/step - loss: 114.2262 - mae: 8.0033 - val_loss: 673.7537 - val_mae: 19.0297
+Epoch 5/60
+1176/1176 - 21s - 18ms/step - loss: 98.3660 - mae: 7.4068 - val_loss: 716.2274 - val_mae: 19.6021
+Epoch 6/60
+1176/1176 - 21s - 18ms/step - loss: 87.5490 - mae: 6.9654 - val_loss: 693.0556 - val_mae: 19.4728
+Epoch 7/60
+1176/1176 - 21s - 18ms/step - loss: 82.1585 - mae: 6.7294 - val_loss: 663.1124 - val_mae: 18.9943
+Epoch 8/60
+1176/1176 - 21s - 18ms/step - loss: 73.5186 - mae: 6.3546 - val_loss: 675.4963 - val_mae: 19.4366
+Epoch 9/60
+1176/1176 - 20s - 17ms/step - loss: 66.9945 - mae: 6.0482 - val_loss: 766.2212 - val_mae: 20.2221
+Epoch 10/60
+1176/1176 - 21s - 18ms/step - loss: 62.9036 - mae: 5.8185 - val_loss: 779.4445 - val_mae: 20.2000
+Epoch 11/60
+1176/1176 - 21s - 18ms/step - loss: 59.8346 - mae: 5.6739 - val_loss: 689.7822 - val_mae: 19.7122
+  -> RMSE 26.68  MAE 18.77  score 15293  (121 features, 0 of them dead)
+[30/93] exp1 | C3_lag | FD002 | lstm | seed 2
+Epoch 1/60
+1161/1161 - 23s - 20ms/step - loss: 1098.6499 - mae: 22.6230 - val_loss: 461.5511 - val_mae: 16.5080
+Epoch 2/60
+1161/1161 - 21s - 18ms/step - loss: 285.2654 - mae: 12.5371 - val_loss: 480.3319 - val_mae: 16.3316
+Epoch 3/60
+1161/1161 - 21s - 18ms/step - loss: 166.9898 - mae: 9.5999 - val_loss: 523.3186 - val_mae: 16.8526
+Epoch 4/60
+1161/1161 - 21s - 18ms/step - loss: 122.3173 - mae: 8.2301 - val_loss: 537.3867 - val_mae: 17.0766
+Epoch 5/60
+1161/1161 - 21s - 18ms/step - loss: 101.3842 - mae: 7.5083 - val_loss: 556.9474 - val_mae: 17.0620
+Epoch 6/60
+1161/1161 - 21s - 18ms/step - loss: 89.0741 - mae: 7.0106 - val_loss: 575.8302 - val_mae: 17.2547
+Epoch 7/60
+1161/1161 - 21s - 18ms/step - loss: 81.3943 - mae: 6.6992 - val_loss: 542.5596 - val_mae: 17.3189
+Epoch 8/60
+1161/1161 - 21s - 18ms/step - loss: 72.9056 - mae: 6.2936 - val_loss: 568.5147 - val_mae: 17.3712
+Epoch 9/60
+1161/1161 - 21s - 18ms/step - loss: 65.0938 - mae: 5.9315 - val_loss: 558.4418 - val_mae: 17.4992
+Epoch 10/60
+1161/1161 - 21s - 18ms/step - loss: 58.4332 - mae: 5.6194 - val_loss: 591.8060 - val_mae: 17.8752
+Epoch 11/60
+1161/1161 - 21s - 18ms/step - loss: 51.6178 - mae: 5.2826 - val_loss: 601.8187 - val_mae: 17.7947
+  -> RMSE 26.58  MAE 18.28  score 19748  (121 features, 0 of them dead)
+[31/93] exp1 | C3_lag | FD003 | lstm | seed 0
+  removed 4 constant features: ['sensor_1', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+546/546 - 12s - 22ms/step - loss: 1457.7683 - mae: 25.6393 - val_loss: 464.0618 - val_mae: 14.3646
+Epoch 2/60
+546/546 - 10s - 19ms/step - loss: 216.1317 - mae: 10.9586 - val_loss: 414.4814 - val_mae: 13.2673
+Epoch 3/60
+546/546 - 10s - 18ms/step - loss: 136.7034 - mae: 8.8950 - val_loss: 404.5863 - val_mae: 13.8176
+Epoch 4/60
+546/546 - 10s - 18ms/step - loss: 102.7732 - mae: 7.7475 - val_loss: 433.4380 - val_mae: 13.6906
+Epoch 5/60
+546/546 - 10s - 18ms/step - loss: 92.9226 - mae: 7.3765 - val_loss: 453.2804 - val_mae: 14.3746
+Epoch 6/60
+546/546 - 10s - 18ms/step - loss: 85.1999 - mae: 7.0180 - val_loss: 446.1499 - val_mae: 14.3553
+Epoch 7/60
+546/546 - 10s - 18ms/step - loss: 78.2623 - mae: 6.7884 - val_loss: 499.4246 - val_mae: 14.4804
+Epoch 8/60
+546/546 - 10s - 18ms/step - loss: 76.3262 - mae: 6.6586 - val_loss: 473.1245 - val_mae: 14.5941
+Epoch 9/60
+546/546 - 10s - 18ms/step - loss: 75.1955 - mae: 6.5835 - val_loss: 455.0783 - val_mae: 14.1809
+Epoch 10/60
+546/546 - 10s - 18ms/step - loss: 68.0885 - mae: 6.2580 - val_loss: 494.2470 - val_mae: 14.7075
+Epoch 11/60
+546/546 - 10s - 18ms/step - loss: 64.1421 - mae: 6.1020 - val_loss: 464.5854 - val_mae: 14.4570
+Epoch 12/60
+546/546 - 10s - 18ms/step - loss: 63.1345 - mae: 6.0510 - val_loss: 474.4323 - val_mae: 14.9270
+Epoch 13/60
+546/546 - 10s - 18ms/step - loss: 59.7615 - mae: 5.8390 - val_loss: 497.0676 - val_mae: 14.9027
+  -> RMSE 23.12  MAE 17.69  score 2410  (114 features, 0 of them dead)
+[32/93] exp1 | C3_lag | FD003 | lstm | seed 1
+  removed 4 constant features: ['sensor_1', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+524/524 - 12s - 23ms/step - loss: 1582.1548 - mae: 27.4892 - val_loss: 215.3171 - val_mae: 11.0087
+Epoch 2/60
+524/524 - 10s - 19ms/step - loss: 218.2212 - mae: 11.0916 - val_loss: 255.8614 - val_mae: 11.0184
+Epoch 3/60
+524/524 - 10s - 19ms/step - loss: 138.7392 - mae: 8.9644 - val_loss: 223.3030 - val_mae: 9.3012
+Epoch 4/60
+524/524 - 10s - 18ms/step - loss: 112.1024 - mae: 8.0800 - val_loss: 215.3611 - val_mae: 9.6699
+Epoch 5/60
+524/524 - 9s - 17ms/step - loss: 103.1037 - mae: 7.7997 - val_loss: 246.3489 - val_mae: 9.8385
+Epoch 6/60
+524/524 - 9s - 18ms/step - loss: 91.7867 - mae: 7.3713 - val_loss: 278.4189 - val_mae: 11.6866
+Epoch 7/60
+524/524 - 9s - 18ms/step - loss: 83.7944 - mae: 6.9916 - val_loss: 238.0357 - val_mae: 9.6404
+Epoch 8/60
+524/524 - 9s - 17ms/step - loss: 83.4235 - mae: 6.9959 - val_loss: 262.1495 - val_mae: 9.8322
+Epoch 9/60
+524/524 - 9s - 18ms/step - loss: 76.8532 - mae: 6.7047 - val_loss: 286.2816 - val_mae: 11.3757
+Epoch 10/60
+524/524 - 9s - 17ms/step - loss: 72.7116 - mae: 6.5271 - val_loss: 277.8542 - val_mae: 11.1659
+Epoch 11/60
+524/524 - 9s - 17ms/step - loss: 70.8612 - mae: 6.4142 - val_loss: 277.6356 - val_mae: 10.8504
+  -> RMSE 20.43  MAE 15.00  score 1561  (114 features, 0 of them dead)
+[33/93] exp1 | C3_lag | FD003 | lstm | seed 2
+  removed 4 constant features: ['sensor_1', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+575/575 - 12s - 21ms/step - loss: 1402.9657 - mae: 24.8028 - val_loss: 459.1328 - val_mae: 15.2243
+Epoch 2/60
+575/575 - 10s - 17ms/step - loss: 187.9393 - mae: 10.3170 - val_loss: 476.6163 - val_mae: 15.4713
+Epoch 3/60
+575/575 - 10s - 17ms/step - loss: 125.8117 - mae: 8.6134 - val_loss: 483.5849 - val_mae: 15.1525
+Epoch 4/60
+575/575 - 10s - 17ms/step - loss: 99.0655 - mae: 7.7116 - val_loss: 486.8332 - val_mae: 15.2721
+Epoch 5/60
+575/575 - 10s - 17ms/step - loss: 92.7092 - mae: 7.4048 - val_loss: 478.0658 - val_mae: 14.9812
+Epoch 6/60
+575/575 - 10s - 17ms/step - loss: 82.7257 - mae: 7.0160 - val_loss: 458.2973 - val_mae: 15.3503
+Epoch 7/60
+575/575 - 10s - 17ms/step - loss: 82.0866 - mae: 6.9625 - val_loss: 470.4584 - val_mae: 15.3260
+Epoch 8/60
+575/575 - 10s - 17ms/step - loss: 77.6311 - mae: 6.7829 - val_loss: 492.0685 - val_mae: 15.8211
+Epoch 9/60
+575/575 - 10s - 17ms/step - loss: 73.2799 - mae: 6.5432 - val_loss: 536.6703 - val_mae: 16.1945
+Epoch 10/60
+575/575 - 10s - 17ms/step - loss: 69.3654 - mae: 6.3514 - val_loss: 535.8342 - val_mae: 16.0756
+Epoch 11/60
+575/575 - 10s - 17ms/step - loss: 69.3963 - mae: 6.3399 - val_loss: 536.6779 - val_mae: 16.2121
+Epoch 12/60
+575/575 - 10s - 17ms/step - loss: 64.0554 - mae: 6.1088 - val_loss: 591.1382 - val_mae: 16.7074
+Epoch 13/60
+575/575 - 10s - 17ms/step - loss: 62.0601 - mae: 5.9872 - val_loss: 561.6453 - val_mae: 16.4201
+Epoch 14/60
+575/575 - 10s - 17ms/step - loss: 60.4672 - mae: 5.9035 - val_loss: 565.6312 - val_mae: 16.8031
+Epoch 15/60
+575/575 - 10s - 17ms/step - loss: 54.9140 - mae: 5.6286 - val_loss: 575.3781 - val_mae: 16.7439
+Epoch 16/60
+575/575 - 10s - 17ms/step - loss: 54.4523 - mae: 5.6036 - val_loss: 545.3522 - val_mae: 15.9404
+  -> RMSE 21.25  MAE 15.98  score 1765  (114 features, 0 of them dead)
+[34/93] exp1 | C3_lag | FD004 | lstm | seed 0
+Epoch 1/60
+1343/1343 - 26s - 19ms/step - loss: 1213.0686 - mae: 23.5026 - val_loss: 689.9731 - val_mae: 19.4985
+Epoch 2/60
+1343/1343 - 23s - 17ms/step - loss: 315.6607 - mae: 13.2086 - val_loss: 678.8535 - val_mae: 18.4674
+Epoch 3/60
+1343/1343 - 23s - 17ms/step - loss: 181.2717 - mae: 10.1594 - val_loss: 743.3156 - val_mae: 19.5662
+Epoch 4/60
+1343/1343 - 23s - 17ms/step - loss: 134.9173 - mae: 8.8216 - val_loss: 748.0049 - val_mae: 19.7403
+Epoch 5/60
+1343/1343 - 23s - 17ms/step - loss: 111.0137 - mae: 8.0192 - val_loss: 764.2148 - val_mae: 19.8910
+Epoch 6/60
+1343/1343 - 23s - 17ms/step - loss: 96.9456 - mae: 7.4737 - val_loss: 800.8328 - val_mae: 20.2466
+Epoch 7/60
+1343/1343 - 23s - 17ms/step - loss: 85.6071 - mae: 7.0078 - val_loss: 822.0504 - val_mae: 21.1267
+Epoch 8/60
+1343/1343 - 23s - 17ms/step - loss: 73.2886 - mae: 6.4671 - val_loss: 821.7996 - val_mae: 21.0678
+Epoch 9/60
+1343/1343 - 23s - 17ms/step - loss: 64.7317 - mae: 6.1052 - val_loss: 829.3312 - val_mae: 21.1961
+Epoch 10/60
+1343/1343 - 23s - 17ms/step - loss: 68.4661 - mae: 6.3462 - val_loss: 818.8948 - val_mae: 21.0179
+Epoch 11/60
+1343/1343 - 23s - 17ms/step - loss: 100.3597 - mae: 7.5826 - val_loss: 860.4001 - val_mae: 21.1150
+Epoch 12/60
+1343/1343 - 23s - 17ms/step - loss: 77.0786 - mae: 6.7037 - val_loss: 854.4855 - val_mae: 21.2787
+  -> RMSE 28.49  MAE 21.43  score 14098  (121 features, 0 of them dead)
+[35/93] exp1 | C3_lag | FD004 | lstm | seed 1
+Epoch 1/60
+1350/1350 - 26s - 19ms/step - loss: 1255.3696 - mae: 24.1791 - val_loss: 479.2727 - val_mae: 15.9750
+Epoch 2/60
+1350/1350 - 23s - 17ms/step - loss: 301.2735 - mae: 13.0093 - val_loss: 434.2378 - val_mae: 14.1683
+Epoch 3/60
+1350/1350 - 23s - 17ms/step - loss: 187.8885 - mae: 10.4286 - val_loss: 440.3097 - val_mae: 14.5175
+Epoch 4/60
+1350/1350 - 23s - 17ms/step - loss: 150.6179 - mae: 9.3527 - val_loss: 462.5076 - val_mae: 14.7337
+Epoch 5/60
+1350/1350 - 23s - 17ms/step - loss: 121.9985 - mae: 8.4382 - val_loss: 466.3852 - val_mae: 14.3311
+Epoch 6/60
+1350/1350 - 23s - 17ms/step - loss: 108.8582 - mae: 7.9818 - val_loss: 446.2682 - val_mae: 14.3775
+Epoch 7/60
+1350/1350 - 23s - 17ms/step - loss: 95.2790 - mae: 7.4466 - val_loss: 511.6612 - val_mae: 15.6803
+Epoch 8/60
+1350/1350 - 23s - 17ms/step - loss: 87.7704 - mae: 7.1215 - val_loss: 485.2042 - val_mae: 14.8881
+Epoch 9/60
+1350/1350 - 23s - 17ms/step - loss: 79.1181 - mae: 6.7366 - val_loss: 511.1984 - val_mae: 15.2293
+Epoch 10/60
+1350/1350 - 23s - 17ms/step - loss: 69.1201 - mae: 6.2860 - val_loss: 532.5379 - val_mae: 15.7011
+Epoch 11/60
+1350/1350 - 23s - 17ms/step - loss: 62.7880 - mae: 6.0092 - val_loss: 499.9121 - val_mae: 15.2109
+Epoch 12/60
+1350/1350 - 23s - 17ms/step - loss: 55.7893 - mae: 5.6734 - val_loss: 488.1549 - val_mae: 15.3217
+  -> RMSE 28.91  MAE 21.87  score 12695  (121 features, 0 of them dead)
+[36/93] exp1 | C3_lag | FD004 | lstm | seed 2
+Epoch 1/60
+1360/1360 - 26s - 19ms/step - loss: 1156.8469 - mae: 22.8559 - val_loss: 577.0520 - val_mae: 17.0584
+Epoch 2/60
+1360/1360 - 23s - 17ms/step - loss: 273.6002 - mae: 12.3796 - val_loss: 568.4523 - val_mae: 16.7080
+Epoch 3/60
+1360/1360 - 23s - 17ms/step - loss: 170.2669 - mae: 9.9356 - val_loss: 580.2592 - val_mae: 16.7645
+Epoch 4/60
+1360/1360 - 23s - 17ms/step - loss: 131.3946 - mae: 8.7667 - val_loss: 609.4490 - val_mae: 17.7909
+Epoch 5/60
+1360/1360 - 24s - 17ms/step - loss: 113.3045 - mae: 8.1328 - val_loss: 615.0676 - val_mae: 17.4329
+Epoch 6/60
+1360/1360 - 23s - 17ms/step - loss: 98.8794 - mae: 7.5870 - val_loss: 653.6743 - val_mae: 18.1581
+Epoch 7/60
+1360/1360 - 23s - 17ms/step - loss: 89.0778 - mae: 7.1660 - val_loss: 652.1616 - val_mae: 18.7460
+Epoch 8/60
+1360/1360 - 23s - 17ms/step - loss: 79.1538 - mae: 6.7399 - val_loss: 664.6213 - val_mae: 18.1457
+Epoch 9/60
+1360/1360 - 23s - 17ms/step - loss: 70.9359 - mae: 6.3720 - val_loss: 642.2827 - val_mae: 18.2499
+Epoch 10/60
+1360/1360 - 23s - 17ms/step - loss: 59.9596 - mae: 5.8842 - val_loss: 669.6284 - val_mae: 18.0883
+Epoch 11/60
+1360/1360 - 23s - 17ms/step - loss: 51.2978 - mae: 5.4612 - val_loss: 667.5269 - val_mae: 17.7416
+Epoch 12/60
+1360/1360 - 24s - 18ms/step - loss: 46.0033 - mae: 5.2250 - val_loss: 682.9545 - val_mae: 18.0620
+  -> RMSE 29.34  MAE 22.02  score 21698  (121 features, 0 of them dead)
+[37/93] exp1 | C4_trend | FD001 | lstm | seed 0
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+439/439 - 10s - 23ms/step - loss: 1564.9059 - mae: 26.9970 - val_loss: 222.9192 - val_mae: 11.5750
+Epoch 2/60
+439/439 - 8s - 18ms/step - loss: 146.9362 - mae: 9.0695 - val_loss: 217.3357 - val_mae: 10.5894
+Epoch 3/60
+439/439 - 8s - 18ms/step - loss: 100.3831 - mae: 7.5755 - val_loss: 208.0426 - val_mae: 10.1733
+Epoch 4/60
+439/439 - 8s - 17ms/step - loss: 82.9864 - mae: 6.9197 - val_loss: 195.8545 - val_mae: 9.6115
+Epoch 5/60
+439/439 - 7s - 17ms/step - loss: 76.2728 - mae: 6.5794 - val_loss: 200.4622 - val_mae: 9.7324
+Epoch 6/60
+439/439 - 8s - 17ms/step - loss: 71.9033 - mae: 6.4107 - val_loss: 207.5358 - val_mae: 10.4414
+Epoch 7/60
+439/439 - 8s - 18ms/step - loss: 68.2798 - mae: 6.2009 - val_loss: 205.7211 - val_mae: 10.3145
+Epoch 8/60
+439/439 - 7s - 17ms/step - loss: 66.6567 - mae: 6.1104 - val_loss: 233.3733 - val_mae: 10.6838
+Epoch 9/60
+439/439 - 7s - 17ms/step - loss: 64.1398 - mae: 5.9832 - val_loss: 207.0768 - val_mae: 9.9249
+Epoch 10/60
+439/439 - 7s - 17ms/step - loss: 64.1604 - mae: 5.9668 - val_loss: 226.6243 - val_mae: 10.3994
+Epoch 11/60
+439/439 - 8s - 18ms/step - loss: 59.9107 - mae: 5.7267 - val_loss: 224.4286 - val_mae: 10.1812
+Epoch 12/60
+439/439 - 7s - 17ms/step - loss: 57.9460 - mae: 5.6528 - val_loss: 220.3166 - val_mae: 10.4630
+Epoch 13/60
+439/439 - 7s - 17ms/step - loss: 53.8422 - mae: 5.4511 - val_loss: 250.6716 - val_mae: 11.1621
+Epoch 14/60
+439/439 - 7s - 17ms/step - loss: 54.1846 - mae: 5.4460 - val_loss: 237.8432 - val_mae: 10.5684
+  -> RMSE 17.41  MAE 13.22  score 608  (122 features, 0 of them dead)
+[38/93] exp1 | C4_trend | FD001 | lstm | seed 1
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+441/441 - 10s - 23ms/step - loss: 1519.4126 - mae: 26.2324 - val_loss: 333.1004 - val_mae: 13.8732
+Epoch 2/60
+441/441 - 8s - 17ms/step - loss: 128.5317 - mae: 8.5149 - val_loss: 293.3708 - val_mae: 11.8680
+Epoch 3/60
+441/441 - 8s - 17ms/step - loss: 89.0951 - mae: 7.1246 - val_loss: 304.5724 - val_mae: 12.7086
+Epoch 4/60
+441/441 - 8s - 18ms/step - loss: 78.0920 - mae: 6.6946 - val_loss: 285.1022 - val_mae: 11.6758
+Epoch 5/60
+441/441 - 8s - 17ms/step - loss: 73.7021 - mae: 6.4877 - val_loss: 345.7470 - val_mae: 13.8705
+Epoch 6/60
+441/441 - 7s - 17ms/step - loss: 67.9699 - mae: 6.2162 - val_loss: 308.5793 - val_mae: 12.4713
+Epoch 7/60
+441/441 - 7s - 17ms/step - loss: 66.5859 - mae: 6.1385 - val_loss: 300.4457 - val_mae: 11.9918
+Epoch 8/60
+441/441 - 8s - 18ms/step - loss: 64.0607 - mae: 5.9784 - val_loss: 317.4003 - val_mae: 12.6501
+Epoch 9/60
+441/441 - 8s - 17ms/step - loss: 63.3200 - mae: 5.9536 - val_loss: 313.6563 - val_mae: 12.6549
+Epoch 10/60
+441/441 - 8s - 17ms/step - loss: 60.7788 - mae: 5.8257 - val_loss: 321.1154 - val_mae: 13.2639
+Epoch 11/60
+441/441 - 8s - 17ms/step - loss: 60.3518 - mae: 5.7847 - val_loss: 301.9969 - val_mae: 12.3778
+Epoch 12/60
+441/441 - 8s - 18ms/step - loss: 57.1460 - mae: 5.6258 - val_loss: 291.3152 - val_mae: 12.0704
+Epoch 13/60
+441/441 - 8s - 17ms/step - loss: 55.9781 - mae: 5.5407 - val_loss: 310.3363 - val_mae: 12.4055
+Epoch 14/60
+441/441 - 8s - 17ms/step - loss: 54.7142 - mae: 5.4549 - val_loss: 314.9613 - val_mae: 12.7756
+  -> RMSE 17.67  MAE 13.15  score 931  (122 features, 0 of them dead)
+[39/93] exp1 | C4_trend | FD001 | lstm | seed 2
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+450/450 - 10s - 23ms/step - loss: 1361.7715 - mae: 24.6480 - val_loss: 224.4967 - val_mae: 11.0713
+Epoch 2/60
+450/450 - 8s - 17ms/step - loss: 131.1201 - mae: 8.6341 - val_loss: 261.8895 - val_mae: 11.1263
+Epoch 3/60
+450/450 - 8s - 17ms/step - loss: 91.8857 - mae: 7.2904 - val_loss: 290.5681 - val_mae: 11.9130
+Epoch 4/60
+450/450 - 8s - 17ms/step - loss: 77.6594 - mae: 6.7059 - val_loss: 281.7097 - val_mae: 11.7699
+Epoch 5/60
+450/450 - 8s - 17ms/step - loss: 74.9077 - mae: 6.5384 - val_loss: 259.9384 - val_mae: 11.1878
+Epoch 6/60
+450/450 - 8s - 17ms/step - loss: 72.4218 - mae: 6.4138 - val_loss: 299.9076 - val_mae: 11.8492
+Epoch 7/60
+450/450 - 8s - 17ms/step - loss: 67.8635 - mae: 6.1829 - val_loss: 292.0233 - val_mae: 11.8101
+Epoch 8/60
+450/450 - 8s - 17ms/step - loss: 67.0703 - mae: 6.1557 - val_loss: 279.9170 - val_mae: 11.8843
+Epoch 9/60
+450/450 - 8s - 17ms/step - loss: 63.4209 - mae: 5.9838 - val_loss: 303.7611 - val_mae: 12.0904
+Epoch 10/60
+450/450 - 8s - 17ms/step - loss: 62.3156 - mae: 5.9067 - val_loss: 297.3456 - val_mae: 11.8638
+Epoch 11/60
+450/450 - 8s - 17ms/step - loss: 61.8287 - mae: 5.8445 - val_loss: 368.6175 - val_mae: 13.1176
+  -> RMSE 15.85  MAE 11.35  score 434  (122 features, 0 of them dead)
+[40/93] exp1 | C4_trend | FD002 | lstm | seed 0
+Epoch 1/60
+1145/1145 - 23s - 20ms/step - loss: 1055.0164 - mae: 21.3251 - val_loss: 448.2143 - val_mae: 14.9995
+Epoch 2/60
+1145/1145 - 20s - 18ms/step - loss: 179.3314 - mae: 9.9219 - val_loss: 482.0949 - val_mae: 15.2807
+Epoch 3/60
+1145/1145 - 20s - 17ms/step - loss: 118.0802 - mae: 8.1004 - val_loss: 496.8546 - val_mae: 15.9935
+Epoch 4/60
+1145/1145 - 20s - 17ms/step - loss: 97.9171 - mae: 7.3698 - val_loss: 529.7438 - val_mae: 16.9003
+Epoch 5/60
+1145/1145 - 20s - 17ms/step - loss: 87.3296 - mae: 6.9327 - val_loss: 488.3159 - val_mae: 15.9136
+Epoch 6/60
+1145/1145 - 20s - 18ms/step - loss: 78.4818 - mae: 6.5333 - val_loss: 513.3556 - val_mae: 16.6937
+Epoch 7/60
+1145/1145 - 20s - 17ms/step - loss: 71.2411 - mae: 6.2105 - val_loss: 496.3867 - val_mae: 15.7626
+Epoch 8/60
+1145/1145 - 20s - 17ms/step - loss: 64.4333 - mae: 5.8739 - val_loss: 562.0957 - val_mae: 17.3529
+Epoch 9/60
+1145/1145 - 20s - 17ms/step - loss: 58.2633 - mae: 5.5797 - val_loss: 555.3211 - val_mae: 16.8053
+Epoch 10/60
+1145/1145 - 20s - 17ms/step - loss: 53.4854 - mae: 5.4640 - val_loss: 566.5702 - val_mae: 17.7024
+Epoch 11/60
+1145/1145 - 20s - 17ms/step - loss: 80.1187 - mae: 6.7149 - val_loss: 589.8461 - val_mae: 17.5116
+  -> RMSE 25.35  MAE 17.40  score 7581  (138 features, 0 of them dead)
+[41/93] exp1 | C4_trend | FD002 | lstm | seed 1
+Epoch 1/60
+1176/1176 - 23s - 20ms/step - loss: 1027.6117 - mae: 20.7449 - val_loss: 526.8884 - val_mae: 16.9855
+Epoch 2/60
+1176/1176 - 20s - 17ms/step - loss: 168.6476 - mae: 9.6197 - val_loss: 617.2756 - val_mae: 18.4700
+Epoch 3/60
+1176/1176 - 20s - 17ms/step - loss: 114.3240 - mae: 8.0006 - val_loss: 590.8445 - val_mae: 18.2896
+Epoch 4/60
+1176/1176 - 20s - 17ms/step - loss: 95.6947 - mae: 7.3128 - val_loss: 636.3574 - val_mae: 18.5381
+Epoch 5/60
+1176/1176 - 20s - 17ms/step - loss: 85.7640 - mae: 6.8756 - val_loss: 636.4606 - val_mae: 18.6701
+Epoch 6/60
+1176/1176 - 20s - 17ms/step - loss: 85.0039 - mae: 6.7981 - val_loss: 650.9999 - val_mae: 18.9357
+Epoch 7/60
+1176/1176 - 20s - 17ms/step - loss: 74.4680 - mae: 6.3577 - val_loss: 559.6639 - val_mae: 17.8467
+Epoch 8/60
+1176/1176 - 20s - 17ms/step - loss: 68.7078 - mae: 6.0936 - val_loss: 589.8125 - val_mae: 18.2651
+Epoch 9/60
+1176/1176 - 20s - 17ms/step - loss: 62.3630 - mae: 5.8024 - val_loss: 626.9429 - val_mae: 18.6639
+Epoch 10/60
+1176/1176 - 20s - 17ms/step - loss: 57.7193 - mae: 5.5360 - val_loss: 657.9080 - val_mae: 18.5253
+Epoch 11/60
+1176/1176 - 20s - 17ms/step - loss: 53.3259 - mae: 5.3510 - val_loss: 568.5516 - val_mae: 17.8654
+  -> RMSE 26.85  MAE 18.65  score 9080  (138 features, 0 of them dead)
+[42/93] exp1 | C4_trend | FD002 | lstm | seed 2
+Epoch 1/60
+1161/1161 - 23s - 19ms/step - loss: 1031.5092 - mae: 21.3137 - val_loss: 420.2071 - val_mae: 15.1591
+Epoch 2/60
+1161/1161 - 20s - 17ms/step - loss: 208.9028 - mae: 10.6911 - val_loss: 464.3821 - val_mae: 15.4557
+Epoch 3/60
+1161/1161 - 20s - 17ms/step - loss: 126.8487 - mae: 8.4415 - val_loss: 471.5924 - val_mae: 15.4572
+Epoch 4/60
+1161/1161 - 20s - 17ms/step - loss: 103.3699 - mae: 7.6083 - val_loss: 496.6898 - val_mae: 16.0603
+Epoch 5/60
+1161/1161 - 20s - 17ms/step - loss: 90.2340 - mae: 7.0537 - val_loss: 508.2404 - val_mae: 15.7843
+Epoch 6/60
+1161/1161 - 20s - 17ms/step - loss: 86.5275 - mae: 6.8991 - val_loss: 488.7230 - val_mae: 15.7197
+Epoch 7/60
+1161/1161 - 20s - 18ms/step - loss: 76.0863 - mae: 6.4497 - val_loss: 488.0035 - val_mae: 16.1297
+Epoch 8/60
+1161/1161 - 20s - 17ms/step - loss: 69.6222 - mae: 6.1337 - val_loss: 507.8630 - val_mae: 16.1708
+Epoch 9/60
+1161/1161 - 21s - 18ms/step - loss: 62.4017 - mae: 5.8201 - val_loss: 495.7914 - val_mae: 15.9543
+Epoch 10/60
+1161/1161 - 20s - 18ms/step - loss: 55.9177 - mae: 5.4861 - val_loss: 530.2637 - val_mae: 16.5977
+Epoch 11/60
+1161/1161 - 20s - 17ms/step - loss: 49.5141 - mae: 5.1799 - val_loss: 523.4600 - val_mae: 16.4172
+  -> RMSE 25.91  MAE 18.03  score 6506  (138 features, 0 of them dead)
+[43/93] exp1 | C4_trend | FD003 | lstm | seed 0
+  removed 4 constant features: ['sensor_1', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+546/546 - 12s - 22ms/step - loss: 1400.8887 - mae: 24.3601 - val_loss: 354.1996 - val_mae: 12.1491
+Epoch 2/60
+546/546 - 10s - 18ms/step - loss: 139.3076 - mae: 8.8978 - val_loss: 299.2841 - val_mae: 11.0086
+Epoch 3/60
+546/546 - 10s - 18ms/step - loss: 94.6576 - mae: 7.4509 - val_loss: 300.8930 - val_mae: 11.2996
+Epoch 4/60
+546/546 - 9s - 17ms/step - loss: 85.2005 - mae: 7.0808 - val_loss: 298.6365 - val_mae: 10.7015
+Epoch 5/60
+546/546 - 9s - 17ms/step - loss: 80.6329 - mae: 6.8828 - val_loss: 297.0261 - val_mae: 10.8918
+Epoch 6/60
+546/546 - 9s - 17ms/step - loss: 76.4373 - mae: 6.6630 - val_loss: 311.0033 - val_mae: 11.5247
+Epoch 7/60
+546/546 - 9s - 17ms/step - loss: 72.1622 - mae: 6.4659 - val_loss: 345.8850 - val_mae: 11.7709
+Epoch 8/60
+546/546 - 9s - 17ms/step - loss: 70.3185 - mae: 6.3788 - val_loss: 278.5873 - val_mae: 10.8181
+Epoch 9/60
+546/546 - 10s - 18ms/step - loss: 68.6952 - mae: 6.2947 - val_loss: 294.2628 - val_mae: 10.9728
+Epoch 10/60
+546/546 - 10s - 18ms/step - loss: 65.4641 - mae: 6.1200 - val_loss: 324.2125 - val_mae: 11.5266
+Epoch 11/60
+546/546 - 9s - 17ms/step - loss: 62.0845 - mae: 5.9576 - val_loss: 299.1156 - val_mae: 11.0805
+Epoch 12/60
+546/546 - 9s - 17ms/step - loss: 59.6283 - mae: 5.8267 - val_loss: 330.4880 - val_mae: 11.7654
+Epoch 13/60
+546/546 - 10s - 18ms/step - loss: 58.5048 - mae: 5.7319 - val_loss: 301.5048 - val_mae: 10.8961
+Epoch 14/60
+546/546 - 9s - 17ms/step - loss: 55.0712 - mae: 5.5940 - val_loss: 338.0964 - val_mae: 11.8604
+Epoch 15/60
+546/546 - 9s - 17ms/step - loss: 51.9596 - mae: 5.4253 - val_loss: 319.8431 - val_mae: 11.3520
+Epoch 16/60
+546/546 - 10s - 18ms/step - loss: 50.1914 - mae: 5.3011 - val_loss: 327.6911 - val_mae: 11.5659
+Epoch 17/60
+546/546 - 9s - 17ms/step - loss: 46.7933 - mae: 5.1301 - val_loss: 329.0291 - val_mae: 11.6434
+Epoch 18/60
+546/546 - 9s - 17ms/step - loss: 44.4373 - mae: 4.9756 - val_loss: 326.4438 - val_mae: 11.4071
+  -> RMSE 17.45  MAE 12.35  score 1044  (130 features, 0 of them dead)
+[44/93] exp1 | C4_trend | FD003 | lstm | seed 1
+  removed 4 constant features: ['sensor_1', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+524/524 - 12s - 23ms/step - loss: 1599.2838 - mae: 27.0664 - val_loss: 183.4674 - val_mae: 10.0519
+Epoch 2/60
+524/524 - 9s - 18ms/step - loss: 148.1178 - mae: 9.1733 - val_loss: 166.2305 - val_mae: 8.7935
+Epoch 3/60
+524/524 - 9s - 18ms/step - loss: 102.7275 - mae: 7.7301 - val_loss: 151.8904 - val_mae: 7.5879
+Epoch 4/60
+524/524 - 9s - 17ms/step - loss: 90.7824 - mae: 7.2473 - val_loss: 149.2833 - val_mae: 7.9033
+Epoch 5/60
+524/524 - 9s - 17ms/step - loss: 82.2136 - mae: 6.9511 - val_loss: 172.9406 - val_mae: 7.9619
+Epoch 6/60
+524/524 - 9s - 17ms/step - loss: 78.0977 - mae: 6.7475 - val_loss: 197.4295 - val_mae: 9.1765
+Epoch 7/60
+524/524 - 9s - 18ms/step - loss: 74.3805 - mae: 6.5427 - val_loss: 157.2357 - val_mae: 7.3495
+Epoch 8/60
+524/524 - 9s - 17ms/step - loss: 72.6672 - mae: 6.4367 - val_loss: 177.9844 - val_mae: 7.9729
+Epoch 9/60
+524/524 - 9s - 17ms/step - loss: 71.0261 - mae: 6.3991 - val_loss: 201.1713 - val_mae: 9.3472
+Epoch 10/60
+524/524 - 9s - 18ms/step - loss: 68.2558 - mae: 6.2744 - val_loss: 211.7921 - val_mae: 9.9474
+Epoch 11/60
+524/524 - 9s - 17ms/step - loss: 64.7241 - mae: 6.0420 - val_loss: 164.4249 - val_mae: 7.5310
+Epoch 12/60
+524/524 - 9s - 17ms/step - loss: 61.5521 - mae: 5.8849 - val_loss: 170.0988 - val_mae: 7.7471
+Epoch 13/60
+524/524 - 9s - 17ms/step - loss: 61.4247 - mae: 5.9007 - val_loss: 188.9973 - val_mae: 7.9302
+Epoch 14/60
+524/524 - 9s - 18ms/step - loss: 60.1898 - mae: 5.8088 - val_loss: 182.9498 - val_mae: 7.8376
+  -> RMSE 15.99  MAE 11.71  score 616  (130 features, 0 of them dead)
+[45/93] exp1 | C4_trend | FD003 | lstm | seed 2
+  removed 4 constant features: ['sensor_1', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+575/575 - 12s - 21ms/step - loss: 1364.9178 - mae: 23.8416 - val_loss: 321.9728 - val_mae: 12.4836
+Epoch 2/60
+575/575 - 10s - 17ms/step - loss: 140.8387 - mae: 9.0321 - val_loss: 278.7672 - val_mae: 11.2440
+Epoch 3/60
+575/575 - 10s - 17ms/step - loss: 96.9243 - mae: 7.6065 - val_loss: 317.8828 - val_mae: 11.9038
+Epoch 4/60
+575/575 - 10s - 17ms/step - loss: 85.0257 - mae: 7.1125 - val_loss: 315.1414 - val_mae: 12.1329
+Epoch 5/60
+575/575 - 10s - 17ms/step - loss: 81.2563 - mae: 6.9413 - val_loss: 306.1497 - val_mae: 12.2131
+Epoch 6/60
+575/575 - 10s - 17ms/step - loss: 76.5147 - mae: 6.7074 - val_loss: 285.4491 - val_mae: 11.7740
+Epoch 7/60
+575/575 - 10s - 17ms/step - loss: 73.0535 - mae: 6.5320 - val_loss: 280.8867 - val_mae: 12.3309
+Epoch 8/60
+575/575 - 10s - 17ms/step - loss: 72.9898 - mae: 6.5252 - val_loss: 291.7181 - val_mae: 12.2295
+Epoch 9/60
+575/575 - 10s - 17ms/step - loss: 70.2844 - mae: 6.3594 - val_loss: 363.1647 - val_mae: 12.9106
+Epoch 10/60
+575/575 - 10s - 17ms/step - loss: 65.5992 - mae: 6.1111 - val_loss: 326.7401 - val_mae: 12.5002
+Epoch 11/60
+575/575 - 10s - 17ms/step - loss: 63.0746 - mae: 6.0043 - val_loss: 358.2840 - val_mae: 12.8450
+Epoch 12/60
+575/575 - 10s - 17ms/step - loss: 60.1859 - mae: 5.8579 - val_loss: 372.2191 - val_mae: 13.2555
+  -> RMSE 16.40  MAE 11.86  score 829  (130 features, 0 of them dead)
+[46/93] exp1 | C4_trend | FD004 | lstm | seed 0
+Epoch 1/60
+1343/1343 - 26s - 19ms/step - loss: 1099.0513 - mae: 21.3068 - val_loss: 553.6727 - val_mae: 16.4946
+Epoch 2/60
+1343/1343 - 23s - 17ms/step - loss: 186.6608 - mae: 10.1904 - val_loss: 545.9492 - val_mae: 15.8339
+Epoch 3/60
+1343/1343 - 23s - 17ms/step - loss: 132.0164 - mae: 8.7026 - val_loss: 606.4070 - val_mae: 17.2758
+Epoch 4/60
+1343/1343 - 23s - 17ms/step - loss: 109.3235 - mae: 7.9115 - val_loss: 599.5901 - val_mae: 17.4071
+Epoch 5/60
+1343/1343 - 24s - 18ms/step - loss: 96.0199 - mae: 7.4048 - val_loss: 621.9364 - val_mae: 17.3777
+Epoch 6/60
+1343/1343 - 23s - 17ms/step - loss: 86.9012 - mae: 7.0368 - val_loss: 632.0152 - val_mae: 17.0640
+Epoch 7/60
+1343/1343 - 23s - 17ms/step - loss: 76.2187 - mae: 6.5500 - val_loss: 640.6187 - val_mae: 18.1908
+Epoch 8/60
+1343/1343 - 23s - 17ms/step - loss: 65.0139 - mae: 6.0384 - val_loss: 613.2886 - val_mae: 17.5395
+Epoch 9/60
+1343/1343 - 23s - 17ms/step - loss: 55.7387 - mae: 5.6511 - val_loss: 667.0213 - val_mae: 18.4279
+Epoch 10/60
+1343/1343 - 23s - 17ms/step - loss: 58.0806 - mae: 5.6512 - val_loss: 658.1702 - val_mae: 18.2443
+Epoch 11/60
+1343/1343 - 23s - 17ms/step - loss: 53.4844 - mae: 5.6112 - val_loss: 621.4985 - val_mae: 18.3496
+Epoch 12/60
+1343/1343 - 23s - 17ms/step - loss: 110.2610 - mae: 7.6816 - val_loss: 644.7164 - val_mae: 18.0498
+  -> RMSE 26.39  MAE 19.27  score 11654  (138 features, 0 of them dead)
+[47/93] exp1 | C4_trend | FD004 | lstm | seed 1
+Epoch 1/60
+1350/1350 - 26s - 19ms/step - loss: 1198.2175 - mae: 23.0135 - val_loss: 358.5345 - val_mae: 13.3198
+Epoch 2/60
+1350/1350 - 23s - 17ms/step - loss: 222.4339 - mae: 11.1237 - val_loss: 375.9947 - val_mae: 13.4106
+Epoch 3/60
+1350/1350 - 23s - 17ms/step - loss: 141.6857 - mae: 9.0242 - val_loss: 379.3013 - val_mae: 13.6172
+Epoch 4/60
+1350/1350 - 23s - 17ms/step - loss: 117.6146 - mae: 8.2215 - val_loss: 380.1971 - val_mae: 12.8587
+Epoch 5/60
+1350/1350 - 25s - 19ms/step - loss: 103.2836 - mae: 7.6926 - val_loss: 371.6095 - val_mae: 13.2595
+Epoch 6/60
+1350/1350 - 24s - 18ms/step - loss: 94.4525 - mae: 7.3459 - val_loss: 372.9493 - val_mae: 13.2889
+Epoch 7/60
+1350/1350 - 24s - 18ms/step - loss: 84.0789 - mae: 6.9265 - val_loss: 389.8303 - val_mae: 13.5238
+Epoch 8/60
+1350/1350 - 23s - 17ms/step - loss: 75.9550 - mae: 6.5525 - val_loss: 371.0049 - val_mae: 13.4519
+Epoch 9/60
+1350/1350 - 23s - 17ms/step - loss: 69.2959 - mae: 6.2502 - val_loss: 393.9628 - val_mae: 13.4917
+Epoch 10/60
+1350/1350 - 23s - 17ms/step - loss: 61.7713 - mae: 5.9054 - val_loss: 385.9463 - val_mae: 13.3510
+Epoch 11/60
+1350/1350 - 23s - 17ms/step - loss: 55.5408 - mae: 5.6213 - val_loss: 421.2688 - val_mae: 13.8978
+  -> RMSE 27.09  MAE 20.31  score 7805  (138 features, 0 of them dead)
+[48/93] exp1 | C4_trend | FD004 | lstm | seed 2
+Epoch 1/60
+1360/1360 - 26s - 19ms/step - loss: 1108.8802 - mae: 21.8059 - val_loss: 551.8134 - val_mae: 16.1365
+Epoch 2/60
+1360/1360 - 24s - 17ms/step - loss: 193.9415 - mae: 10.4242 - val_loss: 456.3094 - val_mae: 14.4595
+Epoch 3/60
+1360/1360 - 24s - 17ms/step - loss: 129.8968 - mae: 8.6604 - val_loss: 452.3043 - val_mae: 14.2482
+Epoch 4/60
+1360/1360 - 24s - 17ms/step - loss: 109.9129 - mae: 7.9695 - val_loss: 479.6300 - val_mae: 14.8897
+Epoch 5/60
+1360/1360 - 24s - 18ms/step - loss: 96.5843 - mae: 7.4639 - val_loss: 482.2622 - val_mae: 15.1203
+Epoch 6/60
+1360/1360 - 23s - 17ms/step - loss: 88.4061 - mae: 7.0865 - val_loss: 457.5525 - val_mae: 14.4596
+Epoch 7/60
+1360/1360 - 24s - 17ms/step - loss: 77.9031 - mae: 6.6122 - val_loss: 490.6839 - val_mae: 15.3080
+Epoch 8/60
+1360/1360 - 23s - 17ms/step - loss: 68.5629 - mae: 6.1942 - val_loss: 502.7362 - val_mae: 14.9724
+Epoch 9/60
+1360/1360 - 24s - 17ms/step - loss: 59.7961 - mae: 5.8125 - val_loss: 543.2281 - val_mae: 15.5232
+Epoch 10/60
+1360/1360 - 24s - 17ms/step - loss: 51.8772 - mae: 5.4434 - val_loss: 551.7725 - val_mae: 15.4400
+Epoch 11/60
+1360/1360 - 24s - 17ms/step - loss: 45.5667 - mae: 5.1483 - val_loss: 576.2653 - val_mae: 16.0031
+Epoch 12/60
+1360/1360 - 24s - 17ms/step - loss: 112.0803 - mae: 7.3750 - val_loss: 553.7485 - val_mae: 16.1253
+Epoch 13/60
+1360/1360 - 23s - 17ms/step - loss: 85.5190 - mae: 7.0041 - val_loss: 600.2480 - val_mae: 16.5359
+  -> RMSE 25.29  MAE 19.01  score 6368  (138 features, 0 of them dead)
+[49/93] exp1 | C5_agg | FD001 | lstm | seed 0
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+439/439 - 10s - 22ms/step - loss: 1584.6378 - mae: 27.1959 - val_loss: 203.3527 - val_mae: 10.9273
+Epoch 2/60
+439/439 - 7s - 17ms/step - loss: 148.0583 - mae: 9.0645 - val_loss: 200.2515 - val_mae: 10.1300
+Epoch 3/60
+439/439 - 7s - 17ms/step - loss: 98.0492 - mae: 7.4076 - val_loss: 199.0715 - val_mae: 10.2283
+Epoch 4/60
+439/439 - 8s - 17ms/step - loss: 81.1779 - mae: 6.8141 - val_loss: 206.0767 - val_mae: 10.2147
+Epoch 5/60
+439/439 - 7s - 17ms/step - loss: 75.4119 - mae: 6.5299 - val_loss: 188.5074 - val_mae: 9.5152
+Epoch 6/60
+439/439 - 7s - 17ms/step - loss: 70.1204 - mae: 6.3143 - val_loss: 182.5260 - val_mae: 9.7887
+Epoch 7/60
+439/439 - 7s - 17ms/step - loss: 69.5845 - mae: 6.2390 - val_loss: 211.7364 - val_mae: 10.4970
+Epoch 8/60
+439/439 - 7s - 17ms/step - loss: 66.4744 - mae: 6.0987 - val_loss: 199.1503 - val_mae: 10.1813
+Epoch 9/60
+439/439 - 7s - 17ms/step - loss: 63.4850 - mae: 5.9324 - val_loss: 187.2379 - val_mae: 9.4783
+Epoch 10/60
+439/439 - 7s - 17ms/step - loss: 62.2155 - mae: 5.8734 - val_loss: 203.0424 - val_mae: 9.9588
+Epoch 11/60
+439/439 - 7s - 17ms/step - loss: 58.9326 - mae: 5.7016 - val_loss: 208.4525 - val_mae: 9.9602
+Epoch 12/60
+439/439 - 8s - 17ms/step - loss: 57.7422 - mae: 5.6395 - val_loss: 199.0499 - val_mae: 9.8881
+Epoch 13/60
+439/439 - 7s - 17ms/step - loss: 53.8787 - mae: 5.4453 - val_loss: 212.4248 - val_mae: 9.8621
+Epoch 14/60
+439/439 - 7s - 17ms/step - loss: 54.0626 - mae: 5.4264 - val_loss: 197.4478 - val_mae: 9.5792
+Epoch 15/60
+439/439 - 7s - 17ms/step - loss: 50.6457 - mae: 5.2776 - val_loss: 214.4675 - val_mae: 10.0566
+Epoch 16/60
+439/439 - 7s - 17ms/step - loss: 50.7257 - mae: 5.2544 - val_loss: 211.4595 - val_mae: 10.1091
+  -> RMSE 18.24  MAE 14.05  score 913  (126 features, 0 of them dead)
+[50/93] exp1 | C5_agg | FD001 | lstm | seed 1
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+441/441 - 10s - 22ms/step - loss: 1544.7692 - mae: 26.5303 - val_loss: 307.9741 - val_mae: 13.7054
+Epoch 2/60
+441/441 - 7s - 17ms/step - loss: 141.7477 - mae: 8.8791 - val_loss: 276.5682 - val_mae: 11.6109
+Epoch 3/60
+441/441 - 8s - 17ms/step - loss: 96.1162 - mae: 7.3383 - val_loss: 277.4847 - val_mae: 12.3492
+Epoch 4/60
+441/441 - 7s - 17ms/step - loss: 83.7086 - mae: 6.8934 - val_loss: 266.2593 - val_mae: 11.5221
+Epoch 5/60
+441/441 - 7s - 17ms/step - loss: 76.4395 - mae: 6.5790 - val_loss: 287.6435 - val_mae: 12.6614
+Epoch 6/60
+441/441 - 7s - 17ms/step - loss: 70.7193 - mae: 6.3174 - val_loss: 267.3004 - val_mae: 11.4495
+Epoch 7/60
+441/441 - 7s - 17ms/step - loss: 67.7375 - mae: 6.1915 - val_loss: 257.7538 - val_mae: 11.2079
+Epoch 8/60
+441/441 - 8s - 17ms/step - loss: 66.1708 - mae: 6.0568 - val_loss: 276.2184 - val_mae: 11.5785
+Epoch 9/60
+441/441 - 7s - 17ms/step - loss: 64.6988 - mae: 5.9882 - val_loss: 272.3737 - val_mae: 11.8854
+Epoch 10/60
+441/441 - 7s - 17ms/step - loss: 62.2891 - mae: 5.8633 - val_loss: 273.1761 - val_mae: 12.4072
+Epoch 11/60
+441/441 - 8s - 17ms/step - loss: 61.1664 - mae: 5.8324 - val_loss: 273.4899 - val_mae: 12.2957
+Epoch 12/60
+441/441 - 7s - 17ms/step - loss: 57.7343 - mae: 5.6531 - val_loss: 270.4241 - val_mae: 11.5785
+Epoch 13/60
+441/441 - 8s - 17ms/step - loss: 57.7629 - mae: 5.6187 - val_loss: 288.0831 - val_mae: 12.2076
+Epoch 14/60
+441/441 - 7s - 17ms/step - loss: 55.2810 - mae: 5.4860 - val_loss: 288.3385 - val_mae: 12.0370
+Epoch 15/60
+441/441 - 7s - 17ms/step - loss: 55.2218 - mae: 5.4424 - val_loss: 294.1768 - val_mae: 12.3903
+Epoch 16/60
+441/441 - 8s - 17ms/step - loss: 52.5021 - mae: 5.3195 - val_loss: 302.1982 - val_mae: 12.1561
+Epoch 17/60
+441/441 - 7s - 17ms/step - loss: 50.4038 - mae: 5.1997 - val_loss: 273.1979 - val_mae: 11.4395
+  -> RMSE 18.51  MAE 13.94  score 933  (126 features, 0 of them dead)
+[51/93] exp1 | C5_agg | FD001 | lstm | seed 2
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+450/450 - 10s - 23ms/step - loss: 1420.0421 - mae: 25.9264 - val_loss: 257.8840 - val_mae: 11.8265
+Epoch 2/60
+450/450 - 9s - 19ms/step - loss: 184.3337 - mae: 10.1508 - val_loss: 239.8001 - val_mae: 10.8486
+Epoch 3/60
+450/450 - 8s - 17ms/step - loss: 125.3015 - mae: 8.4545 - val_loss: 265.8324 - val_mae: 11.4379
+Epoch 4/60
+450/450 - 8s - 17ms/step - loss: 94.8399 - mae: 7.3914 - val_loss: 290.6595 - val_mae: 12.3328
+Epoch 5/60
+450/450 - 8s - 17ms/step - loss: 84.6960 - mae: 6.9683 - val_loss: 289.3623 - val_mae: 11.8618
+Epoch 6/60
+450/450 - 8s - 17ms/step - loss: 78.1323 - mae: 6.6926 - val_loss: 273.3320 - val_mae: 11.2948
+Epoch 7/60
+450/450 - 8s - 17ms/step - loss: 74.1310 - mae: 6.5109 - val_loss: 301.2877 - val_mae: 11.9239
+Epoch 8/60
+450/450 - 8s - 17ms/step - loss: 69.9514 - mae: 6.2816 - val_loss: 261.4446 - val_mae: 11.6536
+Epoch 9/60
+450/450 - 8s - 17ms/step - loss: 67.4853 - mae: 6.1717 - val_loss: 281.2728 - val_mae: 11.6049
+Epoch 10/60
+450/450 - 8s - 17ms/step - loss: 65.8284 - mae: 6.1054 - val_loss: 285.1200 - val_mae: 12.0417
+Epoch 11/60
+450/450 - 8s - 17ms/step - loss: 65.4039 - mae: 6.0276 - val_loss: 336.2303 - val_mae: 12.7926
+Epoch 12/60
+450/450 - 8s - 17ms/step - loss: 61.5355 - mae: 5.8400 - val_loss: 274.7229 - val_mae: 11.5287
+  -> RMSE 16.93  MAE 12.20  score 716  (126 features, 0 of them dead)
+[52/93] exp1 | C5_agg | FD002 | lstm | seed 0
+Epoch 1/60
+1145/1145 - 22s - 19ms/step - loss: 1095.7560 - mae: 21.8027 - val_loss: 415.0322 - val_mae: 14.5217
+Epoch 2/60
+1145/1145 - 20s - 17ms/step - loss: 194.1229 - mae: 10.3106 - val_loss: 452.0600 - val_mae: 15.0153
+Epoch 3/60
+1145/1145 - 20s - 17ms/step - loss: 122.1858 - mae: 8.2593 - val_loss: 466.9103 - val_mae: 15.8491
+Epoch 4/60
+1145/1145 - 19s - 17ms/step - loss: 98.9545 - mae: 7.4477 - val_loss: 446.3664 - val_mae: 15.3859
+Epoch 5/60
+1145/1145 - 20s - 17ms/step - loss: 89.4848 - mae: 7.0256 - val_loss: 451.1875 - val_mae: 15.6069
+Epoch 6/60
+1145/1145 - 20s - 17ms/step - loss: 80.2236 - mae: 6.6063 - val_loss: 467.4833 - val_mae: 16.0669
+Epoch 7/60
+1145/1145 - 20s - 17ms/step - loss: 71.6425 - mae: 6.2413 - val_loss: 458.2973 - val_mae: 15.5842
+Epoch 8/60
+1145/1145 - 20s - 17ms/step - loss: 64.6386 - mae: 5.9079 - val_loss: 480.2448 - val_mae: 16.1542
+Epoch 9/60
+1145/1145 - 20s - 17ms/step - loss: 59.4265 - mae: 5.7643 - val_loss: 513.5515 - val_mae: 16.6505
+Epoch 10/60
+1145/1145 - 20s - 17ms/step - loss: 137.3314 - mae: 8.5040 - val_loss: 511.9248 - val_mae: 16.8824
+Epoch 11/60
+1145/1145 - 20s - 17ms/step - loss: 133.0579 - mae: 8.4749 - val_loss: 562.5793 - val_mae: 17.6376
+  -> RMSE 25.49  MAE 17.74  score 10183  (142 features, 0 of them dead)
+[53/93] exp1 | C5_agg | FD002 | lstm | seed 1
+Epoch 1/60
+1176/1176 - 23s - 19ms/step - loss: 1040.3419 - mae: 20.9903 - val_loss: 525.8979 - val_mae: 17.1524
+Epoch 2/60
+1176/1176 - 20s - 17ms/step - loss: 171.4780 - mae: 9.6644 - val_loss: 575.7560 - val_mae: 17.6254
+Epoch 3/60
+1176/1176 - 20s - 17ms/step - loss: 114.5729 - mae: 7.9726 - val_loss: 599.2940 - val_mae: 17.8058
+Epoch 4/60
+1176/1176 - 20s - 17ms/step - loss: 97.8220 - mae: 7.3469 - val_loss: 640.4609 - val_mae: 18.6532
+Epoch 5/60
+1176/1176 - 20s - 17ms/step - loss: 88.5096 - mae: 6.9781 - val_loss: 616.0733 - val_mae: 18.4185
+Epoch 6/60
+1176/1176 - 20s - 17ms/step - loss: 82.1285 - mae: 6.6794 - val_loss: 606.0472 - val_mae: 18.1931
+Epoch 7/60
+1176/1176 - 20s - 17ms/step - loss: 76.8126 - mae: 6.4427 - val_loss: 592.0634 - val_mae: 17.9909
+Epoch 8/60
+1176/1176 - 20s - 17ms/step - loss: 70.5318 - mae: 6.1754 - val_loss: 576.5805 - val_mae: 18.0149
+Epoch 9/60
+1176/1176 - 20s - 17ms/step - loss: 61.9559 - mae: 5.7755 - val_loss: 644.9816 - val_mae: 18.8141
+Epoch 10/60
+1176/1176 - 20s - 17ms/step - loss: 58.2849 - mae: 5.5742 - val_loss: 669.9266 - val_mae: 18.8800
+Epoch 11/60
+1176/1176 - 20s - 17ms/step - loss: 53.8816 - mae: 5.3719 - val_loss: 585.5903 - val_mae: 18.0251
+  -> RMSE 25.98  MAE 17.66  score 10833  (142 features, 0 of them dead)
+[54/93] exp1 | C5_agg | FD002 | lstm | seed 2
+Epoch 1/60
+1161/1161 - 23s - 20ms/step - loss: 1021.7644 - mae: 20.9597 - val_loss: 449.6413 - val_mae: 15.7214
+Epoch 2/60
+1161/1161 - 20s - 17ms/step - loss: 187.7431 - mae: 10.1208 - val_loss: 523.8521 - val_mae: 15.9320
+Epoch 3/60
+1161/1161 - 20s - 17ms/step - loss: 118.3601 - mae: 8.1332 - val_loss: 475.3437 - val_mae: 15.7259
+Epoch 4/60
+1161/1161 - 20s - 17ms/step - loss: 97.3118 - mae: 7.3718 - val_loss: 481.5747 - val_mae: 15.9639
+Epoch 5/60
+1161/1161 - 20s - 17ms/step - loss: 86.6985 - mae: 6.8738 - val_loss: 532.4559 - val_mae: 16.4116
+Epoch 6/60
+1161/1161 - 20s - 17ms/step - loss: 79.8544 - mae: 6.5893 - val_loss: 484.2178 - val_mae: 15.7806
+Epoch 7/60
+1161/1161 - 20s - 17ms/step - loss: 73.4794 - mae: 6.3007 - val_loss: 476.8750 - val_mae: 16.3013
+Epoch 8/60
+1161/1161 - 20s - 17ms/step - loss: 66.7048 - mae: 5.9720 - val_loss: 499.2091 - val_mae: 16.1585
+Epoch 9/60
+1161/1161 - 20s - 17ms/step - loss: 58.9367 - mae: 5.6184 - val_loss: 508.0238 - val_mae: 16.4047
+Epoch 10/60
+1161/1161 - 20s - 17ms/step - loss: 53.1115 - mae: 5.3519 - val_loss: 528.2549 - val_mae: 16.7360
+Epoch 11/60
+1161/1161 - 20s - 17ms/step - loss: 47.2888 - mae: 5.0467 - val_loss: 516.5046 - val_mae: 16.4235
+  -> RMSE 26.97  MAE 18.19  score 11404  (142 features, 0 of them dead)
+[55/93] exp1 | C5_agg | FD003 | lstm | seed 0
+  removed 4 constant features: ['sensor_1', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+546/546 - 12s - 22ms/step - loss: 1391.5240 - mae: 24.2770 - val_loss: 301.8130 - val_mae: 11.0508
+Epoch 2/60
+546/546 - 10s - 18ms/step - loss: 136.4429 - mae: 8.7712 - val_loss: 349.6738 - val_mae: 11.5392
+Epoch 3/60
+546/546 - 10s - 18ms/step - loss: 99.6248 - mae: 7.6415 - val_loss: 296.8365 - val_mae: 11.1450
+Epoch 4/60
+546/546 - 10s - 18ms/step - loss: 86.9143 - mae: 7.1384 - val_loss: 300.7981 - val_mae: 10.7844
+Epoch 5/60
+546/546 - 10s - 17ms/step - loss: 80.4856 - mae: 6.8847 - val_loss: 297.7700 - val_mae: 10.7885
+Epoch 6/60
+546/546 - 10s - 18ms/step - loss: 77.0836 - mae: 6.6759 - val_loss: 311.2272 - val_mae: 11.1291
+Epoch 7/60
+546/546 - 10s - 17ms/step - loss: 73.2144 - mae: 6.5244 - val_loss: 359.3023 - val_mae: 11.6994
+Epoch 8/60
+546/546 - 10s - 17ms/step - loss: 70.2462 - mae: 6.3727 - val_loss: 304.6784 - val_mae: 11.1351
+Epoch 9/60
+546/546 - 10s - 18ms/step - loss: 68.2300 - mae: 6.2580 - val_loss: 319.6316 - val_mae: 11.2208
+Epoch 10/60
+546/546 - 10s - 17ms/step - loss: 65.6924 - mae: 6.1441 - val_loss: 359.1765 - val_mae: 11.9570
+Epoch 11/60
+546/546 - 9s - 17ms/step - loss: 63.1551 - mae: 5.9945 - val_loss: 349.9595 - val_mae: 11.7964
+Epoch 12/60
+546/546 - 10s - 18ms/step - loss: 60.2283 - mae: 5.8943 - val_loss: 343.1764 - val_mae: 11.8884
+Epoch 13/60
+546/546 - 10s - 17ms/step - loss: 58.4169 - mae: 5.7691 - val_loss: 355.5395 - val_mae: 11.8175
+  -> RMSE 17.89  MAE 12.92  score 1055  (134 features, 0 of them dead)
+[56/93] exp1 | C5_agg | FD003 | lstm | seed 1
+  removed 4 constant features: ['sensor_1', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+524/524 - 12s - 22ms/step - loss: 1539.0775 - mae: 26.3773 - val_loss: 156.6014 - val_mae: 9.2059
+Epoch 2/60
+524/524 - 9s - 18ms/step - loss: 142.8742 - mae: 9.0045 - val_loss: 156.1644 - val_mae: 8.4022
+Epoch 3/60
+524/524 - 9s - 17ms/step - loss: 101.3909 - mae: 7.7188 - val_loss: 140.3980 - val_mae: 7.3363
+Epoch 4/60
+524/524 - 9s - 17ms/step - loss: 89.6345 - mae: 7.2053 - val_loss: 145.8570 - val_mae: 7.4493
+Epoch 5/60
+524/524 - 9s - 18ms/step - loss: 82.4542 - mae: 6.9785 - val_loss: 159.6346 - val_mae: 7.5245
+Epoch 6/60
+524/524 - 9s - 18ms/step - loss: 79.8204 - mae: 6.8091 - val_loss: 161.5506 - val_mae: 8.0551
+Epoch 7/60
+524/524 - 9s - 18ms/step - loss: 75.9944 - mae: 6.6178 - val_loss: 151.1592 - val_mae: 7.1269
+Epoch 8/60
+524/524 - 10s - 19ms/step - loss: 74.4057 - mae: 6.5553 - val_loss: 155.8130 - val_mae: 7.5421
+Epoch 9/60
+524/524 - 9s - 18ms/step - loss: 72.0389 - mae: 6.4585 - val_loss: 171.6513 - val_mae: 8.5679
+Epoch 10/60
+524/524 - 9s - 18ms/step - loss: 69.1351 - mae: 6.3244 - val_loss: 203.8893 - val_mae: 8.5479
+Epoch 11/60
+524/524 - 9s - 18ms/step - loss: 67.8497 - mae: 6.1710 - val_loss: 157.0222 - val_mae: 7.5195
+Epoch 12/60
+524/524 - 9s - 17ms/step - loss: 63.6849 - mae: 6.0240 - val_loss: 170.7498 - val_mae: 7.9832
+Epoch 13/60
+524/524 - 9s - 17ms/step - loss: 62.7444 - mae: 5.9831 - val_loss: 178.3784 - val_mae: 7.9077
+  -> RMSE 15.45  MAE 11.75  score 432  (134 features, 0 of them dead)
+[57/93] exp1 | C5_agg | FD003 | lstm | seed 2
+  removed 4 constant features: ['sensor_1', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+575/575 - 13s - 23ms/step - loss: 1373.6549 - mae: 24.0947 - val_loss: 282.6914 - val_mae: 11.8669
+Epoch 2/60
+575/575 - 10s - 17ms/step - loss: 139.8735 - mae: 9.0061 - val_loss: 294.7149 - val_mae: 11.3947
+Epoch 3/60
+575/575 - 10s - 17ms/step - loss: 100.4200 - mae: 7.7242 - val_loss: 281.1829 - val_mae: 10.9370
+Epoch 4/60
+575/575 - 10s - 17ms/step - loss: 88.8323 - mae: 7.2717 - val_loss: 282.4441 - val_mae: 10.9053
+Epoch 5/60
+575/575 - 10s - 17ms/step - loss: 83.3318 - mae: 7.0360 - val_loss: 277.9249 - val_mae: 11.2856
+Epoch 6/60
+575/575 - 10s - 17ms/step - loss: 77.3671 - mae: 6.7531 - val_loss: 249.7191 - val_mae: 10.8742
+Epoch 7/60
+575/575 - 10s - 17ms/step - loss: 75.4863 - mae: 6.6544 - val_loss: 264.1998 - val_mae: 11.1125
+Epoch 8/60
+575/575 - 10s - 17ms/step - loss: 73.9330 - mae: 6.6019 - val_loss: 241.2444 - val_mae: 10.8522
+Epoch 9/60
+575/575 - 10s - 17ms/step - loss: 72.3814 - mae: 6.4587 - val_loss: 307.8544 - val_mae: 11.8845
+Epoch 10/60
+575/575 - 10s - 17ms/step - loss: 67.2016 - mae: 6.2215 - val_loss: 283.0316 - val_mae: 11.4723
+Epoch 11/60
+575/575 - 10s - 17ms/step - loss: 63.6454 - mae: 6.0351 - val_loss: 308.5506 - val_mae: 11.5793
+Epoch 12/60
+575/575 - 10s - 17ms/step - loss: 61.9469 - mae: 5.9575 - val_loss: 363.4590 - val_mae: 12.7020
+Epoch 13/60
+575/575 - 10s - 17ms/step - loss: 59.6247 - mae: 5.8166 - val_loss: 301.0495 - val_mae: 11.8336
+Epoch 14/60
+575/575 - 10s - 17ms/step - loss: 57.8440 - mae: 5.7228 - val_loss: 328.6460 - val_mae: 12.2587
+Epoch 15/60
+575/575 - 10s - 17ms/step - loss: 53.2358 - mae: 5.5009 - val_loss: 300.5315 - val_mae: 11.5470
+Epoch 16/60
+575/575 - 10s - 17ms/step - loss: 51.9148 - mae: 5.4357 - val_loss: 326.0975 - val_mae: 12.0846
+Epoch 17/60
+575/575 - 10s - 17ms/step - loss: 48.2793 - mae: 5.2450 - val_loss: 302.3148 - val_mae: 11.9609
+Epoch 18/60
+575/575 - 10s - 17ms/step - loss: 44.3508 - mae: 5.0048 - val_loss: 316.9666 - val_mae: 12.2144
+  -> RMSE 16.39  MAE 11.96  score 540  (134 features, 0 of them dead)
+[58/93] exp1 | C5_agg | FD004 | lstm | seed 0
+Epoch 1/60
+1343/1343 - 26s - 19ms/step - loss: 1151.5607 - mae: 22.3674 - val_loss: 584.6365 - val_mae: 17.2432
+Epoch 2/60
+1343/1343 - 23s - 17ms/step - loss: 221.5002 - mae: 11.0602 - val_loss: 586.3843 - val_mae: 16.4732
+Epoch 3/60
+1343/1343 - 24s - 18ms/step - loss: 142.8973 - mae: 9.0097 - val_loss: 574.9918 - val_mae: 16.7029
+Epoch 4/60
+1343/1343 - 23s - 17ms/step - loss: 114.6918 - mae: 8.1059 - val_loss: 592.9221 - val_mae: 17.3014
+Epoch 5/60
+1343/1343 - 24s - 18ms/step - loss: 99.4555 - mae: 7.5402 - val_loss: 608.2133 - val_mae: 17.4306
+Epoch 6/60
+1343/1343 - 23s - 17ms/step - loss: 87.4889 - mae: 7.0386 - val_loss: 620.4034 - val_mae: 16.7313
+Epoch 7/60
+1343/1343 - 23s - 17ms/step - loss: 76.9827 - mae: 6.6035 - val_loss: 624.4309 - val_mae: 17.9438
+Epoch 8/60
+1343/1343 - 23s - 17ms/step - loss: 66.6909 - mae: 6.1342 - val_loss: 622.9604 - val_mae: 17.0816
+Epoch 9/60
+1343/1343 - 23s - 17ms/step - loss: 55.6777 - mae: 5.6462 - val_loss: 660.7661 - val_mae: 18.1963
+Epoch 10/60
+1343/1343 - 23s - 17ms/step - loss: 53.4182 - mae: 5.6328 - val_loss: 718.3509 - val_mae: 18.8734
+Epoch 11/60
+1343/1343 - 23s - 17ms/step - loss: 104.6089 - mae: 7.5345 - val_loss: 705.0034 - val_mae: 18.5015
+Epoch 12/60
+1343/1343 - 23s - 17ms/step - loss: 100.4419 - mae: 7.4596 - val_loss: 705.9510 - val_mae: 19.0004
+Epoch 13/60
+1343/1343 - 23s - 17ms/step - loss: 90.1398 - mae: 7.3310 - val_loss: 790.8722 - val_mae: 20.2652
+  -> RMSE 25.70  MAE 18.39  score 8279  (142 features, 0 of them dead)
+[59/93] exp1 | C5_agg | FD004 | lstm | seed 1
+Epoch 1/60
+1350/1350 - 26s - 19ms/step - loss: 1169.0547 - mae: 22.4879 - val_loss: 368.1960 - val_mae: 13.4378
+Epoch 2/60
+1350/1350 - 23s - 17ms/step - loss: 205.0665 - mae: 10.7107 - val_loss: 385.0545 - val_mae: 13.7826
+Epoch 3/60
+1350/1350 - 23s - 17ms/step - loss: 137.5751 - mae: 8.9149 - val_loss: 404.0498 - val_mae: 14.0353
+Epoch 4/60
+1350/1350 - 23s - 17ms/step - loss: 112.7198 - mae: 8.0876 - val_loss: 394.8398 - val_mae: 13.7335
+Epoch 5/60
+1350/1350 - 23s - 17ms/step - loss: 101.9988 - mae: 7.6416 - val_loss: 403.1068 - val_mae: 14.3037
+Epoch 6/60
+1350/1350 - 23s - 17ms/step - loss: 94.0360 - mae: 7.3012 - val_loss: 417.9526 - val_mae: 14.1260
+Epoch 7/60
+1350/1350 - 23s - 17ms/step - loss: 84.1111 - mae: 6.9319 - val_loss: 440.0058 - val_mae: 14.6875
+Epoch 8/60
+1350/1350 - 23s - 17ms/step - loss: 74.6082 - mae: 6.4953 - val_loss: 370.7383 - val_mae: 13.2693
+Epoch 9/60
+1350/1350 - 23s - 17ms/step - loss: 67.9954 - mae: 6.1666 - val_loss: 402.2748 - val_mae: 13.3715
+Epoch 10/60
+1350/1350 - 23s - 17ms/step - loss: 60.1832 - mae: 5.8324 - val_loss: 407.3947 - val_mae: 13.4440
+Epoch 11/60
+1350/1350 - 23s - 17ms/step - loss: 53.3099 - mae: 5.4913 - val_loss: 413.2385 - val_mae: 13.5350
+  -> RMSE 27.62  MAE 20.49  score 9842  (142 features, 0 of them dead)
+[60/93] exp1 | C5_agg | FD004 | lstm | seed 2
+Epoch 1/60
+1360/1360 - 26s - 19ms/step - loss: 1120.7772 - mae: 22.0021 - val_loss: 485.0872 - val_mae: 15.2794
+Epoch 2/60
+1360/1360 - 23s - 17ms/step - loss: 212.1474 - mae: 10.8526 - val_loss: 453.4926 - val_mae: 14.4729
+Epoch 3/60
+1360/1360 - 23s - 17ms/step - loss: 138.0716 - mae: 8.9328 - val_loss: 475.8420 - val_mae: 14.5605
+Epoch 4/60
+1360/1360 - 23s - 17ms/step - loss: 114.5437 - mae: 8.1592 - val_loss: 451.0281 - val_mae: 14.6121
+Epoch 5/60
+1360/1360 - 23s - 17ms/step - loss: 100.4086 - mae: 7.6185 - val_loss: 455.8892 - val_mae: 14.3169
+Epoch 6/60
+1360/1360 - 23s - 17ms/step - loss: 92.4739 - mae: 7.2642 - val_loss: 464.5112 - val_mae: 14.3129
+Epoch 7/60
+1360/1360 - 23s - 17ms/step - loss: 80.5102 - mae: 6.7615 - val_loss: 453.7835 - val_mae: 14.8959
+Epoch 8/60
+1360/1360 - 23s - 17ms/step - loss: 73.2396 - mae: 6.4189 - val_loss: 499.3542 - val_mae: 15.0005
+Epoch 9/60
+1360/1360 - 23s - 17ms/step - loss: 63.6472 - mae: 6.0095 - val_loss: 499.1570 - val_mae: 15.0739
+Epoch 10/60
+1360/1360 - 23s - 17ms/step - loss: 55.1273 - mae: 5.6151 - val_loss: 515.6780 - val_mae: 15.0305
+Epoch 11/60
+1360/1360 - 23s - 17ms/step - loss: 47.7566 - mae: 5.2882 - val_loss: 518.1638 - val_mae: 15.1276
+Epoch 12/60
+1360/1360 - 23s - 17ms/step - loss: 75.0756 - mae: 6.4130 - val_loss: 566.9549 - val_mae: 16.5277
+Epoch 13/60
+1360/1360 - 23s - 17ms/step - loss: 100.7012 - mae: 7.4858 - val_loss: 584.2241 - val_mae: 17.3827
+Epoch 14/60
+1360/1360 - 23s - 17ms/step - loss: 145.8601 - mae: 8.8918 - val_loss: 504.8959 - val_mae: 15.9514
+  -> RMSE 26.31  MAE 19.60  score 7052  (142 features, 0 of them dead)
+[61/93] exp1 | C6_full | FD001 | lstm | seed 0
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+439/439 - 10s - 22ms/step - loss: 1558.0621 - mae: 26.7018 - val_loss: 220.2582 - val_mae: 11.2959
+Epoch 2/60
+439/439 - 8s - 17ms/step - loss: 129.5761 - mae: 8.5131 - val_loss: 180.8577 - val_mae: 9.5609
+Epoch 3/60
+439/439 - 7s - 17ms/step - loss: 93.5758 - mae: 7.2375 - val_loss: 206.1945 - val_mae: 9.7697
+Epoch 4/60
+439/439 - 7s - 17ms/step - loss: 79.2674 - mae: 6.7579 - val_loss: 198.1458 - val_mae: 9.7857
+Epoch 5/60
+439/439 - 7s - 17ms/step - loss: 72.4659 - mae: 6.3784 - val_loss: 198.6121 - val_mae: 9.6543
+Epoch 6/60
+439/439 - 8s - 17ms/step - loss: 69.5313 - mae: 6.2533 - val_loss: 195.7174 - val_mae: 9.7699
+Epoch 7/60
+439/439 - 8s - 17ms/step - loss: 65.8466 - mae: 6.0729 - val_loss: 204.7908 - val_mae: 10.0723
+Epoch 8/60
+439/439 - 8s - 17ms/step - loss: 65.3437 - mae: 6.0420 - val_loss: 179.1709 - val_mae: 9.5149
+Epoch 9/60
+439/439 - 8s - 17ms/step - loss: 62.8420 - mae: 5.9193 - val_loss: 190.3722 - val_mae: 9.1005
+Epoch 10/60
+439/439 - 8s - 17ms/step - loss: 61.5994 - mae: 5.8417 - val_loss: 218.9832 - val_mae: 9.6258
+Epoch 11/60
+439/439 - 7s - 17ms/step - loss: 57.9016 - mae: 5.6085 - val_loss: 208.9785 - val_mae: 9.4326
+Epoch 12/60
+439/439 - 8s - 17ms/step - loss: 57.0338 - mae: 5.5991 - val_loss: 206.5027 - val_mae: 9.9156
+Epoch 13/60
+439/439 - 8s - 17ms/step - loss: 54.9196 - mae: 5.4195 - val_loss: 194.0528 - val_mae: 9.5307
+Epoch 14/60
+439/439 - 8s - 17ms/step - loss: 52.9737 - mae: 5.3572 - val_loss: 203.3708 - val_mae: 9.3991
+Epoch 15/60
+439/439 - 8s - 17ms/step - loss: 50.7941 - mae: 5.2837 - val_loss: 209.7258 - val_mae: 9.2418
+Epoch 16/60
+439/439 - 8s - 17ms/step - loss: 49.7135 - mae: 5.1897 - val_loss: 213.2572 - val_mae: 10.0339
+Epoch 17/60
+439/439 - 8s - 18ms/step - loss: 48.4986 - mae: 5.1190 - val_loss: 223.4262 - val_mae: 10.1847
+Epoch 18/60
+439/439 - 7s - 16ms/step - loss: 44.8167 - mae: 4.9346 - val_loss: 200.1769 - val_mae: 9.6401
+  -> RMSE 17.48  MAE 12.92  score 529  (129 features, 0 of them dead)
+[62/93] exp1 | C6_full | FD001 | lstm | seed 1
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+441/441 - 10s - 23ms/step - loss: 1549.7826 - mae: 26.6426 - val_loss: 303.3628 - val_mae: 12.3884
+Epoch 2/60
+441/441 - 8s - 18ms/step - loss: 125.8174 - mae: 8.4041 - val_loss: 277.5187 - val_mae: 11.7380
+Epoch 3/60
+441/441 - 8s - 18ms/step - loss: 88.8462 - mae: 7.0691 - val_loss: 258.5704 - val_mae: 11.0535
+Epoch 4/60
+441/441 - 8s - 18ms/step - loss: 80.0005 - mae: 6.7306 - val_loss: 264.3067 - val_mae: 11.3101
+Epoch 5/60
+441/441 - 8s - 17ms/step - loss: 72.2807 - mae: 6.4241 - val_loss: 340.6444 - val_mae: 13.4328
+Epoch 6/60
+441/441 - 8s - 17ms/step - loss: 68.3469 - mae: 6.2248 - val_loss: 279.1571 - val_mae: 11.3827
+Epoch 7/60
+441/441 - 8s - 17ms/step - loss: 66.8597 - mae: 6.1378 - val_loss: 256.8723 - val_mae: 10.9475
+Epoch 8/60
+441/441 - 8s - 17ms/step - loss: 64.6796 - mae: 6.0064 - val_loss: 280.0658 - val_mae: 11.6545
+Epoch 9/60
+441/441 - 8s - 18ms/step - loss: 63.9514 - mae: 5.9550 - val_loss: 278.9195 - val_mae: 11.4767
+Epoch 10/60
+441/441 - 8s - 17ms/step - loss: 61.7438 - mae: 5.8546 - val_loss: 293.4024 - val_mae: 11.9257
+Epoch 11/60
+441/441 - 8s - 18ms/step - loss: 61.4539 - mae: 5.8328 - val_loss: 287.4866 - val_mae: 11.8257
+Epoch 12/60
+441/441 - 8s - 18ms/step - loss: 56.6791 - mae: 5.5822 - val_loss: 266.8701 - val_mae: 11.3143
+Epoch 13/60
+441/441 - 8s - 18ms/step - loss: 56.9324 - mae: 5.5654 - val_loss: 283.1521 - val_mae: 11.6834
+Epoch 14/60
+441/441 - 8s - 17ms/step - loss: 54.1328 - mae: 5.4127 - val_loss: 289.6253 - val_mae: 11.7035
+Epoch 15/60
+441/441 - 8s - 17ms/step - loss: 54.6516 - mae: 5.4019 - val_loss: 294.9588 - val_mae: 12.0498
+Epoch 16/60
+441/441 - 8s - 17ms/step - loss: 52.0924 - mae: 5.3072 - val_loss: 306.6457 - val_mae: 11.7492
+Epoch 17/60
+441/441 - 8s - 17ms/step - loss: 50.7054 - mae: 5.2233 - val_loss: 270.9655 - val_mae: 11.4116
+  -> RMSE 19.79  MAE 14.46  score 898  (129 features, 0 of them dead)
+[63/93] exp1 | C6_full | FD001 | lstm | seed 2
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+450/450 - 11s - 24ms/step - loss: 1372.7742 - mae: 24.6871 - val_loss: 211.0116 - val_mae: 10.4988
+Epoch 2/60
+450/450 - 8s - 17ms/step - loss: 145.5646 - mae: 9.0291 - val_loss: 225.8832 - val_mae: 10.5249
+Epoch 3/60
+450/450 - 8s - 17ms/step - loss: 103.1794 - mae: 7.6549 - val_loss: 212.6552 - val_mae: 10.0231
+Epoch 4/60
+450/450 - 8s - 17ms/step - loss: 83.0480 - mae: 6.9081 - val_loss: 232.3999 - val_mae: 10.5507
+Epoch 5/60
+450/450 - 8s - 17ms/step - loss: 77.9815 - mae: 6.6602 - val_loss: 214.6203 - val_mae: 10.0663
+Epoch 6/60
+450/450 - 8s - 17ms/step - loss: 74.7574 - mae: 6.5355 - val_loss: 240.8686 - val_mae: 10.3331
+Epoch 7/60
+450/450 - 8s - 17ms/step - loss: 69.6530 - mae: 6.2772 - val_loss: 237.1247 - val_mae: 10.3396
+Epoch 8/60
+450/450 - 8s - 18ms/step - loss: 67.0948 - mae: 6.1597 - val_loss: 237.1248 - val_mae: 10.5290
+Epoch 9/60
+450/450 - 8s - 18ms/step - loss: 64.4914 - mae: 6.0527 - val_loss: 244.8484 - val_mae: 10.7094
+Epoch 10/60
+450/450 - 8s - 17ms/step - loss: 62.6614 - mae: 5.9393 - val_loss: 249.8587 - val_mae: 10.7074
+Epoch 11/60
+450/450 - 8s - 17ms/step - loss: 62.6581 - mae: 5.8924 - val_loss: 272.8291 - val_mae: 11.1828
+  -> RMSE 16.90  MAE 11.96  score 465  (129 features, 0 of them dead)
+[64/93] exp1 | C6_full | FD002 | lstm | seed 0
+Epoch 1/60
+1145/1145 - 23s - 20ms/step - loss: 1063.2637 - mae: 21.1229 - val_loss: 379.4516 - val_mae: 13.9596
+Epoch 2/60
+1145/1145 - 20s - 17ms/step - loss: 177.9913 - mae: 9.8371 - val_loss: 433.4755 - val_mae: 14.4788
+Epoch 3/60
+1145/1145 - 20s - 17ms/step - loss: 116.8511 - mae: 8.0124 - val_loss: 428.4532 - val_mae: 14.9127
+Epoch 4/60
+1145/1145 - 21s - 18ms/step - loss: 98.6577 - mae: 7.3695 - val_loss: 436.1584 - val_mae: 15.2259
+Epoch 5/60
+1145/1145 - 20s - 17ms/step - loss: 86.7381 - mae: 6.8876 - val_loss: 430.9416 - val_mae: 15.1278
+Epoch 6/60
+1145/1145 - 21s - 18ms/step - loss: 77.8488 - mae: 6.4976 - val_loss: 466.7849 - val_mae: 15.8181
+Epoch 7/60
+1145/1145 - 20s - 18ms/step - loss: 70.1940 - mae: 6.1463 - val_loss: 451.6587 - val_mae: 15.3058
+Epoch 8/60
+1145/1145 - 20s - 17ms/step - loss: 63.5584 - mae: 5.8294 - val_loss: 456.0738 - val_mae: 15.3504
+Epoch 9/60
+1145/1145 - 20s - 17ms/step - loss: 56.6673 - mae: 5.5095 - val_loss: 464.5034 - val_mae: 15.3718
+Epoch 10/60
+1145/1145 - 20s - 17ms/step - loss: 52.4932 - mae: 5.4215 - val_loss: 448.2178 - val_mae: 15.2002
+Epoch 11/60
+1145/1145 - 20s - 17ms/step - loss: 89.9639 - mae: 7.1175 - val_loss: 505.3863 - val_mae: 15.5573
+  -> RMSE 23.81  MAE 16.32  score 6562  (145 features, 0 of them dead)
+[65/93] exp1 | C6_full | FD002 | lstm | seed 1
+Epoch 1/60
+1176/1176 - 24s - 21ms/step - loss: 1016.0604 - mae: 20.3923 - val_loss: 443.6726 - val_mae: 15.0398
+Epoch 2/60
+1176/1176 - 20s - 17ms/step - loss: 157.6299 - mae: 9.2490 - val_loss: 512.1326 - val_mae: 16.4121
+Epoch 3/60
+1176/1176 - 20s - 17ms/step - loss: 108.0513 - mae: 7.7819 - val_loss: 511.4910 - val_mae: 16.3768
+Epoch 4/60
+1176/1176 - 20s - 17ms/step - loss: 95.8187 - mae: 7.3065 - val_loss: 555.2382 - val_mae: 17.1002
+Epoch 5/60
+1176/1176 - 20s - 17ms/step - loss: 83.2746 - mae: 6.7951 - val_loss: 583.7960 - val_mae: 17.4816
+Epoch 6/60
+1176/1176 - 20s - 17ms/step - loss: 78.3407 - mae: 6.5427 - val_loss: 586.5600 - val_mae: 17.4982
+Epoch 7/60
+1176/1176 - 20s - 17ms/step - loss: 74.3755 - mae: 6.3622 - val_loss: 537.5385 - val_mae: 16.6475
+Epoch 8/60
+1176/1176 - 20s - 17ms/step - loss: 67.7681 - mae: 6.0394 - val_loss: 508.0948 - val_mae: 16.3688
+Epoch 9/60
+1176/1176 - 20s - 17ms/step - loss: 61.6438 - mae: 5.7704 - val_loss: 523.7855 - val_mae: 16.7731
+Epoch 10/60
+1176/1176 - 20s - 17ms/step - loss: 57.1935 - mae: 5.5114 - val_loss: 630.7955 - val_mae: 17.7616
+Epoch 11/60
+1176/1176 - 20s - 17ms/step - loss: 52.7384 - mae: 5.3049 - val_loss: 524.7726 - val_mae: 16.7069
+  -> RMSE 25.89  MAE 16.87  score 13064  (145 features, 0 of them dead)
+[66/93] exp1 | C6_full | FD002 | lstm | seed 2
+Epoch 1/60
+1161/1161 - 25s - 21ms/step - loss: 1006.4849 - mae: 20.7149 - val_loss: 400.0858 - val_mae: 14.3824
+Epoch 2/60
+1161/1161 - 20s - 18ms/step - loss: 178.6513 - mae: 9.8622 - val_loss: 416.0036 - val_mae: 14.3940
+Epoch 3/60
+1161/1161 - 20s - 17ms/step - loss: 116.2398 - mae: 8.0566 - val_loss: 437.5361 - val_mae: 14.7879
+Epoch 4/60
+1161/1161 - 20s - 17ms/step - loss: 97.1940 - mae: 7.3253 - val_loss: 456.9264 - val_mae: 15.3509
+Epoch 5/60
+1161/1161 - 20s - 17ms/step - loss: 86.4828 - mae: 6.8710 - val_loss: 478.4594 - val_mae: 15.3105
+Epoch 6/60
+1161/1161 - 20s - 17ms/step - loss: 78.3829 - mae: 6.5194 - val_loss: 462.1937 - val_mae: 15.3914
+Epoch 7/60
+1161/1161 - 20s - 17ms/step - loss: 74.6797 - mae: 6.2779 - val_loss: 444.2518 - val_mae: 15.3683
+Epoch 8/60
+1161/1161 - 20s - 17ms/step - loss: 65.3704 - mae: 5.9058 - val_loss: 460.4322 - val_mae: 15.3336
+Epoch 9/60
+1161/1161 - 20s - 17ms/step - loss: 57.7886 - mae: 5.5596 - val_loss: 456.7362 - val_mae: 15.4309
+Epoch 10/60
+1161/1161 - 20s - 17ms/step - loss: 52.2287 - mae: 5.2907 - val_loss: 492.1011 - val_mae: 15.9997
+Epoch 11/60
+1161/1161 - 20s - 17ms/step - loss: 46.6536 - mae: 5.0138 - val_loss: 479.1000 - val_mae: 15.7491
+  -> RMSE 23.23  MAE 15.91  score 5753  (145 features, 0 of them dead)
+[67/93] exp1 | C6_full | FD003 | lstm | seed 0
+  removed 4 constant features: ['sensor_1', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+546/546 - 12s - 22ms/step - loss: 1396.9087 - mae: 24.4448 - val_loss: 310.3787 - val_mae: 11.0346
+Epoch 2/60
+546/546 - 10s - 18ms/step - loss: 126.6603 - mae: 8.5388 - val_loss: 277.9847 - val_mae: 10.2570
+Epoch 3/60
+546/546 - 9s - 17ms/step - loss: 93.1021 - mae: 7.4317 - val_loss: 216.4415 - val_mae: 8.8555
+Epoch 4/60
+546/546 - 9s - 17ms/step - loss: 82.4921 - mae: 6.9631 - val_loss: 233.4954 - val_mae: 9.0074
+Epoch 5/60
+546/546 - 9s - 17ms/step - loss: 79.5190 - mae: 6.8447 - val_loss: 226.2630 - val_mae: 9.0226
+Epoch 6/60
+546/546 - 9s - 17ms/step - loss: 74.5329 - mae: 6.5648 - val_loss: 224.1244 - val_mae: 9.1163
+Epoch 7/60
+546/546 - 9s - 17ms/step - loss: 71.4920 - mae: 6.4251 - val_loss: 275.3619 - val_mae: 10.0765
+Epoch 8/60
+546/546 - 9s - 17ms/step - loss: 69.0180 - mae: 6.3057 - val_loss: 219.3706 - val_mae: 8.9599
+Epoch 9/60
+546/546 - 9s - 17ms/step - loss: 67.1260 - mae: 6.2010 - val_loss: 223.1171 - val_mae: 8.9729
+Epoch 10/60
+546/546 - 9s - 17ms/step - loss: 65.2264 - mae: 6.1130 - val_loss: 277.0313 - val_mae: 10.0011
+Epoch 11/60
+546/546 - 9s - 17ms/step - loss: 60.9837 - mae: 5.8903 - val_loss: 269.1095 - val_mae: 9.8707
+Epoch 12/60
+546/546 - 9s - 17ms/step - loss: 59.1742 - mae: 5.8258 - val_loss: 260.3068 - val_mae: 9.7396
+Epoch 13/60
+546/546 - 9s - 17ms/step - loss: 56.9690 - mae: 5.6602 - val_loss: 281.1610 - val_mae: 10.1513
+  -> RMSE 16.03  MAE 11.34  score 649  (137 features, 0 of them dead)
+[68/93] exp1 | C6_full | FD003 | lstm | seed 1
+  removed 4 constant features: ['sensor_1', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+524/524 - 12s - 23ms/step - loss: 1473.2217 - mae: 25.2538 - val_loss: 129.8410 - val_mae: 7.7906
+Epoch 2/60
+524/524 - 9s - 17ms/step - loss: 120.5836 - mae: 8.3611 - val_loss: 120.2327 - val_mae: 6.8589
+Epoch 3/60
+524/524 - 9s - 17ms/step - loss: 88.8481 - mae: 7.2019 - val_loss: 105.6789 - val_mae: 5.9393
+Epoch 4/60
+524/524 - 9s - 18ms/step - loss: 82.3250 - mae: 6.9060 - val_loss: 102.3722 - val_mae: 6.1551
+Epoch 5/60
+524/524 - 9s - 17ms/step - loss: 77.9019 - mae: 6.7863 - val_loss: 124.2017 - val_mae: 6.0993
+Epoch 6/60
+524/524 - 9s - 17ms/step - loss: 75.2090 - mae: 6.6265 - val_loss: 125.9205 - val_mae: 6.7436
+Epoch 7/60
+524/524 - 9s - 17ms/step - loss: 71.8571 - mae: 6.4154 - val_loss: 124.2013 - val_mae: 6.3036
+Epoch 8/60
+524/524 - 9s - 17ms/step - loss: 71.5156 - mae: 6.3939 - val_loss: 132.7576 - val_mae: 6.3652
+Epoch 9/60
+524/524 - 9s - 18ms/step - loss: 67.8535 - mae: 6.2513 - val_loss: 133.3571 - val_mae: 7.0252
+Epoch 10/60
+524/524 - 9s - 18ms/step - loss: 66.0823 - mae: 6.1549 - val_loss: 139.6247 - val_mae: 7.2493
+Epoch 11/60
+524/524 - 9s - 18ms/step - loss: 63.2329 - mae: 5.9890 - val_loss: 136.5571 - val_mae: 6.4928
+Epoch 12/60
+524/524 - 9s - 18ms/step - loss: 63.2401 - mae: 5.9973 - val_loss: 140.4245 - val_mae: 7.0366
+Epoch 13/60
+524/524 - 9s - 18ms/step - loss: 62.5034 - mae: 5.9537 - val_loss: 151.3992 - val_mae: 6.7513
+Epoch 14/60
+524/524 - 9s - 18ms/step - loss: 60.2478 - mae: 5.8144 - val_loss: 133.2862 - val_mae: 6.1214
+  -> RMSE 15.00  MAE 11.00  score 496  (137 features, 0 of them dead)
+[69/93] exp1 | C6_full | FD003 | lstm | seed 2
+  removed 4 constant features: ['sensor_1', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+575/575 - 13s - 22ms/step - loss: 1340.2548 - mae: 23.4218 - val_loss: 228.7435 - val_mae: 10.5949
+Epoch 2/60
+575/575 - 10s - 17ms/step - loss: 137.2701 - mae: 8.8420 - val_loss: 234.1277 - val_mae: 9.8013
+Epoch 3/60
+575/575 - 10s - 17ms/step - loss: 96.4604 - mae: 7.5648 - val_loss: 312.9603 - val_mae: 11.1064
+Epoch 4/60
+575/575 - 10s - 17ms/step - loss: 86.2940 - mae: 7.1347 - val_loss: 260.6162 - val_mae: 10.5088
+Epoch 5/60
+575/575 - 10s - 17ms/step - loss: 80.4004 - mae: 6.8715 - val_loss: 262.5240 - val_mae: 10.6398
+Epoch 6/60
+575/575 - 10s - 17ms/step - loss: 76.8080 - mae: 6.7059 - val_loss: 236.7182 - val_mae: 10.1707
+Epoch 7/60
+575/575 - 10s - 17ms/step - loss: 73.9807 - mae: 6.5812 - val_loss: 229.2970 - val_mae: 10.3021
+Epoch 8/60
+575/575 - 10s - 17ms/step - loss: 71.1181 - mae: 6.4290 - val_loss: 229.3777 - val_mae: 10.4201
+Epoch 9/60
+575/575 - 10s - 17ms/step - loss: 70.9716 - mae: 6.3771 - val_loss: 277.1236 - val_mae: 11.0325
+Epoch 10/60
+575/575 - 10s - 17ms/step - loss: 66.7948 - mae: 6.1767 - val_loss: 298.6878 - val_mae: 11.3699
+Epoch 11/60
+575/575 - 10s - 17ms/step - loss: 63.5338 - mae: 6.0323 - val_loss: 272.0361 - val_mae: 10.6781
+  -> RMSE 15.30  MAE 11.10  score 496  (137 features, 0 of them dead)
+[70/93] exp1 | C6_full | FD004 | lstm | seed 0
+Epoch 1/60
+1343/1343 - 27s - 20ms/step - loss: 1148.1442 - mae: 22.1258 - val_loss: 522.8057 - val_mae: 15.3702
+Epoch 2/60
+1343/1343 - 23s - 17ms/step - loss: 204.1829 - mae: 10.6514 - val_loss: 494.8064 - val_mae: 14.8212
+Epoch 3/60
+1343/1343 - 23s - 17ms/step - loss: 133.9995 - mae: 8.7673 - val_loss: 496.4899 - val_mae: 15.4757
+Epoch 4/60
+1343/1343 - 23s - 17ms/step - loss: 112.2710 - mae: 8.0037 - val_loss: 518.0777 - val_mae: 15.7264
+Epoch 5/60
+1343/1343 - 24s - 18ms/step - loss: 99.9965 - mae: 7.5541 - val_loss: 553.7340 - val_mae: 16.2364
+Epoch 6/60
+1343/1343 - 23s - 17ms/step - loss: 88.5862 - mae: 7.0867 - val_loss: 524.3800 - val_mae: 15.3765
+Epoch 7/60
+1343/1343 - 23s - 17ms/step - loss: 78.6392 - mae: 6.6556 - val_loss: 547.5188 - val_mae: 16.3957
+Epoch 8/60
+1343/1343 - 23s - 17ms/step - loss: 70.5314 - mae: 6.2742 - val_loss: 532.6494 - val_mae: 15.9731
+Epoch 9/60
+1343/1343 - 23s - 17ms/step - loss: 59.4879 - mae: 5.7816 - val_loss: 574.9078 - val_mae: 16.7904
+Epoch 10/60
+1343/1343 - 23s - 17ms/step - loss: 51.1657 - mae: 5.3917 - val_loss: 588.7560 - val_mae: 16.8085
+Epoch 11/60
+1343/1343 - 23s - 17ms/step - loss: 47.4119 - mae: 5.1897 - val_loss: 583.7373 - val_mae: 16.9521
+Epoch 12/60
+1343/1343 - 23s - 17ms/step - loss: 45.7435 - mae: 5.1792 - val_loss: 548.7126 - val_mae: 16.2969
+  -> RMSE 24.77  MAE 18.01  score 13129  (145 features, 0 of them dead)
+[71/93] exp1 | C6_full | FD004 | lstm | seed 1
+Epoch 1/60
+1350/1350 - 26s - 20ms/step - loss: 1116.0111 - mae: 21.4598 - val_loss: 346.7891 - val_mae: 12.4706
+Epoch 2/60
+1350/1350 - 23s - 17ms/step - loss: 175.6205 - mae: 9.9606 - val_loss: 376.1589 - val_mae: 13.3387
+Epoch 3/60
+1350/1350 - 23s - 17ms/step - loss: 125.9409 - mae: 8.5126 - val_loss: 379.7624 - val_mae: 13.0697
+Epoch 4/60
+1350/1350 - 23s - 17ms/step - loss: 108.8790 - mae: 7.8735 - val_loss: 395.1425 - val_mae: 12.8803
+Epoch 5/60
+1350/1350 - 23s - 17ms/step - loss: 99.8371 - mae: 7.5114 - val_loss: 360.3876 - val_mae: 12.5019
+Epoch 6/60
+1350/1350 - 23s - 17ms/step - loss: 90.8471 - mae: 7.1596 - val_loss: 387.8235 - val_mae: 13.2702
+Epoch 7/60
+1350/1350 - 23s - 17ms/step - loss: 80.5167 - mae: 6.7400 - val_loss: 385.0383 - val_mae: 13.1184
+Epoch 8/60
+1350/1350 - 23s - 17ms/step - loss: 70.8004 - mae: 6.2894 - val_loss: 372.0576 - val_mae: 13.1207
+Epoch 9/60
+1350/1350 - 23s - 17ms/step - loss: 65.0533 - mae: 6.0349 - val_loss: 399.8253 - val_mae: 13.1834
+Epoch 10/60
+1350/1350 - 23s - 17ms/step - loss: 56.7051 - mae: 5.6438 - val_loss: 393.9159 - val_mae: 13.2303
+Epoch 11/60
+1350/1350 - 23s - 17ms/step - loss: 50.1679 - mae: 5.3344 - val_loss: 409.0343 - val_mae: 13.2820
+  -> RMSE 24.27  MAE 17.76  score 5112  (145 features, 0 of them dead)
+[72/93] exp1 | C6_full | FD004 | lstm | seed 2
+Epoch 1/60
+1360/1360 - 27s - 20ms/step - loss: 1036.4772 - mae: 20.5747 - val_loss: 466.6394 - val_mae: 14.4597
+Epoch 2/60
+1360/1360 - 24s - 17ms/step - loss: 173.1854 - mae: 9.8831 - val_loss: 423.2565 - val_mae: 13.9327
+Epoch 3/60
+1360/1360 - 24s - 17ms/step - loss: 127.1014 - mae: 8.5612 - val_loss: 440.6051 - val_mae: 13.6278
+Epoch 4/60
+1360/1360 - 24s - 17ms/step - loss: 109.2629 - mae: 7.9172 - val_loss: 442.7663 - val_mae: 14.4361
+Epoch 5/60
+1360/1360 - 24s - 17ms/step - loss: 95.7331 - mae: 7.4051 - val_loss: 440.8039 - val_mae: 13.7919
+Epoch 6/60
+1360/1360 - 23s - 17ms/step - loss: 89.5421 - mae: 7.0937 - val_loss: 448.3135 - val_mae: 14.1940
+Epoch 7/60
+1360/1360 - 24s - 17ms/step - loss: 77.6178 - mae: 6.5937 - val_loss: 453.1361 - val_mae: 14.5316
+Epoch 8/60
+1360/1360 - 24s - 17ms/step - loss: 69.0141 - mae: 6.2242 - val_loss: 475.7411 - val_mae: 14.3322
+Epoch 9/60
+1360/1360 - 23s - 17ms/step - loss: 61.1357 - mae: 5.8658 - val_loss: 510.6799 - val_mae: 14.7426
+Epoch 10/60
+1360/1360 - 24s - 17ms/step - loss: 52.2668 - mae: 5.4508 - val_loss: 534.8469 - val_mae: 15.1609
+Epoch 11/60
+1360/1360 - 23s - 17ms/step - loss: 46.0363 - mae: 5.1592 - val_loss: 522.8514 - val_mae: 15.1365
+Epoch 12/60
+1360/1360 - 23s - 17ms/step - loss: 43.4937 - mae: 5.1298 - val_loss: 552.5272 - val_mae: 15.5171
+  -> RMSE 24.41  MAE 17.55  score 7923  (145 features, 0 of them dead)
+[73/93] exp1 | C6_legacy | FD001 | lstm | seed 0
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+439/439 - 10s - 23ms/step - loss: 1666.3439 - mae: 27.7862 - val_loss: 215.6689 - val_mae: 11.4442
+Epoch 2/60
+439/439 - 8s - 18ms/step - loss: 136.6759 - mae: 8.7905 - val_loss: 170.6275 - val_mae: 9.0390
+Epoch 3/60
+439/439 - 8s - 17ms/step - loss: 96.5914 - mae: 7.4115 - val_loss: 187.9941 - val_mae: 9.5926
+Epoch 4/60
+439/439 - 8s - 17ms/step - loss: 81.4905 - mae: 6.8450 - val_loss: 197.6333 - val_mae: 9.3819
+Epoch 5/60
+439/439 - 8s - 17ms/step - loss: 77.3976 - mae: 6.5982 - val_loss: 177.5735 - val_mae: 9.2170
+Epoch 6/60
+439/439 - 8s - 17ms/step - loss: 71.1908 - mae: 6.3516 - val_loss: 182.9865 - val_mae: 9.4147
+Epoch 7/60
+439/439 - 8s - 17ms/step - loss: 68.1818 - mae: 6.1906 - val_loss: 194.9596 - val_mae: 9.6335
+Epoch 8/60
+439/439 - 8s - 17ms/step - loss: 65.2459 - mae: 6.0542 - val_loss: 166.2515 - val_mae: 9.1103
+Epoch 9/60
+439/439 - 8s - 17ms/step - loss: 62.9514 - mae: 5.9373 - val_loss: 187.9198 - val_mae: 9.4175
+Epoch 10/60
+439/439 - 8s - 17ms/step - loss: 61.6779 - mae: 5.8517 - val_loss: 203.5129 - val_mae: 9.3354
+Epoch 11/60
+439/439 - 8s - 17ms/step - loss: 59.7946 - mae: 5.7115 - val_loss: 204.5031 - val_mae: 9.3971
+Epoch 12/60
+439/439 - 8s - 17ms/step - loss: 57.8790 - mae: 5.6701 - val_loss: 172.0917 - val_mae: 8.9368
+Epoch 13/60
+439/439 - 8s - 17ms/step - loss: 53.8036 - mae: 5.4511 - val_loss: 201.1402 - val_mae: 9.6129
+Epoch 14/60
+439/439 - 8s - 17ms/step - loss: 53.7028 - mae: 5.4177 - val_loss: 200.5855 - val_mae: 9.5123
+Epoch 15/60
+439/439 - 8s - 17ms/step - loss: 50.5172 - mae: 5.2577 - val_loss: 218.9939 - val_mae: 9.4496
+Epoch 16/60
+439/439 - 8s - 18ms/step - loss: 51.4706 - mae: 5.2865 - val_loss: 206.4240 - val_mae: 9.8485
+Epoch 17/60
+439/439 - 8s - 18ms/step - loss: 48.1530 - mae: 5.1349 - val_loss: 204.6472 - val_mae: 9.8443
+Epoch 18/60
+439/439 - 8s - 17ms/step - loss: 44.5757 - mae: 4.9817 - val_loss: 200.1745 - val_mae: 9.5372
+  -> RMSE 17.95  MAE 13.33  score 558  (179 features, 44 of them dead)
+[74/93] exp1 | C6_legacy | FD001 | lstm | seed 1
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+441/441 - 11s - 24ms/step - loss: 1599.6539 - mae: 26.4695 - val_loss: 257.7565 - val_mae: 11.3323
+Epoch 2/60
+441/441 - 8s - 18ms/step - loss: 117.9090 - mae: 8.1548 - val_loss: 224.4535 - val_mae: 10.2825
+Epoch 3/60
+441/441 - 8s - 17ms/step - loss: 88.4563 - mae: 7.0715 - val_loss: 233.6777 - val_mae: 10.5339
+Epoch 4/60
+441/441 - 8s - 17ms/step - loss: 78.5435 - mae: 6.6909 - val_loss: 235.4944 - val_mae: 10.8765
+Epoch 5/60
+441/441 - 8s - 18ms/step - loss: 72.7993 - mae: 6.4191 - val_loss: 266.1904 - val_mae: 12.1136
+Epoch 6/60
+441/441 - 8s - 18ms/step - loss: 68.1725 - mae: 6.2041 - val_loss: 243.7486 - val_mae: 10.7147
+Epoch 7/60
+441/441 - 8s - 17ms/step - loss: 67.1997 - mae: 6.1428 - val_loss: 226.6760 - val_mae: 9.9910
+Epoch 8/60
+441/441 - 8s - 17ms/step - loss: 65.6596 - mae: 6.0426 - val_loss: 243.7649 - val_mae: 11.4100
+Epoch 9/60
+441/441 - 8s - 17ms/step - loss: 64.3324 - mae: 5.9645 - val_loss: 248.6732 - val_mae: 10.8786
+Epoch 10/60
+441/441 - 8s - 17ms/step - loss: 60.9697 - mae: 5.8155 - val_loss: 245.4803 - val_mae: 10.9401
+Epoch 11/60
+441/441 - 8s - 17ms/step - loss: 60.2014 - mae: 5.7863 - val_loss: 253.3267 - val_mae: 11.3230
+Epoch 12/60
+441/441 - 8s - 17ms/step - loss: 57.2830 - mae: 5.6382 - val_loss: 236.0093 - val_mae: 10.3964
+  -> RMSE 17.55  MAE 12.79  score 596  (179 features, 44 of them dead)
+[75/93] exp1 | C6_legacy | FD001 | lstm | seed 2
+  removed 5 constant features: ['sensor_1', 'sensor_10', 'sensor_18', 'sensor_19', 'setting_3']
+Epoch 1/60
+450/450 - 11s - 24ms/step - loss: 1499.9015 - mae: 26.1827 - val_loss: 232.2497 - val_mae: 11.2487
+Epoch 2/60
+450/450 - 8s - 17ms/step - loss: 142.5648 - mae: 8.9164 - val_loss: 245.2220 - val_mae: 10.6473
+Epoch 3/60
+450/450 - 8s - 17ms/step - loss: 94.3848 - mae: 7.3381 - val_loss: 258.8535 - val_mae: 10.7807
+Epoch 4/60
+450/450 - 8s - 17ms/step - loss: 82.1932 - mae: 6.8975 - val_loss: 289.7360 - val_mae: 11.6288
+Epoch 5/60
+450/450 - 8s - 17ms/step - loss: 76.8938 - mae: 6.5938 - val_loss: 263.0264 - val_mae: 11.3557
+Epoch 6/60
+450/450 - 8s - 17ms/step - loss: 73.5434 - mae: 6.4954 - val_loss: 259.5612 - val_mae: 10.7381
+Epoch 7/60
+450/450 - 8s - 17ms/step - loss: 69.3281 - mae: 6.2450 - val_loss: 270.0810 - val_mae: 11.3456
+Epoch 8/60
+450/450 - 8s - 18ms/step - loss: 67.0336 - mae: 6.1509 - val_loss: 233.1707 - val_mae: 10.2550
+Epoch 9/60
+450/450 - 8s - 17ms/step - loss: 63.7759 - mae: 6.0029 - val_loss: 268.0833 - val_mae: 11.0272
+Epoch 10/60
+450/450 - 8s - 17ms/step - loss: 64.4607 - mae: 5.9729 - val_loss: 257.9496 - val_mae: 10.8505
+Epoch 11/60
+450/450 - 8s - 17ms/step - loss: 61.7613 - mae: 5.8561 - val_loss: 324.1808 - val_mae: 11.9988
+  -> RMSE 15.95  MAE 11.74  score 435  (179 features, 44 of them dead)
+[76/93] exp1 | C6_legacy | FD002 | lstm | seed 0
+Epoch 1/60
+1145/1145 - 23s - 20ms/step - loss: 1022.6446 - mae: 20.4993 - val_loss: 414.3851 - val_mae: 14.3973
+Epoch 2/60
+1145/1145 - 20s - 17ms/step - loss: 165.7637 - mae: 9.5368 - val_loss: 401.8596 - val_mae: 14.0239
+Epoch 3/60
+1145/1145 - 20s - 17ms/step - loss: 110.4668 - mae: 7.8352 - val_loss: 426.4691 - val_mae: 14.7112
+Epoch 4/60
