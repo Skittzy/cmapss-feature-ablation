@@ -326,8 +326,11 @@ def run_job(experiment, config_name, groups, dataset, model, seed, stride):
     row = dict(experiment=experiment, config=config_name, dataset=dataset,
                model=model, seed=seed, stride=stride,
                n_features=d["n_features"], n_dead=d["n_dead"],
-               **d["groups"], **m, **extra,
-               timestamp=pd.Timestamp.now().isoformat(timespec="seconds"))
+               **d["groups"], **m, **extra)
+    # every row must have identical columns, or the appended CSV goes ragged.
+    # only the decision tree reports best_depth, so fill it in for everyone else.
+    row.setdefault("best_depth", None)
+    row["timestamp"] = pd.Timestamp.now().isoformat(timespec="seconds")
     pd.DataFrame([row]).to_csv(RUNS_CSV, mode="a",
                                header=not RUNS_CSV.exists(), index=False)
 
