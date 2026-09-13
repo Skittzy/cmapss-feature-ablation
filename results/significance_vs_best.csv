@@ -1,0 +1,31 @@
+comparison,dataset,rmse_change,range_low,range_high,verdict
+C1_base vs C6_full,FD001,-1.488,-4.067,1.08,not measurable
+C1_base vs C6_full,FD002,2.269,0.528,4.061,worse
+C1_base vs C6_full,FD003,1.0,-1.007,3.169,not measurable
+C1_base vs C6_full,FD004,4.45,1.3,8.011,worse
+C1_base vs C6_full,AVERAGED,1.575,0.34,2.878,worse
+C2_rolling vs C6_full,FD001,-0.377,-2.488,1.745,not measurable
+C2_rolling vs C6_full,FD002,1.108,-0.597,2.806,not measurable
+C2_rolling vs C6_full,FD003,4.408,1.993,6.877,worse
+C2_rolling vs C6_full,FD004,3.957,2.311,5.755,worse
+C2_rolling vs C6_full,AVERAGED,2.278,1.278,3.302,worse
+C3_lag vs C6_full,FD001,-0.606,-2.934,1.76,not measurable
+C3_lag vs C6_full,FD002,1.931,0.366,3.487,worse
+C3_lag vs C6_full,FD003,4.275,2.184,6.43,worse
+C3_lag vs C6_full,FD004,3.578,1.824,5.391,worse
+C3_lag vs C6_full,AVERAGED,2.298,1.32,3.318,worse
+C4_trend vs C6_full,FD001,-1.11,-2.982,0.776,not measurable
+C4_trend vs C6_full,FD002,1.167,-0.354,2.873,not measurable
+C4_trend vs C6_full,FD003,1.196,-0.283,2.984,not measurable
+C4_trend vs C6_full,FD004,1.574,0.326,2.901,worse
+C4_trend vs C6_full,AVERAGED,0.704,-0.073,1.514,not measurable
+C5_agg vs C6_full,FD001,-0.645,-2.704,1.354,not measurable
+C5_agg vs C6_full,FD002,1.164,-0.374,2.835,not measurable
+C5_agg vs C6_full,FD003,1.104,-0.248,2.599,not measurable
+C5_agg vs C6_full,FD004,1.669,0.444,2.949,worse
+C5_agg vs C6_full,AVERAGED,0.823,0.037,1.641,worse
+C6_full vs C6_full,FD001,0.0,0.0,0.0,not measurable
+C6_full vs C6_full,FD002,0.0,0.0,0.0,not measurable
+C6_full vs C6_full,FD003,0.0,0.0,0.0,not measurable
+C6_full vs C6_full,FD004,0.0,0.0,0.0,not measurable
+C6_full vs C6_full,AVERAGED,0.0,0.0,0.0,not measurable

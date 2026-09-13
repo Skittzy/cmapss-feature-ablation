@@ -1,0 +1,13 @@
+question,comparison,dataset,rmse_change,range_low,range_high,verdict,seeds_a,seeds_b
+does reading the cycles IN ORDER help?,lstm vs rf_flat,FD001,-0.438,-2.211,1.166,not measurable,5,5
+does reading the cycles IN ORDER help?,lstm vs rf_flat,FD002,-0.687,-2.319,0.871,not measurable,5,5
+does reading the cycles IN ORDER help?,lstm vs rf_flat,FD003,-2.744,-4.811,-0.783,better,5,5
+does reading the cycles IN ORDER help?,lstm vs rf_flat,FD004,-3.103,-5.354,-1.026,better,1,5
+does seeing the 30-cycle window help at all?,rf_flat vs rf,FD001,-2.838,-4.938,-0.845,better,5,5
+does seeing the 30-cycle window help at all?,rf_flat vs rf,FD002,-1.699,-2.798,-0.553,better,5,5
+does seeing the 30-cycle window help at all?,rf_flat vs rf,FD003,-2.544,-4.146,-0.891,better,5,5
+does seeing the 30-cycle window help at all?,rf_flat vs rf,FD004,-0.121,-2.393,2.317,not measurable,5,1
+LSTM vs Random Forest on the final cycle,lstm vs rf,FD001,-3.275,-5.743,-0.944,better,5,5
+LSTM vs Random Forest on the final cycle,lstm vs rf,FD002,-2.386,-4.471,-0.364,better,5,5
+LSTM vs Random Forest on the final cycle,lstm vs rf,FD003,-5.288,-8.384,-2.257,better,5,5
+LSTM vs Random Forest on the final cycle,lstm vs rf,FD004,-3.224,-5.153,-1.339,better,5,5

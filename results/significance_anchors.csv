@@ -1,0 +1,9 @@
+hypothesis,question,comparison,dataset,rmse_change,range_low,range_high,verdict
+H4,do the dead columns change accuracy?,C6_legacy vs C6_full,FD001,-0.941,-2.085,0.153,not measurable
+H4,do the dead columns change accuracy?,C6_legacy vs C6_full,FD002,-0.304,-1.101,0.464,not measurable
+H4,do the dead columns change accuracy?,C6_legacy vs C6_full,FD003,-0.09,-0.84,0.671,not measurable
+H4,do the dead columns change accuracy?,C6_legacy vs C6_full,FD004,-0.131,-0.933,0.67,not measurable
+H5,does op_condition as a number change accuracy?,C6_expose vs C6_legacy,FD001,0.618,-0.295,1.528,not measurable
+H5,does op_condition as a number change accuracy?,C6_expose vs C6_legacy,FD002,1.199,0.031,2.438,worse
+H5,does op_condition as a number change accuracy?,C6_expose vs C6_legacy,FD003,0.152,-0.711,1.037,not measurable
+H5,does op_condition as a number change accuracy?,C6_expose vs C6_legacy,FD004,-0.22,-1.032,0.536,not measurable
