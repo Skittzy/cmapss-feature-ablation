@@ -26,9 +26,32 @@ Experiment 2 is complete except for one single-seed cell, noted below.
 | C5_agg     | 136 | 17.56 ± 0.78 | 25.58 ± 0.94 | 15.95 ± 1.36 | 26.37 ± 0.78 |
 | C6_full    | 139 | 17.85 ± 1.12 | 24.15 ± 1.03 | 15.16 ± 0.59 | 24.69 ± 0.44 |
 
-**Of the 20 feature-engineering steps tested, 17 produced no measurable
-improvement** by paired bootstrap at 95%. The three that did are degradation
-trend slopes on FD003 and FD004, and cycle transforms on FD004.
+Of the 20 feature-engineering steps tested, **three produced a measurable
+improvement, one produced a measurable harm, and the remaining sixteen were
+inside the noise** (paired bootstrap at 95%). The three that helped are
+degradation trend slopes on FD003 and FD004, and cycle transforms on FD004.
+The one that hurt is rolling statistics on FD003.
+
+### Why rolling statistics hurt, and which half is responsible
+
+The rolling group bundles two different things. Splitting it (exploratory runs,
+FD001 and FD003, five seeds, measured against `C1_base`):
+
+| Half of the group | FD001 | FD003 |
+|-------------------|-------|-------|
+| rolling **means** only | −0.46 [−1.52, +0.50] not measurable | −0.37 [−1.14, +0.34] not measurable |
+| rolling **standard deviations** only | **+1.98 [+0.10, +3.68] real harm** | **+4.36 [+1.65, +6.96] real harm** |
+| both together | +1.11 [−0.44, +2.54] not measurable | **+3.41 [+0.97, +5.80] real harm** |
+
+The standard deviations do all the damage; the means are harmless. They track
+RUL about a fifth as strongly as the raw sensors (mean |r| of 0.10–0.14 against
+0.34–0.54), and thirty of them are added to roughly eighteen informative
+columns, burying the signal.
+
+Note the FD001 row. The group as a whole is not measurably harmful there,
+because the helpful means offset the harmful standard deviations, yet one half
+of it clearly is. Bundling two features of opposite sign into a single ablation
+step concealed a real effect.
 
 ### Experiment 2 — architecture, all arms on the same `C4_trend` features
 
@@ -75,9 +98,15 @@ index carries real information.
 
 - **Done** — protocol pre-registered before any results; Experiment 1 (160 runs);
   Experiment 2 (76 runs); all significance tests
-- **Open** — the FD003 rolling-statistics result is systematic across all five
-  seeds and is being verified as mechanism rather than implementation defect
-  before it is interpreted
+- **Closed** — the FD003 rolling-statistics result was investigated and
+  explained. It is a property of the features, not a defect: the rolling
+  standard deviations are responsible and the rolling means are harmless.
+  Three candidate implementation defects were tested and ruled out. See
+  `PROTOCOL.md` section 10
+- **Known issue** — a forward-fill in `features_v2.py` leaked one row across
+  each engine boundary, affecting 0.17% of cells. Fixed in code on 14 Sep.
+  All reported results predate the fix and were not regenerated; the measured
+  bound is far below the seed spread. Details in `PROTOCOL.md` section 10
 - **Next** — leave-one-out robustness check; Setup and Results draft
 
 ## Reproduce
