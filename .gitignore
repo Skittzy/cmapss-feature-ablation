@@ -29,3 +29,6 @@ logs/baseline_first_run.txt
 
 # scratch: safe to delete from Finder
 _to_delete/
+
+# local safety copies; git history is the real backup
+*.bak_before_*
