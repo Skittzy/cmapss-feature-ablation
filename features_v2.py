@@ -51,7 +51,8 @@ import pandas as pd
 # columns that are never model inputs: ids, the target, and bookkeeping
 METADATA = ["unit_id", "time_cycles", "RUL", "max_cycle", "op_condition"]
 
-GROUP_ORDER = ["base", "rolling", "lag", "trend", "agg", "cycle", "opcond"]
+GROUP_ORDER = ["base", "rolling", "rolling_mean", "rolling_std",
+               "lag", "trend", "agg", "cycle", "opcond"]
 
 CONFIGS = {
     "C1_base":    ["base"],
@@ -60,6 +61,13 @@ CONFIGS = {
     "C4_trend":   ["base", "rolling", "lag", "trend"],
     "C5_agg":     ["base", "rolling", "lag", "trend", "agg"],
     "C6_full":    ["base", "rolling", "lag", "trend", "agg", "cycle"],
+}
+
+# EXPLORATORY, added 13 Sep 2026. Post-hoc diagnostics for the FD003 result,
+# deliberately kept out of CONFIGS so the pre-registered ladder is unchanged.
+DIAG_CONFIGS = {
+    "C2a_rollmean": ["base", "rolling_mean"],
+    "C2b_rollstd":  ["base", "rolling_std"],
 }
 
 # anchors -- see the module docstring. run_experiment.py handles them specially.
@@ -85,6 +93,28 @@ def _rolling(df, cols, windows):
                        .rename(f"{c}_rolling_mean_{w}"))
             out.append(g[c].transform(lambda x: x.rolling(w, min_periods=1).std())
                        .rename(f"{c}_rolling_std_{w}"))
+    return out
+
+
+def _rolling_part(df, cols, windows, which):
+    """EXPLORATORY. Half of _rolling: the means only, or the sds only.
+
+    Added 13 Sep 2026 to explain an unexpected result on FD003, where adding
+    the rolling group made accuracy measurably worse. Rolling means smooth the
+    signal; rolling sds add many weakly-correlated columns. Bundled together
+    there is no way to tell which does the damage. These are post-hoc
+    diagnostics and are NOT part of the pre-registered ladder.
+    """
+    out = []
+    g = df.groupby("unit_id")
+    for c in cols:
+        for w in windows:
+            if which == "mean":
+                out.append(g[c].transform(lambda x: x.rolling(w, min_periods=1).mean())
+                           .rename(f"{c}_rolling_mean_{w}"))
+            else:
+                out.append(g[c].transform(lambda x: x.rolling(w, min_periods=1).std())
+                           .rename(f"{c}_rolling_std_{w}"))
     return out
 
 
@@ -168,6 +198,14 @@ def build_features(df, groups, base_cols, sensor_cols=None,
         cols = _rolling(df, sensor_cols, list(rolling_windows))
         new += cols
         names["rolling"] = [c.name for c in cols]
+    if "rolling_mean" in groups:                      # exploratory, see _rolling_part
+        cols = _rolling_part(df, sensor_cols, list(rolling_windows), "mean")
+        new += cols
+        names["rolling_mean"] = [c.name for c in cols]
+    if "rolling_std" in groups:                       # exploratory, see _rolling_part
+        cols = _rolling_part(df, sensor_cols, list(rolling_windows), "std")
+        new += cols
+        names["rolling_std"] = [c.name for c in cols]
     if "lag" in groups:
         cols = _lag(df, sensor_cols, list(lags))
         new += cols
@@ -195,7 +233,15 @@ def build_features(df, groups, base_cols, sensor_cols=None,
     # rolling and lag leave gaps at the start of each engine's history.
     # ffill copies the nearest earlier value forward; anything still missing
     # (the very first rows) becomes 0.
-    df = df.ffill().fillna(0)
+    #
+    # This MUST be done per engine. Until 14 Sep 2026 it was a plain
+    # df.ffill(), which let cycle 1 of one engine inherit the last value of
+    # the previous engine. The leak touched about 0.17% of cells, and every
+    # result reported in the paper was produced before this fix. See
+    # PROTOCOL.md section 10.
+    _uid = df["unit_id"].to_numpy()          # group by an array, not a column
+    df = df.groupby(_uid, group_keys=False).ffill().fillna(0)
+    df["unit_id"] = _uid                     # belt and braces
 
     if keep_cols is not None:
         missing = [c for c in keep_cols if c not in df.columns]

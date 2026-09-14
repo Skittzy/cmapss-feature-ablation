@@ -42,7 +42,7 @@ from src.config import (
 )
 from src.data.loader import load_train_data, load_test_data, load_rul_labels
 from src.data.preprocessor import prepare_train_data, prepare_test_data
-from features_v2 import (CONFIGS, ANCHOR_CONFIGS, LOO_CONFIGS,
+from features_v2 import (CONFIGS, ANCHOR_CONFIGS, LOO_CONFIGS, DIAG_CONFIGS,
                          build_features, group_sizes, count_dead)
 
 RESULTS = Path("results")
@@ -354,7 +354,7 @@ def main():
                     help="override the model list, e.g. --models rf dt")
     args = ap.parse_args()
 
-    all_configs = {**CONFIGS, **ANCHOR_CONFIGS}
+    all_configs = {**CONFIGS, **ANCHOR_CONFIGS, **DIAG_CONFIGS}
 
     if args.experiment == "exp2":
         if not args.best_config:
