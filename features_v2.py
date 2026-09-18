@@ -78,10 +78,20 @@ ANCHOR_CONFIGS = {
 
 # leave-one-out: everything except one group. Answers a different question from
 # the ladder -- see PROTOCOL.md.
+# the six groups the ladder actually uses. this list is deliberately spelled out
+# instead of derived from GROUP_ORDER: rolling_mean and rolling_std live in
+# GROUP_ORDER as well, and they are exploratory splits of rolling, so deriving
+# from it drags them into every loo config and builds rolling twice.
+LADDER_GROUPS = ["base", "rolling", "lag", "trend", "agg", "cycle"]
+
 LOO_CONFIGS = {
-    f"L_no_{g}": [x for x in GROUP_ORDER if x not in (g, "opcond")]
+    f"L_no_{g}": [x for x in LADDER_GROUPS if x != g]
     for g in ["rolling", "lag", "trend", "agg", "cycle"]
 }
+
+# reference run: the same six groups as C6_full, rebuilt under the fixed ffill so
+# the loo numbers get compared against something from the same code version
+LOO_CONFIGS["L_full"] = list(LADDER_GROUPS)
 
 
 def _rolling(df, cols, windows):
