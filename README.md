@@ -5,15 +5,17 @@ engineering steps actually reduce prediction error, and which are redundant?
 **RQ2:** does an LSTM's temporal processing add accuracy beyond what a good
 temporal feature set already encodes — or can a Random Forest on the same features
 match it? Six cumulative feature configurations × four C-MAPSS subsets ×
-three random seeds, every run logged to `results/runs.csv`.
+five random seeds, plus a leave-one-out experiment on FD001 and FD004,
+every run logged to `results/runs.csv`.
 
 Solo research paper extending a group course project at FH Technikum Wien,
 supervised by Prof. Patrick Link.
 
 ## Results
 
-236 logged training runs. Experiment 1 is complete at five seeds per cell;
-Experiment 2 is complete except for one single-seed cell, noted below.
+316 logged training runs. Experiment 1 is complete at five seeds per cell;
+Experiment 2 is complete except for one single-seed cell, noted below;
+leave-one-out is complete on FD001 and FD004 at five seeds.
 
 ### Experiment 1 — feature ablation (test RMSE, mean ± sd over 5 seeds)
 
@@ -52,6 +54,49 @@ Note the FD001 row. The group as a whole is not measurably harmful there,
 because the helpful means offset the harmful standard deviations, yet one half
 of it clearly is. Bundling two features of opposite sign into a single ablation
 step concealed a real effect.
+
+### Leave-one-out — what each group is worth given all the others
+
+The ladder measures what a group adds *given the groups before it*. Leave-one-out
+measures what it adds *given everything else*. Run on FD001 and FD004, five seeds.
+All six configurations were built after the forward-fill repair, so the comparison
+is like for like: `L_full` is `C6_full` rebuilt under the current code.
+
+A positive number means removing the group made the error **worse**, so the group
+was earning its place.
+
+| Group removed | Features left (FD001) | FD001 | FD004 | The ladder said |
+|---------------|----------------------:|-------|-------|-----------------|
+| `rolling` |  69 | **−2.83 [−4.77, −0.98]** | **−1.34 [−2.34, −0.38]** | not measurable on either |
+| `lag`     |  99 | −0.77 [−2.05, +0.49] | +0.04 [−0.64, +0.70] | not measurable on either |
+| `trend`   | 114 | **+1.87 [+0.15, +3.62]** | **+1.88 [+0.69, +3.14]** | FD001 not measurable, FD004 helps |
+| `agg`     | 125 | +0.01 [−0.92, +0.93] | +0.08 [−0.73, +0.91] | not measurable on either |
+| `cycle`   | 126 | −0.53 [−2.18, +1.03] | **+1.37 [+0.11, +2.60]** | FD001 not measurable, FD004 helps |
+
+Three things come out of this.
+
+**Lag and aggregate features are genuinely redundant**, not merely masked — null
+by both methods on both subsets. That is 30 and 4 columns respectively doing
+nothing at all.
+
+**Trend on FD001 was masked by the ladder.** The ladder calls it not measurable;
+leave-one-out finds a real 1.87 RMSE contribution. In the ladder the trend rung
+arrives on top of a feature set that already contains the harmful rolling group.
+
+**Dropping rolling improves accuracy measurably on both subsets.** `L_no_rolling`
+— base, lag, trend, agg and cycle, 69 features on FD001 — scores **14.50 ± 0.72**
+on FD001 and **23.20 ± 0.34** on FD004, better than any other configuration
+measured anywhere in this study, on roughly half the columns of the full set.
+
+Note that this is *not* the configuration carried into Experiment 2. That was
+`C4_trend`, chosen by the rule pre-registered in `PROTOCOL.md` section 8 before
+any result existed, and it is deliberately not being re-selected now. See section
+10 for the reasoning.
+
+The methodological reading: a group's measured contribution depends on what is
+already present, so a single ablation path is not enough to conclude that a group
+does not matter. Together with the bundling effect above, that is two independent
+ways a conventional ablation ladder can conceal a real effect.
 
 ### Experiment 2 — architecture, all arms on the same `C4_trend` features
 
@@ -97,7 +142,7 @@ index carries real information.
 ## Status
 
 - **Done** — protocol pre-registered before any results; Experiment 1 (160 runs);
-  Experiment 2 (76 runs); all significance tests
+  Experiment 2 (76 runs); leave-one-out (60 runs); all significance tests
 - **Closed** — the FD003 rolling-statistics result was investigated and
   explained. It is a property of the features, not a defect: the rolling
   standard deviations are responsible and the rolling means are harmless.
@@ -105,9 +150,15 @@ index carries real information.
   `PROTOCOL.md` section 10
 - **Known issue** — a forward-fill in `features_v2.py` leaked one row across
   each engine boundary, affecting 0.17% of cells. Fixed in code on 14 Sep.
-  All reported results predate the fix and were not regenerated; the measured
-  bound is far below the seed spread. Details in `PROTOCOL.md` section 10
-- **Next** — leave-one-out robustness check; Setup and Results draft
+  All Experiment 1 and 2 results predate the fix and were not regenerated.
+  Rebuilding the full configuration afterwards (`L_full`) scores measurably
+  better on FD001 by 0.77 RMSE and shows no difference on FD004, so the effect
+  is small but not negligible, and the comparison is confounded with rerun
+  variation. The original justification was an inference rather than a
+  measurement and has been corrected in `PROTOCOL.md` section 10
+- **Next** — Setup and Results draft. Cheap optional follow-ups: a same-seed
+  determinism check, dropping only the rolling standard deviations from the full
+  set, and a minimal `base + trend + cycle` configuration
 
 ## Reproduce
 
@@ -115,15 +166,16 @@ index carries real information.
 conda env create -f environment.yml && conda activate nasa-rul-project
 python run_experiment.py --experiment exp1 --seeds 0 1 2 3 4
 python run_experiment.py --experiment exp2 --best-config C4_trend --seeds 0 1 2 3 4
-python analyze.py && python analyze_extra.py
+python run_experiment.py --experiment exp1_loo --datasets FD001 FD004 --seeds 0 1 2 3 4
+python analyze.py && python analyze_extra.py && python analyze_loo.py
 ```
 
 Data is not committed. Place the C-MAPSS `.txt` files in `data/raw/`.
 
 Every number above traces to a line in `results/runs.csv`, which logs one row
 per training run with its seed, feature count, metrics and wall-clock cost.
-Significance tests are regenerated by `analyze.py` and `analyze_extra.py` into
-`results/significance*.csv`.
+Significance tests are regenerated by `analyze.py`, `analyze_extra.py` and
+`analyze_loo.py` into `results/significance*.csv`.
 
 ## Links
 

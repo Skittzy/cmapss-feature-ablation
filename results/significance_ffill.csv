@@ -1,0 +1,4 @@
+comparison,dataset,rmse_change,range_low,range_high,verdict
+L_full vs C6_full (ffill repaired vs not),FD001,-0.774,-1.548,-0.049,measurable
+L_full vs C6_full (ffill repaired vs not),FD004,-0.003,-0.739,0.694,not measurable
+L_full vs C6_full (ffill repaired vs not),AVERAGED,-0.389,-0.913,0.118,not measurable

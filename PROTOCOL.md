@@ -290,3 +290,63 @@ The size of the effect was measured rather than estimated. Rebuilding the `C2_ro
 **Every result in this repository was produced before that fix and has not been regenerated.** That is a deliberate decision, recorded here rather than left implicit. Regenerating would mean re-running every configuration containing rolling or lag features across both experiments, roughly a day and a half of compute, to move numbers by an amount the measurement above bounds well below the seed spread. The timing of the fix relative to the runs is checkable in the git history, and re-running remains open as future work should a reviewer ask for it.
 
 The ordering also mattered and was chosen deliberately. The two diagnostic configurations of 13 September were run against the unfixed code, so that they were comparable with the 236 runs already in `runs.csv`. The fix was applied only afterwards. Changing the feature pipeline in the middle of a comparison would have confounded the diagnosis with a second change.
+
+**18–19 September 2026. Leave one out, and a defect in it caught before it produced a single result.**
+
+Leave-one-out was specified in Section 3 and had never been run. Before launching it I printed the contents of `LOO_CONFIGS` as a check. All five configurations were wrong.
+
+`LOO_CONFIGS` was built as a comprehension over `GROUP_ORDER`, taking every group except the one being left out. That was correct when it was written. The 13–14 September entry above extended `GROUP_ORDER` from seven entries to nine by adding `rolling_mean` and `rolling_std`. That edit was made for the FD003 investigation and had nothing to do with leave-one-out, but leave-one-out read from the same list.
+
+The consequences, measured rather than inferred. `L_no_rolling` dropped `rolling` and kept `rolling_mean` and `rolling_std`, so the configuration meant to contain no rolling features contained all sixty of them. The other four contained `rolling` together with both of its halves, so the rolling columns were built twice; the duplicate column names then made `var[c]` return a Series rather than a scalar and the run died in the dead-column check.
+
+Four of the five would therefore have failed loudly within a minute. `L_no_rolling` would not. It would have trained, written plausible numbers, and reported that removing the rolling group changes nothing while the rolling group was still present. That is the one configuration in this study that could least afford to be silently wrong, given what the 13–14 September entry established about rolling statistics.
+
+No published result is affected. `results/runs.csv` contained no `L_` rows at the time, so leave-one-out had never run. The ladder and the anchors list their groups explicitly and never referred to `GROUP_ORDER`, so nothing in Experiment 1 or Experiment 2 touched the defect. The repair replaces the derivation with an explicit `LADDER_GROUPS` list, so a future edit to `GROUP_ORDER` cannot reach these configurations again. Committed as `8eb8b85` before any run started, which the git history records.
+
+Worth noting what the 13–14 September entry did and did not catch. It recorded the `GROUP_ORDER` change and its first consequence, the results file gaining two columns. The second consequence went unnoticed for five days. A list that several unrelated things derive from turns out to be a poor place to keep a definition.
+
+**A reference configuration added at the same time.** All 256 runs then in `runs.csv` were produced before the forward-fill repair of 14 September. Comparing new leave-one-out runs against the old `C6_full` would have measured two changes at once, which is the same mistake the 14 September entry deliberately avoided when it ran the diagnostics against the unfixed code. `L_full` was therefore added, holding the same six groups as `C6_full`, so that every leave-one-out comparison sits inside one code version. Its feature counts came out at 129 on FD001 and 145 on FD004, matching `C6_full` in Section 3 exactly.
+
+**The runs.** Sixty runs — six configurations on FD001 and FD004, five seeds each — completed 19 September, no failures. Analysis is in a new `analyze_loo.py`, written because `analyze_extra.py` has no leave-one-out handling. It writes `results/significance_loo.csv`, `results/significance_ffill.csv` and `results/table5_loo.csv`, by the same method as everything else: paired bootstrap over test engines, 10,000 resamples, predictions averaged across seeds first.
+
+**Results.** Each group removed from the full set and measured against `L_full`. A positive number means removing the group made the error worse, so the group was contributing.
+
+| Group removed | FD001 | FD004 | Averaged | Reading |
+|---|---|---|---|---|
+| `rolling` | −2.825 [−4.771, −0.984] | −1.338 [−2.335, −0.384] | −2.081 [−3.150, −1.049] | **removing it helps, measurably, on both** |
+| `lag` | −0.768 [−2.053, +0.488] | +0.035 [−0.642, +0.700] | −0.367 [−1.092, +0.342] | not measurable |
+| `trend` | +1.865 [+0.149, +3.622] | +1.877 [+0.692, +3.140] | +1.871 [+0.818, +2.926] | **contributes on both** |
+| `agg` | +0.006 [−0.921, +0.926] | +0.079 [−0.733, +0.913] | +0.041 [−0.575, +0.670] | not measurable |
+| `cycle` | −0.532 [−2.180, +1.028] | +1.366 [+0.113, +2.602] | +0.419 [−0.622, +1.405] | contributes on FD004 only |
+
+Mean test RMSE over five seeds, for reference: `L_full` 17.04 and 24.59; `L_no_rolling` 14.50 and 23.20; `L_no_lag` 16.51 and 24.56; `L_no_trend` 19.40 and 26.93; `L_no_agg` 16.99 and 24.53; `L_no_cycle` 16.66 and 26.07, on FD001 and FD004 respectively.
+
+**Where the two methods agree.** Lag and aggregate features are not measurable by either method on either subset. They are genuinely redundant rather than merely masked, which is the strongest form the H2 result could take. Trend and cycle features on FD004 are measurable by both methods, in the same direction.
+
+**Where they disagree, which is the half worth reporting.**
+
+Rolling statistics. The ladder calls them not measurable on FD001 (+1.111, range −0.445 to +2.540) and on FD004 (−0.493, range −3.441 to +2.216). Leave-one-out calls them a measurable harm on both. Dropping all sixty rolling columns from the full set improves FD001 by 2.83 RMSE and FD004 by 1.34. The ladder understated the harm because it adds rolling to a bare seventeen-column baseline, while leave-one-out removes it from a set that also contains trend and cycle. That is consistent with the dilution account established on 13–14 September: the more informative columns are present, the more thirty weakly-correlated standard deviations cost.
+
+Trend on FD001. The ladder calls it not measurable (−0.504, range −1.872 to +0.811). Leave-one-out calls it a real contribution of 1.87 RMSE, range +0.149 to +3.622. This is exactly the masked case Section 3 anticipated when it said the two experiments are allowed to disagree.
+
+**A methodological point, and it is the second of its kind.** The 13–14 September entry recorded that bundling two features of opposite sign into one rung concealed a real effect. This entry records that a group's measured contribution depends on what is already present, so a single ordering conceals effects as well. Both point the same way: one ablation path through a feature set is not enough to support a claim that a group does not matter. The two findings are independent and mutually reinforcing, and together they are the most transferable thing in this study.
+
+**The best configuration found is not the one carried into Experiment 2, and it is not being changed.** `L_no_rolling` scores 14.50 on FD001 and 23.20 on FD004, better than any other configuration measured on either subset, using 69 and 77 features against `C6_full`'s 129 and 145. Experiment 2 used `C4_trend`, selected by the rule fixed in Section 8 before any result existed.
+
+Re-selecting now, with the results in hand, is precisely what Section 8 exists to prevent. The rule was pre-registered, it was applied to the ladder as written, and leave-one-out is a secondary experiment run afterwards on two of the four subsets. The paper reports plainly that the pre-registered rule did not select the best configuration the study found. That is a result about pre-registration, not an embarrassment to be tidied away. Experiment 2's conclusions are unaffected in any case: all four of its arms use identical features, so the comparison between architectures is internally valid whatever those features are.
+
+**What the forward-fill repair actually did, and a correction to the 14 September entry.** `L_full` and `C6_full` hold the same six groups at the same five seeds. The only intended difference is that `L_full` was built after the forward fill was grouped per engine, so the comparison isolates the repair.
+
+| Subset | `L_full` minus `C6_full` | 95% range | Verdict |
+|---|---:|---|---|
+| FD001 | −0.774 | [−1.548, −0.049] | repaired build measurably better |
+| FD004 | −0.003 | [−0.739, +0.694] | not measurable |
+| Averaged | −0.389 | [−0.913, +0.118] | not measurable |
+
+The 14 September entry justified not regenerating on the grounds that the defect's magnitude was far below any difference this study reports. That was an inference from how much the feature cells changed, not a measurement of how much the accuracy changed, and it was too confident. On FD001 the repaired build is measurably better by 0.77 RMSE, which is comparable to differences this study does report: the margin by which `C4_trend` was selected over `C6_full` in Section 8 was 0.70.
+
+Two qualifications, both real. On FD004 there is no measurable difference, and averaged over the two subsets there is none either. And this comparison cannot cleanly separate the repair from run-to-run variation, because same-seed rerun reproducibility has never been measured on this pipeline and TensorFlow on Metal is not guaranteed to be bitwise deterministic. What can be said is that the repaired build is nowhere worse, and that any effect of the repair is bounded well under 1.6 RMSE on FD001 and under 0.7 on FD004.
+
+The decision not to regenerate stands for now: regeneration is still roughly a day and a half of compute, and neither the direction nor the averaged magnitude changes any conclusion in the paper. But the justification is now a measurement with a stated confound rather than an inference, and the honest position is that a reviewer would be within their rights to ask for the regeneration. A determinism check — rerunning one cell at an identical seed under identical code and comparing — would cost about four minutes and would remove the confound. It is recorded here as the obvious next step rather than done, so that the choice is visible rather than implied.
+
+**Two stale generated files, found while regenerating.** `results/table3_metrics.csv` and `results/table4_cost.csv` had been committed before the twenty diagnostic runs of 13 September were added, and never regenerated, so they did not match `runs.csv`. Regenerating adds the four diagnostic rows to table 3 and moves the Experiment 1 LSTM mean training time in table 4 from 193.35 seconds over 160 runs to 186.60 over 180. No measurement changed and no significance file changed; all four are byte-identical after regeneration. Note that table 3 now mixes the pre-registered ladder with the exploratory diagnostics in a single table, which the paper must label explicitly rather than leave to the reader.
