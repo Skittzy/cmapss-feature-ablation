@@ -1,14 +1,14 @@
-"""Builds the input features for the C-MAPSS ablation study.
+"""Build input features for the C-MAPSS ablation study.
 
-WHY THIS FILE EXISTS
+Feature selection
+-----------------
+The original `create_all_features()` always builds every feature group at
+once, so it cannot construct the subsets needed for ablation. With
+`build_features`, the caller selects which groups to include when testing
+how their omission affects model accuracy.
+
+Seven feature groups
 --------------------
-The original `create_all_features()` always builds every feature group at once.
-That makes an ablation study (running the model with some features removed, to
-see which ones actually matter) impossible. This version lets you say exactly
-which groups you want.
-
-THE SEVEN GROUPS
-----------------
     base     the settings and sensors that survive constant-removal
     rolling  rolling mean and standard deviation, windows 5 and 10
              (the average and the spread of the last 5 and last 10 cycles)
@@ -18,13 +18,13 @@ THE SEVEN GROUPS
     cycle    cycle number, log of it, square root of it
     opcond   the operating-condition cluster number (only used by C6_expose)
 
-THE LADDER (Experiment 1)
--------------------------
-Each rung adds one group on top of the one before:
+Cumulative configurations (Experiment 1)
+----------------------------------------
+Each configuration adds one feature group to the preceding configuration.
 
     C1_base -> C2_rolling -> C3_lag -> C4_trend -> C5_agg -> C6_full
 
-THREE ANCHOR RUNS
+Three anchor runs
 -----------------
     C6_full     the clean pipeline this paper reports (129-145 features)
     C6_legacy   the code currently on GitHub, warts and all (179 features)
@@ -32,17 +32,17 @@ THREE ANCHOR RUNS
                 24.0 (180 features -- C6_legacy plus `op_condition`, the
                 k-means cluster label, fed in as an ordinary number)
 
-Running all three answers a question for free: does cleaning up the feature set
-change the accuracy at all?
+Comparing all three runs tests whether cleaning up the feature set changes
+prediction accuracy.
 
-USAGE
+Usage
 -----
     train_df, cols = build_features(train_df, CONFIGS["C3_lag"], base_cols)
     test_df,  _    = build_features(test_df,  CONFIGS["C3_lag"], base_cols,
                                     keep_cols=cols)
 
-Always pass `keep_cols` from the train call when you build the test set. That
-guarantees both sets have the same columns in the same order.
+Always pass the training feature list as `keep_cols` when building test
+features. Both sets then use the same model inputs in the same order.
 """
 
 import numpy as np
@@ -63,25 +63,25 @@ CONFIGS = {
     "C6_full":    ["base", "rolling", "lag", "trend", "agg", "cycle"],
 }
 
-# EXPLORATORY, added 13 Sep 2026. Post-hoc diagnostics for the FD003 result,
-# deliberately kept out of CONFIGS so the pre-registered ladder is unchanged.
+# These exploratory, post-hoc diagnostics were added on 13 Sep 2026 for FD003.
+# Keeping them separate from CONFIGS preserves the pre-registered ladder.
 DIAG_CONFIGS = {
     "C2a_rollmean": ["base", "rolling_mean"],
     "C2b_rollstd":  ["base", "rolling_std"],
 }
 
-# anchors -- see the module docstring. run_experiment.py handles them specially.
+# run_experiment.py handles these anchors separately. See the module docstring.
 ANCHOR_CONFIGS = {
     "C6_legacy": ["base", "rolling", "lag", "trend", "agg", "cycle"],
     "C6_expose": ["base", "rolling", "lag", "trend", "agg", "cycle", "opcond"],
 }
 
-# leave-one-out: everything except one group. Answers a different question from
-# the ladder -- see PROTOCOL.md.
-# the six groups the ladder actually uses. this list is deliberately spelled out
-# instead of derived from GROUP_ORDER: rolling_mean and rolling_std live in
-# GROUP_ORDER as well, and they are exploratory splits of rolling, so deriving
-# from it drags them into every loo config and builds rolling twice.
+# Leave-one-out measures the effect of removing one group while retaining all
+# others. The ladder measures the effect of successive additions (PROTOCOL.md).
+# The six ladder groups are listed explicitly because GROUP_ORDER also includes
+# rolling_mean and rolling_std, the exploratory splits of rolling. Deriving
+# leave-one-out configurations from GROUP_ORDER would include both splits in
+# every configuration and build rolling features twice.
 LADDER_GROUPS = ["base", "rolling", "lag", "trend", "agg", "cycle"]
 
 LOO_CONFIGS = {
@@ -89,8 +89,8 @@ LOO_CONFIGS = {
     for g in ["rolling", "lag", "trend", "agg", "cycle"]
 }
 
-# reference run: the same six groups as C6_full, rebuilt under the fixed ffill so
-# the loo numbers get compared against something from the same code version
+# Rebuild the six C6_full groups after the forward-fill repair so all
+# leave-one-out comparisons use a reference from the same code version.
 LOO_CONFIGS["L_full"] = list(LADDER_GROUPS)
 
 
@@ -107,13 +107,14 @@ def _rolling(df, cols, windows):
 
 
 def _rolling_part(df, cols, windows, which):
-    """EXPLORATORY. Half of _rolling: the means only, or the sds only.
+    """Compute only the means or only the standard deviations from _rolling.
 
-    Added 13 Sep 2026 to explain an unexpected result on FD003, where adding
-    the rolling group made accuracy measurably worse. Rolling means smooth the
-    signal; rolling sds add many weakly-correlated columns. Bundled together
-    there is no way to tell which does the damage. These are post-hoc
-    diagnostics and are NOT part of the pre-registered ladder.
+    This exploratory diagnostic was added on 13 Sep 2026 to explain the
+    unexpected, measurable loss in accuracy from adding rolling features on
+    FD003. Rolling means smooth the signal and rolling standard deviations add
+    many weakly correlated columns. Testing them together cannot isolate the
+    source of the loss. These post-hoc runs fall outside the pre-registered
+    ladder.
     """
     out = []
     g = df.groupby("unit_id")
@@ -162,7 +163,7 @@ def _cycle(df):
 def build_features(df, groups, base_cols, sensor_cols=None,
                    rolling_windows=(5, 10), lags=(1, 3), trend_window=10,
                    drop_dead=True, keep_cols=None):
-    """Build only the feature groups you ask for.
+    """Build the requested feature groups, always including the base group.
 
     Parameters
     ----------
@@ -170,18 +171,18 @@ def build_features(df, groups, base_cols, sensor_cols=None,
         Output of prepare_train_data or prepare_test_data. Must already have
         unit_id, time_cycles, RUL and op_condition.
     groups : list of str
-        Which groups to build. "base" is always included.
+        Feature groups to build. "base" is always included.
     base_cols : list of str
-        Settings + sensors that survived constant-removal. This is the
-        `feature_cols` list that prepare_train_data returns.
+        Settings and sensors retained after removing constants, as listed in
+        `feature_cols` returned by prepare_train_data.
     sensor_cols : list of str, optional
-        Which sensors get rolling / lag / trend built on top of them. Defaults
-        to the sensors inside base_cols, so dead sensors don't spawn dead
-        copies. Pass all 21 sensors to reproduce the old behaviour.
+        Sensors used for rolling, lag and trend features. The default uses the
+        sensors in base_cols to avoid deriving constant features from constant
+        sensors. Pass all 21 sensors to reproduce the old behaviour.
     drop_dead : bool
-        Remove columns whose value never changes (a "dead" feature -- it carries
-        no information, so the model cannot learn anything from it). Only ever
-        use this on the TRAINING frame; for the test frame pass keep_cols.
+        Remove constant ("dead") features, which carry no information for the
+        model to learn from. Use this only on the training frame. Pass
+        keep_cols for the test frame.
     keep_cols : list of str, optional
         Return exactly these columns, in this order. Use for the test set.
 
@@ -199,7 +200,7 @@ def build_features(df, groups, base_cols, sensor_cols=None,
     if sensor_cols is None:
         sensor_cols = [c for c in base_cols if c.startswith("sensor_")]
 
-    # rolling / lag / trend all assume the rows are in time order per engine
+    # Rolling, lag and trend features require chronological order within each engine.
     df = df.sort_values(["unit_id", "time_cycles"]).reset_index(drop=True)
 
     new, names = [], {"base": list(base_cols)}
@@ -233,8 +234,8 @@ def build_features(df, groups, base_cols, sensor_cols=None,
         new += cols
         names["cycle"] = [c.name for c in cols]
     if "opcond" in groups:
-        # op_condition already exists as a column; it is normally excluded as
-        # metadata. Only C6_expose puts it back, to match the exposé run.
+        # op_condition is normally metadata. Only C6_expose includes the
+        # existing column as a model input, matching the exposé run.
         names["opcond"] = ["op_condition"]
 
     if new:
@@ -251,7 +252,7 @@ def build_features(df, groups, base_cols, sensor_cols=None,
     # PROTOCOL.md section 10.
     _uid = df["unit_id"].to_numpy()          # group by an array, not a column
     df = df.groupby(_uid, group_keys=False).ffill().fillna(0)
-    df["unit_id"] = _uid                     # belt and braces
+    df["unit_id"] = _uid                     # ensure the engine IDs are retained
 
     if keep_cols is not None:
         missing = [c for c in keep_cols if c not in df.columns]
@@ -269,7 +270,7 @@ def build_features(df, groups, base_cols, sensor_cols=None,
 
 
 def group_sizes(feature_cols):
-    """Count how many surviving columns came from each group (for the paper)."""
+    """Count surviving columns by feature group for reporting in the paper."""
     counts = {g: 0 for g in GROUP_ORDER}
     for c in feature_cols:
         if "_rolling_" in c:
@@ -290,6 +291,6 @@ def group_sizes(feature_cols):
 
 
 def count_dead(df, feature_cols):
-    """How many of these columns never change? Reported in the paper."""
+    """Count columns that never change. The paper reports this count."""
     var = df[feature_cols].var()
     return int((var <= 1e-12).sum())

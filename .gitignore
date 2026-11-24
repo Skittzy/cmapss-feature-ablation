@@ -32,3 +32,8 @@ _to_delete/
 
 # local safety copies; git history is the real backup
 *.bak_before_*
+
+# Local editorial guidance and review artifacts; excluded from submission
+/AGENTS.md
+/.agents/skills/research-editor/
+/.editorial/

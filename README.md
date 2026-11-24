@@ -1,23 +1,26 @@
 # Feature Engineering Ablation for Turbofan RUL Prediction (NASA C-MAPSS)
 
-A controlled ablation study asking two questions. **RQ1:** which feature
-engineering steps actually reduce prediction error, and which are redundant?
-**RQ2:** does an LSTM's temporal processing add accuracy beyond what a good
-temporal feature set already encodes — or can a Random Forest on the same features
-match it? Six cumulative feature configurations × four C-MAPSS subsets ×
-five random seeds, plus a leave-one-out experiment on FD001 and FD004,
-every run logged to `results/runs.csv`.
+This controlled ablation study examines two questions about predicting a turbofan
+engine's remaining useful life (RUL). **RQ1:** Which feature engineering steps
+reduce prediction error, and which are redundant? **RQ2:** Does an LSTM gain
+accuracy by processing cycles in sequence, or can a random forest match it using
+the same well-chosen temporal features? The study compares six cumulative feature
+configurations across four C-MAPSS subsets and five random seeds. A separate
+leave-one-out experiment covers FD001 and FD004. Every run is logged in
+`results/runs.csv`.
 
-Solo research paper extending a group course project at FH Technikum Wien,
-supervised by Prof. Patrick Link.
+This single-author research paper extends a group course project at FH Technikum
+Wien, supervised by Prof. Patrick Link.
 
 ## Results
 
-316 logged training runs. Experiment 1 is complete at five seeds per cell;
-Experiment 2 is complete except for one single-seed cell, noted below;
-leave-one-out is complete on FD001 and FD004 at five seeds.
+The log contains 316 training runs. Experiment 1 is complete with five seeds in every cell.
+Experiment 2 is complete except for the single-seed cell identified below.
+The leave-one-out experiment is complete on FD001 and FD004 with five seeds.
 
-### Experiment 1 — feature ablation (test RMSE, mean ± sd over 5 seeds)
+### Cumulative feature ablation (Experiment 1)
+
+For each subset, the table reports test RMSE in cycles (mean ± SD over 5 seeds).
 
 | Config | Features | FD001 | FD002 | FD003 | FD004 |
 |--------|---------:|------:|------:|------:|------:|
@@ -28,16 +31,19 @@ leave-one-out is complete on FD001 and FD004 at five seeds.
 | C5_agg     | 136 | 17.56 ± 0.78 | 25.58 ± 0.94 | 15.95 ± 1.36 | 26.37 ± 0.78 |
 | C6_full    | 139 | 17.85 ± 1.12 | 24.15 ± 1.03 | 15.16 ± 0.59 | 24.69 ± 0.44 |
 
-Of the 20 feature-engineering steps tested, **three produced a measurable
-improvement, one produced a measurable harm, and the remaining sixteen were
-inside the noise** (paired bootstrap at 95%). The three that helped are
-degradation trend slopes on FD003 and FD004, and cycle transforms on FD004.
-The one that hurt is rolling statistics on FD003.
+Of the 20 feature-engineering steps tested, three measurably reduced error,
+one measurably increased it, and the remaining sixteen fell within the noise
+(paired bootstrap at 95%). Degradation trend slopes reduced error on FD003 and
+FD004, and cycle transforms reduced it on FD004. Rolling statistics increased
+error on FD003. For the bootstrap, predictions are averaged across seeds for
+each test engine. Both configurations are then scored on the same resampled
+engines.
 
-### Why rolling statistics hurt, and which half is responsible
+### Rolling means and standard deviations
 
-The rolling group bundles two different things. Splitting it (exploratory runs,
-FD001 and FD003, five seeds, measured against `C1_base`):
+Exploratory runs on FD001 and FD003 tested the two parts of the rolling group
+separately. The table gives the change in RMSE relative to `C1_base` for each
+subset, using five seeds.
 
 | Half of the group | FD001 | FD003 |
 |-------------------|-------|-------|
@@ -45,25 +51,27 @@ FD001 and FD003, five seeds, measured against `C1_base`):
 | rolling **standard deviations** only | **+1.98 [+0.10, +3.68] real harm** | **+4.36 [+1.65, +6.96] real harm** |
 | both together | +1.11 [−0.44, +2.54] not measurable | **+3.41 [+0.97, +5.80] real harm** |
 
-The standard deviations do all the damage; the means are harmless. They track
-RUL about a fifth as strongly as the raw sensors (mean |r| of 0.10–0.14 against
-0.34–0.54), and thirty of them are added to roughly eighteen informative
-columns, burying the signal.
+Rolling standard deviations account for all the harm, and rolling means are
+harmless. The standard deviations correlate with RUL about a fifth as strongly
+as the raw sensors (mean |r| of 0.10–0.14 against 0.34–0.54). Adding thirty
+such columns to roughly eighteen informative columns dilutes the signal.
 
-Note the FD001 row. The group as a whole is not measurably harmful there,
-because the helpful means offset the harmful standard deviations, yet one half
-of it clearly is. Bundling two features of opposite sign into a single ablation
-step concealed a real effect.
+On FD001, the helpful means offset the harmful standard deviations, so the
+combined group shows no measurable harm even though the standard deviations
+alone do. Combining features with opposite effects in one ablation step
+concealed a real effect.
 
-### Leave-one-out — what each group is worth given all the others
+### Leave-one-out ablation on FD001 and FD004
 
-The ladder measures what a group adds *given the groups before it*. Leave-one-out
-measures what it adds *given everything else*. Run on FD001 and FD004, five seeds.
-All six configurations were built after the forward-fill repair, so the comparison
-is like for like: `L_full` is `C6_full` rebuilt under the current code.
+The cumulative ablation (the ladder) measures what each group adds to the
+preceding groups. Leave-one-out measures what each group contributes when all
+the others are present. The leave-one-out experiment used five seeds on FD001
+and FD004. All six configurations were built after the forward-fill repair,
+including the reference configuration, `L_full`, which rebuilds `C6_full` with
+the current code.
 
-A positive number means removing the group made the error **worse**, so the group
-was earning its place.
+A positive change in RMSE means that removing the group increased error, so
+including it improved accuracy.
 
 | Group removed | Features left (FD001) | FD001 | FD004 | The ladder said |
 |---------------|----------------------:|-------|-------|-----------------|
@@ -73,32 +81,35 @@ was earning its place.
 | `agg`     | 125 | +0.01 [−0.92, +0.93] | +0.08 [−0.73, +0.91] | not measurable on either |
 | `cycle`   | 126 | −0.53 [−2.18, +1.03] | **+1.37 [+0.11, +2.60]** | FD001 not measurable, FD004 helps |
 
-Three things come out of this.
-
 **Lag and aggregate features are genuinely redundant**, not merely masked — null
 by both methods on both subsets. That is 30 and 4 columns respectively doing
 nothing at all.
 
-**Trend on FD001 was masked by the ladder.** The ladder calls it not measurable;
-leave-one-out finds a real 1.87 RMSE contribution. In the ladder the trend rung
-arrives on top of a feature set that already contains the harmful rolling group.
+The ladder concealed the contribution of trend features on FD001. Adding them
+after the harmful rolling group produced no measurable difference in the ladder.
+In the leave-one-out comparison, removing trend features increased RMSE by 1.87,
+a measurable contribution.
 
-**Dropping rolling improves accuracy measurably on both subsets.** `L_no_rolling`
-— base, lag, trend, agg and cycle, 69 features on FD001 — scores **14.50 ± 0.72**
-on FD001 and **23.20 ± 0.34** on FD004, better than any other configuration
-measured anywhere in this study, on roughly half the columns of the full set.
+Removing the rolling group measurably improved accuracy on both subsets.
+`L_no_rolling` retains base, lag, trend, agg and cycle (69 features on FD001).
+Its RMSE was **14.50 ± 0.72** on FD001 and **23.20 ± 0.34** on FD004, better
+than any other configuration measured anywhere in this study, with
+roughly half the columns of the full set.
 
-Note that this is *not* the configuration carried into Experiment 2. That was
-`C4_trend`, chosen by the rule pre-registered in `PROTOCOL.md` section 8 before
-any result existed, and it is deliberately not being re-selected now. See section
-10 for the reasoning.
+Experiment 2 used `C4_trend`. The selection followed the rule in `PROTOCOL.md`
+section 8, pre-registered before any results existed. The study retains that
+selection after the leave-one-out experiment. Section 10 explains the decision.
 
-The methodological reading: a group's measured contribution depends on what is
-already present, so a single ablation path is not enough to conclude that a group
-does not matter. Together with the bundling effect above, that is two independent
-ways a conventional ablation ladder can conceal a real effect.
+A group's measured contribution depends on which other groups are present.
+A single ablation path therefore cannot establish that a group contributes
+nothing. The choice of path and the decision to bundle features are two
+independent ways a cumulative ablation can conceal a real effect.
 
-### Experiment 2 — architecture, all arms on the same `C4_trend` features
+### Architecture comparison (Experiment 2)
+
+All models use the same `C4_trend` features. The table reports test RMSE
+in cycles, averaged over the available seeds, with the standard deviation
+shown for cells with multiple seeds.
 
 | Model | Input | FD001 | FD002 | FD003 | FD004 |
 |-------|-------|------:|------:|------:|------:|
@@ -107,12 +118,13 @@ ways a conventional ablation ladder can conceal a real effect.
 | rf      | final cycle only           | 18.91 ± 0.09 | 26.75 ± 0.08 | 20.26 ± 0.08 | 28.07 ± 0.08 |
 | dt      | final cycle only           | 20.92 ± 0.00 | 29.08 ± 0.00 | 22.24 ± 0.00 | 29.52 ± 0.00 |
 
-`rf_flat` on FD004 rests on one seed rather than five; see `PROTOCOL.md`
-section 10 for the deviation and its justification.
+The `rf_flat` result on FD004 uses one seed instead of five. Section 10 of
+`PROTOCOL.md` documents the deviation and its justification.
 
-### The pattern both experiments point at
+### Results by fault-mode count
 
-Sorting the subsets by how many fault modes they contain:
+The table groups the four subsets by the number of fault modes and shows the
+number of operating conditions for each.
 
 | Subset | Conditions × faults | Trend features help? | Reading in order helps? |
 |--------|--------------------|----------------------|-------------------------|
@@ -126,7 +138,7 @@ measurably useful on exactly the subsets with two failure modes, and on neither
 single-fault subset. Operating-condition count does not predict it; fault-mode
 count does.
 
-### Anchors: what the original pipeline's quirks actually cost
+### Anchor configurations and the original feature pipeline
 
 | Config | Features | Dead | FD001 | FD002 | FD003 | FD004 |
 |--------|---------:|-----:|------:|------:|------:|------:|
@@ -141,26 +153,30 @@ index carries real information.
 
 ## Status
 
-- **Done** — protocol pre-registered before any results; Experiment 1 (160 runs);
-  Experiment 2 (76 runs); leave-one-out (60 runs); all significance tests
-- **Closed** — the FD003 rolling-statistics result was investigated and
-  explained. It is a property of the features, not a defect: the rolling
-  standard deviations are responsible and the rolling means are harmless.
-  Three candidate implementation defects were tested and ruled out. See
-  `PROTOCOL.md` section 10
-- **Known issue** — a forward-fill in `features_v2.py` leaked one row across
-  each engine boundary, affecting 0.17% of cells. Fixed in code on 14 Sep.
-  All Experiment 1 and 2 results predate the fix and were not regenerated.
-  Rebuilding the full configuration afterwards (`L_full`) scores measurably
-  better on FD001 by 0.77 RMSE and shows no difference on FD004, so the effect
-  is small but not negligible, and the comparison is confounded with rerun
-  variation. The original justification was an inference rather than a
-  measurement and has been corrected in `PROTOCOL.md` section 10
-- **Next** — Setup and Results draft. Cheap optional follow-ups: a same-seed
-  determinism check, dropping only the rolling standard deviations from the full
-  set, and a minimal `base + trend + cycle` configuration
+- **Completed.** The protocol was pre-registered before any results. The study
+  completed 160 runs for Experiment 1, 76 runs for Experiment 2 and 60 runs for
+  leave-one-out. All significance tests are complete.
+- **FD003 rolling statistics.** The investigation is closed. It traced the loss
+  in accuracy to the rolling standard deviations. The rolling means are harmless.
+  Three candidate implementation defects were tested and ruled out. The result
+  is a property of the features. See `PROTOCOL.md` section 10.
+- **Forward-fill defect.** In `features_v2.py`, one row leaked across each engine
+  boundary, affecting 0.17% of cells. The code was fixed on 14 Sep. All
+  Experiment 1 and 2 results predate the repair and were not regenerated. The
+  full configuration rebuilt after the repair (`L_full`) scored measurably
+  better on FD001 by 0.77 RMSE and showed no difference on FD004. The effect
+  is small but not negligible. Rerun variation confounds the comparison.
+  Section 10 of `PROTOCOL.md` corrects the original justification, which rested
+  on inference rather than measurement.
+- **Planned writing.** The Setup and Results draft is next. Low-cost optional
+  follow-ups include a same-seed determinism check, dropping only the rolling
+  standard deviations from the full set, and a minimal `base + trend + cycle`
+  configuration.
 
 ## Reproduce
+
+Place the C-MAPSS `.txt` files in `data/raw/` before running the commands. The
+data files are not committed to the repository.
 
 ```bash
 conda env create -f environment.yml && conda activate nasa-rul-project
@@ -169,8 +185,6 @@ python run_experiment.py --experiment exp2 --best-config C4_trend --seeds 0 1 2 
 python run_experiment.py --experiment exp1_loo --datasets FD001 FD004 --seeds 0 1 2 3 4
 python analyze.py && python analyze_extra.py && python analyze_loo.py
 ```
-
-Data is not committed. Place the C-MAPSS `.txt` files in `data/raw/`.
 
 Every number above traces to a line in `results/runs.csv`, which logs one row
 per training run with its seed, feature count, metrics and wall-clock cost.
