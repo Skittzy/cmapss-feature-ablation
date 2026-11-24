@@ -1,5 +1,4 @@
-"""
-Regenerates every significance test that is NOT part of analyze.py's ladder table.
+"""Regenerate all significance tests outside the cumulative ablation table in analyze.py.
 
 Writes four files into results/:
     significance_vs_best.csv   each ladder config against the best one (the
@@ -10,9 +9,9 @@ Writes four files into results/:
     table3_metrics.csv         RMSE, MAE and PHM08 score per configuration
     table4_cost.csv            training and prediction seconds per model
 
-Method is identical to analyze.py: paired bootstrap over test engines, 10,000
-resamples, predictions averaged across seeds first, as specified in PROTOCOL.md
-section 7. Run it after analyze.py.
+As in analyze.py and PROTOCOL.md section 7, average predictions across seeds
+for each test engine before drawing 10,000 paired bootstrap resamples of
+engines. Run this analysis after analyze.py.
 
     python analyze_extra.py
 """
@@ -54,7 +53,7 @@ for c in LADDER:
         rows.append(dict(comparison=f"{c} vs {BEST}", dataset=ds, rmse_change=round(m, 3),
                          range_low=round(lo, 3), range_high=round(hi, 3),
                          verdict=verdict(lo, hi)))
-    # averaged across the four subsets, which is what section 8 specifies
+    # Section 8 specifies selection on the average over the four subsets.
     rng = np.random.default_rng(0)
     diffs = []
     for ds in DS:

@@ -1,4 +1,4 @@
-"""Turns results/runs.csv into the tables and figures for the paper.
+"""Generate the study tables and figures from results/runs.csv.
 
     python analyze.py
 
@@ -27,13 +27,13 @@ ANCHORS = ["C6_full", "C6_legacy", "C6_expose"]
 
 def load():
     df = pd.read_csv(RESULTS / "runs.csv")
-    # if a run was repeated, keep the newest one
+    # Keep the most recent record for each repeated run.
     return df.drop_duplicates(
         subset=["experiment", "config", "dataset", "model", "seed"], keep="last")
 
 
 def summarise(df, index):
-    """Average over seeds and measure how much the seeds disagreed."""
+    """Summarise the mean and variability of RMSE across seeds for each dataset and group."""
     g = df.groupby([index, "dataset"])["rmse"].agg(["mean", "std", "count"])
     return g.reset_index()
 
@@ -50,15 +50,18 @@ def as_table(g, index, order=None):
 
 
 def paired_bootstrap(files_a, files_b, n=10000, seed=0):
-    """Is B really better than A, or did we just get a lucky random start?
+    """Estimate the paired RMSE difference between configurations B and A.
 
-    Both configs are scored on the same randomly re-drawn set of engines,
-    thousands of times. Pairing them this way cancels out "some engines are
-    just harder to predict". Returns the average RMSE difference (B minus A),
-    a 95% range for it, and how often B came out ahead.
+    The comparison addresses whether an apparent gain for B could reflect
+    a favourable random start.
 
-    If the 95% range includes zero, the difference is not real -- it is inside
-    the noise.
+    Average each engine's predictions across seeds before resampling. Score
+    both configurations on the same resampled engines thousands of times so
+    differences in engine difficulty cancel out. Return the mean RMSE
+    difference (B minus A), its central 95% interval and how often B has
+    lower RMSE (the fraction of resamples).
+
+    The study treats a difference whose 95% interval includes zero as noise.
     """
     def stack(files):
         d = [pd.read_csv(f).sort_values("unit_id") for f in files]
@@ -116,7 +119,7 @@ def main():
             print("\nTable 1b - clean pipeline vs GitHub master vs exposé run\n")
             print(t1b.to_string())
 
-        # ---- does each rung actually help? -------------------------------
+        # Compare adjacent configurations to measure the effect of each added group.
         rows = []
         for ds in sorted(e1.dataset.unique()):
             rungs = [c for c in LADDER if c in set(e1.config)]

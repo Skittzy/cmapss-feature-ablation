@@ -1,12 +1,12 @@
-"""
-Leave one out analysis for RQ1.
+"""Leave-one-out feature ablation for RQ1.
 
-The ladder in analyze.py measures what a feature group adds *given the groups
-before it*. This file measures what a group adds *given everything else*. The
-two answer different questions and are allowed to disagree, which is the whole
-reason PROTOCOL.md section 3 asks for both.
+The cumulative ablation in analyze.py measures each group's contribution
+given the groups already present. Leave-one-out measures its contribution
+given all other groups. The comparisons can therefore disagree. This
+distinction motivates both analyses in PROTOCOL.md section 3.
 
-Reading the two together separates two cases the ladder cannot tell apart:
+Together they distinguish two cases that the cumulative ablation alone
+cannot resolve:
 
     ladder null + loo null       the group is genuinely redundant
     ladder null + loo measurable the group was masked, an earlier group had
@@ -20,9 +20,9 @@ Writes into results/:
                             accuracy
     table5_loo.csv          RMSE, MAE, PHM08 and feature counts per loo config
 
-Method is identical to analyze.py: paired bootstrap over test engines, 10,000
-resamples, predictions averaged across seeds first, as specified in PROTOCOL.md
-section 7. Run it after analyze.py.
+As in analyze.py and PROTOCOL.md section 7, average the predictions across
+seeds for each test engine before drawing 10,000 paired bootstrap resamples
+of engines. Run this analysis after analyze.py.
 
     python analyze_loo.py
 """
@@ -47,8 +47,8 @@ def load(files):
 
 
 def verdict_loo(lo, hi):
-    # positive means removing the group made rmse worse, so the group was doing
-    # something. negative means removing it helped, so the group was harmful.
+    # Positive RMSE change means removing the group increased error. Negative
+    # change means removing it improved accuracy, so the group was harmful.
     if lo > 0:
         return "group contributes"
     if hi < 0:

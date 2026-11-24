@@ -1,18 +1,14 @@
-"""Runs the experiments and writes one row of results per run.
+"""Run the experiments and record one row per run in results/runs.csv.
 
-WHAT IT DOES
-------------
-Every run gets one line in results/runs.csv, tagged with the config, dataset,
-model, and seed (the starting number for the random-number generator -- change
-it and the model starts from different random weights, so you get a slightly
-different answer). That file is the raw evidence behind every number in the
-paper.
+Each row identifies the configuration, dataset, model and seed. Changing the
+initial seed of the random-number generator changes the model's starting
+weights and produces slightly different results. The log is the source of
+every number reported in the paper.
 
-It is resumable: re-running skips anything already in runs.csv. If your laptop
-sleeps or the run crashes, just start it again and it picks up where it left
-off.
+After an interruption, such as a crash or system sleep,
+restarting the runner skips runs already recorded in results/runs.csv.
 
-EXAMPLES
+Examples
 --------
     # pilot: one config, one dataset, three seeds
     python run_experiment.py --experiment exp1 --configs C6_expose \\
@@ -51,10 +47,10 @@ RUNS_CSV = RESULTS / "runs.csv"
 PREDS_DIR = RESULTS / "predictions"
 PREDS_DIR.mkdir(exist_ok=True)
 
-# These are fixed in PROTOCOL.md. Do not change them once the grid is running.
-EPOCHS = 60          # max passes over the training data
-PATIENCE = 10        # stop if validation loss hasn't improved for this many
-VAL_FRACTION = 0.2   # share of ENGINES held back to decide when to stop
+# PROTOCOL.md fixes these settings for the duration of the experimental grid.
+EPOCHS = 60          # maximum passes over the training data
+PATIENCE = 10        # epochs without validation-loss improvement before stopping
+VAL_FRACTION = 0.2   # fraction of engines held out for early stopping
 
 
 # ---------------------------------------------------------------------------
@@ -62,11 +58,11 @@ VAL_FRACTION = 0.2   # share of ENGINES held back to decide when to stop
 # ---------------------------------------------------------------------------
 
 def nasa_score(y_true, y_pred):
-    """The PHM08 score used across the C-MAPSS literature.
+    """Compute the PHM08 score used in the C-MAPSS literature.
 
-    It punishes late predictions (saying an engine has more life left than it
-    does) harder than early ones, because that is the dangerous direction.
-    Lower is better. Reviewers in this field expect to see it next to RMSE.
+    Late predictions overestimate remaining life and carry greater risk, so
+    they incur a larger penalty than early predictions. Lower scores are
+    better. Reviewers in this field expect the score alongside RMSE.
     """
     d = np.asarray(y_pred, float) - np.asarray(y_true, float)
     return float(np.sum(np.where(d < 0, np.exp(-d / 13.0) - 1.0,
@@ -76,10 +72,10 @@ def nasa_score(y_true, y_pred):
 def metrics(y_true, y_pred):
     err = np.asarray(y_pred, float) - np.asarray(y_true, float)
     return {
-        # RMSE = root mean squared error: average error size in cycles, with
-        # big misses counted extra heavily. Lower is better.
+        # Root mean squared error (RMSE) in cycles gives greater weight to
+        # large errors. Lower values indicate better predictions.
         "rmse": float(np.sqrt(np.mean(err ** 2))),
-        # MAE = mean absolute error: plain average error size in cycles.
+        # Mean absolute error (MAE) gives the average absolute error in cycles.
         "mae": float(np.mean(np.abs(err))),
         "nasa_score": nasa_score(y_true, y_pred),
     }
@@ -92,9 +88,9 @@ def metrics(y_true, y_pred):
 def sequences_from(df, feature_cols, seq_len, stride=1):
     """Cut each engine's history into overlapping windows of `seq_len` cycles.
 
-    The label for a window is the RUL at its last cycle. `stride` is how far the
-    window jumps each time: 1 means every possible window, 2 means every second
-    one (half the training data, roughly half the training time).
+    The label is the remaining useful life (RUL) at the final cycle of each
+    window. With `stride` set to 1, all windows are retained. A stride of 2
+    keeps every second window, halving the data and roughly halving training time.
     """
     X, y, units = [], [], []
     df = df.sort_values(["unit_id", "time_cycles"])
@@ -111,11 +107,11 @@ def sequences_from(df, feature_cols, seq_len, stride=1):
 
 
 def last_windows(df, feature_cols, seq_len):
-    """One window per engine: its final `seq_len` cycles.
+    """Return the final `seq_len` cycles of each test engine.
 
-    The test files give one true RUL per engine, measured at its last recorded
-    cycle, so this is the only window that has a label. Engines with fewer than
-    `seq_len` cycles get zeros added at the front, keeping the real readings
+    Each test engine has one true RUL, measured at its final recorded cycle.
+    Only the final window therefore has a label. Engines with fewer than
+    `seq_len` cycles receive leading zeros so the observed readings stay
     closest to the prediction point.
     """
     X, y, units = [], [], []
@@ -134,7 +130,7 @@ def last_windows(df, feature_cols, seq_len):
 
 
 def prepare(dataset, config_name, groups, stride=1):
-    """Load -> preprocess -> build the requested features -> cut into windows."""
+    """Load and preprocess the data, build the requested features and form windows."""
     legacy = config_name in ANCHOR_CONFIGS   # C6_legacy and C6_expose
 
     tr = load_train_data(dataset)
@@ -146,10 +142,10 @@ def prepare(dataset, config_name, groups, stride=1):
                            load_rul_labels(dataset))
 
     if legacy:
-        # The old code dropped constant columns from the LIST but not from the
-        # table, then read every column back in. So all 24 settings/sensors came
-        # back, and rolling/lag/trend were built on all 21 sensors including the
-        # flat ones. Reproduced here exactly, dead columns and all.
+        # The original pipeline removed constant columns from its feature list,
+        # then read all 24 settings and sensors back from the table. This branch
+        # reproduces that input exactly, including rolling, lag and trend
+        # features for all 21 sensors, even those with constant readings.
         sensors, feat_base = SENSOR_COLS, FEATURE_COLS.copy()
     else:
         sensors, feat_base = None, base_cols
@@ -167,12 +163,12 @@ def prepare(dataset, config_name, groups, stride=1):
 
 
 def split_by_engine(units, seed, val_fraction=VAL_FRACTION):
-    """Hold back whole ENGINES for validation, never individual windows.
+    """Hold out entire engines for validation.
 
-    Validation set = data the model never trains on, used only to decide when to
-    stop training. Two windows from the same engine overlap by up to 29 of their
-    30 cycles, so splitting by window would put near-copies of the validation
-    data into training and make the stopping decision meaningless.
+    Validation engines are excluded from model fitting and used only for early
+    stopping. Two windows from one engine can share up to 29 of their 30
+    cycles. A window-level split would put near-copies of validation data in
+    training and invalidate the stopping decision.
     """
     uniq = np.unique(units)
     rng = np.random.default_rng(seed)
@@ -184,11 +180,11 @@ def split_by_engine(units, seed, val_fraction=VAL_FRACTION):
 
 
 def standardise(Xtr, Xte):
-    """Rescale every feature to mean 0, spread 1.
+    """Standardise each feature to mean 0 and standard deviation 1.
 
-    Without this the cycle counter (0-300+) drowns out the sensor readings
-    (0-1), because the model pays most attention to the biggest numbers.
-    Fitted on training data only, then applied to test.
+    Without scaling, the larger numerical values of the cycle counter (0-300+)
+    dominate the sensor readings (0-1) in the model. Fit the scaler on
+    training data only and apply the fitted transformation to test data.
     """
     from sklearn.preprocessing import StandardScaler
     n, t, f = Xtr.shape
@@ -211,7 +207,7 @@ def set_seed(seed):
 # ---------------------------------------------------------------------------
 
 def fit_lstm(d, seed):
-    """The LSTM (a network that reads the 30 cycles in order and remembers)."""
+    """Fit the LSTM, carrying its recurrent state through the 30 cycles in order."""
     from tensorflow.keras.models import Sequential
     from tensorflow.keras.layers import LSTM, Dense, Dropout, Input
     from tensorflow.keras.callbacks import EarlyStopping
@@ -246,12 +242,12 @@ def fit_lstm(d, seed):
 
 
 def fit_flat(d, seed, kind, flatten_window=False):
-    """Models with no sense of time.
+    """Fit a tree model without a notion of temporal order.
 
-    By default they see only the engine's LAST cycle -- the engineered features
-    already contain the recent history as numbers. With flatten_window=True they
-    instead see all 30 cycles laid out side by side, which is the same
-    information the LSTM gets, just without any notion of order.
+    By default, the input is the final cycle, whose engineered features encode
+    recent history. With flatten_window=True, the model receives the same
+    values as the LSTM across all 30 cycles in a single row, without any
+    notion of their order.
     """
     from sklearn.ensemble import RandomForestRegressor
     from sklearn.tree import DecisionTreeRegressor
@@ -268,9 +264,9 @@ def fit_flat(d, seed, kind, flatten_window=False):
         # Random Forest: hundreds of decision trees that vote on the answer.
         m = RandomForestRegressor(n_estimators=500, random_state=seed, n_jobs=-1)
     elif kind == "dt":
-        # A single decision tree. Depth is picked by cross-validation (train on
-        # part of the data, test on the rest, repeat). GroupKFold keeps all of
-        # one engine's rows on the same side of every split.
+        # Select the depth of the single tree by repeated fitting and scoring
+        # on separate folds. GroupKFold keeps all observations from each
+        # engine together in every split.
         m = GridSearchCV(DecisionTreeRegressor(random_state=seed),
                          {"max_depth": [4, 6, 8, 10, 14, None]},
                          scoring="neg_root_mean_squared_error",
@@ -318,7 +314,7 @@ def run_job(experiment, config_name, groups, dataset, model, seed, stride):
 
     m = metrics(d["yte"], pred)
 
-    # save every engine's prediction so the significance test can pair them up
+    # Save each engine's prediction for the paired significance test.
     tag = f"{experiment}_{config_name}_{dataset}_{model}_s{seed}"
     pd.DataFrame({"unit_id": d["ute"], "y_true": d["yte"], "y_pred": pred}) \
         .to_csv(PREDS_DIR / f"{tag}.csv", index=False)
@@ -327,8 +323,8 @@ def run_job(experiment, config_name, groups, dataset, model, seed, stride):
                model=model, seed=seed, stride=stride,
                n_features=d["n_features"], n_dead=d["n_dead"],
                **d["groups"], **m, **extra)
-    # every row must have identical columns, or the appended CSV goes ragged.
-    # only the decision tree reports best_depth, so fill it in for everyone else.
+    # All appended CSV rows require the same columns. Only the decision tree
+    # reports best_depth, so reserve the field for the other models as well.
     row.setdefault("best_depth", None)
     row["timestamp"] = pd.Timestamp.now().isoformat(timespec="seconds")
     pd.DataFrame([row]).to_csv(RUNS_CSV, mode="a",
